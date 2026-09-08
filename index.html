@@ -447,7 +447,7 @@ html{-webkit-text-size-adjust:100%}body{min-width:320px}#opening{padding:20px 16
   </section>
   <audio id="openingAudio" preload="auto"><source src="audio%201.mpeg" type="audio/mpeg"></audio>
   <audio id="scannerAudio" preload="auto"><source src="audio%202.mpeg" type="audio/mpeg"></audio>
-  <audio id="letterVoice" preload="auto"><source src="voice.mpeg" type="audio/mpeg"></audio>
+  <audio id="letterVoice" preload="auto"><source src="voice.mp3" type="audio/mpeg"><source src="voice.mpeg" type="audio/mpeg"></audio>
   <div class="cosmos" aria-hidden="true"></div><i class="shooting-star" aria-hidden="true"></i><i class="shooting-star" aria-hidden="true"></i><i class="shooting-star" aria-hidden="true"></i>
   <div class="progress-track" aria-hidden="true"><i id="readingProgress"></i></div>
   <div class="stars"></div>
@@ -682,36 +682,57 @@ html{-webkit-text-size-adjust:100%}body{min-width:320px}#opening{padding:20px 16
     const tapsToRevealCode = 12;
     let gateTapCount = 0;
     let birthdayCountdown;
-    let introAudioSequenceActive = false;
-    const playIntroAudio = (audio) => {
-      if (!introAudioSequenceActive || !audio) return;
-      audio.currentTime = 0;
-      audio.play().catch(() => {});
+    const backgroundPlaylist = document.querySelector('#backgroundPlaylist');
+    const soundToggle = document.querySelector('#soundToggle');
+    const introTracks = ['audio 1.mp3', 'audio 2.mp3'];
+    const regularTracks = ['song 1.mp3'];
+    let activePlaylist = 'intro';
+    let currentSong = 0;
+    const updateSongButton = (playing) => {
+      if (!soundToggle) return;
+      soundToggle.textContent = playing ? '♪ Pause Our Song' : '♪ Play Our Song';
+      soundToggle.setAttribute('aria-label', playing ? 'અમારું ગીત બંધ કરો' : 'અમારું ગીત ચાલુ કરો');
     };
-    const startIntroAudioSequence = () => {
-      if (introAudioSequenceActive) return;
-      introAudioSequenceActive = true;
-      playIntroAudio(openingAudio);
+    const playPlaylist = (songIndex = currentSong) => {
+      if (!backgroundPlaylist) return;
+      const tracks = activePlaylist === 'intro' ? introTracks : regularTracks;
+      currentSong = songIndex % tracks.length;
+      const songPath = encodeURI(tracks[currentSong]);
+      if (!backgroundPlaylist.src.endsWith(songPath)) backgroundPlaylist.src = songPath;
+      backgroundPlaylist.play().then(() => updateSongButton(true)).catch(() => updateSongButton(false));
     };
-    const stopIntroAudioSequence = () => {
-      introAudioSequenceActive = false;
-      [openingAudio, scannerAudio].forEach((audio) => {
-        if (!audio) return;
-        audio.pause();
-        audio.currentTime = 0;
-      });
+    const playIntroPlaylist = () => {
+      activePlaylist = 'intro';
+      currentSong = 0;
+      playPlaylist(0);
     };
-    openingAudio?.addEventListener('ended', () => playIntroAudio(scannerAudio));
-    scannerAudio?.addEventListener('ended', () => playIntroAudio(openingAudio));
-    birthdayGate?.addEventListener('pointerdown', startIntroAudioSequence, { once:true });
-    birthdayGate?.addEventListener('keydown', startIntroAudioSequence, { once:true });
+    const playRegularPlaylist = () => {
+      activePlaylist = 'regular';
+      currentSong = 0;
+      playPlaylist(0);
+    };
+    const stopPlaylist = () => {
+      if (!backgroundPlaylist) return;
+      backgroundPlaylist.pause();
+      updateSongButton(false);
+    };
+    backgroundPlaylist?.addEventListener('ended', () => {
+      const tracks = activePlaylist === 'intro' ? introTracks : regularTracks;
+      playPlaylist((currentSong + 1) % tracks.length);
+    });
+    playIntroPlaylist();
+    const startIntroAfterFirstInteraction = () => {
+      if (activePlaylist === 'intro' && backgroundPlaylist?.paused) playIntroPlaylist();
+    };
+    document.addEventListener('pointerdown', startIntroAfterFirstInteraction, { once: true, passive: true });
+    document.addEventListener('keydown', startIntroAfterFirstInteraction, { once: true });
 
     const openBirthdaySite = () => {
       clearInterval(birthdayCountdown);
       birthdayGate?.classList.add('is-open');
       document.body.classList.remove('gate-locked');
       window.scrollTo(0, 0);
-      startIntroAudioSequence();
+      playIntroPlaylist();
     };
     const showGateCode = () => {
       if (!gateCode) return;
@@ -797,31 +818,6 @@ html{-webkit-text-size-adjust:100%}body{min-width:320px}#opening{padding:20px 16
       }
     });
 
-    const backgroundPlaylist = document.querySelector('#backgroundPlaylist');
-    const soundToggle = document.querySelector('#soundToggle');
-    const playlistTracks = ['song 1.mpeg'];
-    let currentSong = 0;
-    const updateSongButton = (playing) => {
-      if (!soundToggle) return;
-      soundToggle.textContent = playing ? '♪ Pause Our Song' : '♪ Play Our Song';
-      soundToggle.setAttribute('aria-label', playing ? 'અમારું ગીત બંધ કરો' : 'અમારું ગીત ચાલુ કરો');
-    };
-    const playPlaylist = (songIndex = currentSong) => {
-      if (!backgroundPlaylist) return;
-      currentSong = songIndex;
-      const songPath = encodeURI(playlistTracks[currentSong]);
-      if (!backgroundPlaylist.src.endsWith(songPath)) backgroundPlaylist.src = songPath;
-      backgroundPlaylist.play().then(() => updateSongButton(true)).catch(() => updateSongButton(false));
-    };
-    const stopPlaylist = () => {
-      if (!backgroundPlaylist) return;
-      backgroundPlaylist.pause();
-      updateSongButton(false);
-    };
-    backgroundPlaylist?.addEventListener('ended', () => {
-      // Repeat Song 1 when it ends.
-      playPlaylist((currentSong + 1) % playlistTracks.length);
-    });
     soundToggle?.addEventListener('click', function () {
       if (backgroundPlaylist?.paused) playPlaylist(currentSong);
       else stopPlaylist();
@@ -1003,6 +999,7 @@ html{-webkit-text-size-adjust:100%}body{min-width:320px}#opening{padding:20px 16
       document.querySelector('#opening').classList.add('hide');
       beautyScanner?.classList.add('show');
       beautyScanner?.setAttribute('aria-hidden', 'false');
+      if (backgroundPlaylist?.paused) playIntroPlaylist();
     });
     startScan?.addEventListener('click', function () {
       if (scannerCard?.classList.contains('scanning')) return;
@@ -1021,11 +1018,11 @@ html{-webkit-text-size-adjust:100%}body{min-width:320px}#opening{padding:20px 16
       }, 2700);
     });
     scannerContinue?.addEventListener('click', () => {
-      stopIntroAudioSequence();
       beautyScanner?.classList.remove('show');
       beautyScanner?.setAttribute('aria-hidden', 'true');
       document.querySelector('#story').classList.add('show');
-      if (backgroundPlaylist?.paused) playPlaylist(currentSong);
+      stopPlaylist();
+      playRegularPlaylist();
     });
     const secretLetterOpen = document.querySelector('#secretLetterOpen');
     const secretLetterStage = document.querySelector('#secretLetterStage');
