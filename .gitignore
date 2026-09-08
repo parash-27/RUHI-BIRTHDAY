@@ -1,0 +1,21 @@
+# Dependencies and build output
+node_modules/
+dist/
+.vite/
+
+# Local editor and operating-system files
+.vscode/
+.idea/
+*.code-workspace
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Large tools and raw video files
+.tools/
+video/

@@ -1,0 +1,1759 @@
+<!doctype html>
+<html lang="gu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>મારા દિલનું ઘર</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Hind+Vadodara:wght@400;500;600;700&family=Montserrat:wght@300;400;600&family=Noto+Serif+Gujarati:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;0,700&display=swap" rel="stylesheet">
+  <style>
+    :root { --paper:#fff8ee; --ink:#4b1c35; --wine:#641b44; --rose:#d65c82; --blush:#f4b6c5; --gold:#d9a84d; --night:#1d102b; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; overflow-x:hidden; color:var(--ink); font-family:"Hind Vadodara",sans-serif; background:#1d102b; }
+    body::before { content:""; position:fixed; inset:0; z-index:-1; background:radial-gradient(circle at 16% 13%,#8b356350,transparent 28%),radial-gradient(circle at 82% 82%,#7252a350,transparent 32%),linear-gradient(145deg,#170b26,#3b1538 58%,#291946); }
+    .stars { position:fixed; inset:0; z-index:-1; opacity:.7; pointer-events:none; background-image:radial-gradient(circle,#fff4df 1px,transparent 1.8px),radial-gradient(circle,#efbdd6 1px,transparent 1.8px); background-size:127px 121px,183px 171px; background-position:16px 25px,76px 83px; }
+    #opening { position:fixed; inset:0; z-index:10; display:grid; place-items:center; padding:26px; text-align:center; background:radial-gradient(circle at 50% 42%,#84385d66,transparent 35%),linear-gradient(145deg,#170b26,#3a1538 62%,#25183f); transition:opacity .9s ease,visibility .9s ease; }
+    #opening.hide { opacity:0; visibility:hidden; }
+    .open-wrap { max-width:690px; }
+    .open-mark { display:inline-grid; place-items:center; width:70px; height:70px; border:1px solid #f4c5a666; border-radius:50%; color:#ffd88d; font-size:1.7rem; box-shadow:0 0 36px #e56c9460; }
+    .open-kicker { margin:21px 0 14px; color:#f5b5cd; font-size:.76rem; font-weight:700; letter-spacing:.2em; }
+    .open-title { margin:0; color:#fff8ef; font-family:"Noto Serif Gujarati",serif; font-size:clamp(2.7rem,8vw,5.3rem); line-height:1.28; }
+    .open-title span { color:#f4a6c1; }
+    .open-text { max-width:510px; margin:22px auto 30px; color:#f6dce8; font-size:1.02rem; line-height:1.9; }
+    .open-button { cursor:pointer; border:1px solid #ffd7af; border-radius:999px; padding:15px 27px; color:#fffaf5; background:linear-gradient(110deg,#a92f5b,#e47891); font:700 1rem "Hind Vadodara",sans-serif; box-shadow:0 12px 32px #0d061c75; transition:.25s; }
+    .open-button:hover { transform:translateY(-3px); box-shadow:0 17px 38px #0d061c9c; }
+    #story { visibility:hidden; opacity:0; transition:opacity .7s ease .35s; }
+    #story.show { visibility:visible; opacity:1; }
+    .hero { min-height:94vh; display:grid; place-items:center; padding:65px 20px 45px; text-align:center; color:#fffaf4; }
+    .hero-inner { max-width:815px; }
+    .mini { margin:0 0 18px; color:#ffd0df; font-size:.77rem; font-weight:700; letter-spacing:.18em; }
+    .mini::before,.mini::after { content:"✦"; color:#f1c774; margin:0 10px; }
+    h1,h2,h3 { font-family:"Noto Serif Gujarati",serif; }
+    h1 { margin:0; font-size:clamp(2.9rem,8vw,5.8rem); line-height:1.22; letter-spacing:-.04em; }
+    h1 em { display:block; color:#ffb6cd; font-style:normal; }
+    .hero p:not(.mini) { max-width:595px; margin:24px auto 0; color:#f6e0e9; font-size:1.08rem; line-height:1.9; }
+    .down { display:inline-block; margin-top:32px; color:#ffd997; font-size:1.45rem; text-decoration:none; animation:bob 2.4s infinite; }
+    @keyframes bob { 50% { transform:translateY(9px); } }
+    .book { width:min(980px,calc(100% - 32px)); margin:0 auto 70px; padding:clamp(20px,5vw,58px); border-radius:31px; background:var(--paper); box-shadow:0 30px 70px #0805118a; position:relative; }
+    .book::before { content:""; position:absolute; inset:12px; border:1px solid #e7c58a; border-radius:22px; pointer-events:none; }
+    .book > * { position:relative; }
+    .chapter { padding:48px 0; border-bottom:1px solid #e6cfc8; }
+    .chapter:last-child { border:0; padding-bottom:15px; }
+    .chapter-heading { max-width:665px; margin:0 auto 28px; text-align:center; }
+    .chapter-number { margin:0 0 8px; color:#b74468; font-size:.74rem; font-weight:700; letter-spacing:.17em; }
+    h2 { margin:0; color:var(--wine); font-size:clamp(2rem,5vw,3.45rem); line-height:1.3; }
+    .heading-copy { margin:10px auto 0; max-width:570px; color:#925069; line-height:1.8; }
+    .portrait { display:grid; grid-template-columns:1.08fr .92fr; overflow:hidden; border:1px solid #e5bd91; border-radius:22px; background:#fffdf8; }
+    .photo { min-height:355px; display:grid; place-items:center; padding:22px; color:#fff9f4; text-align:center; background:linear-gradient(135deg,#6f2249,#db7391 62%,#f1ba86); position:relative; overflow:hidden; }
+    .photo::before { content:"♥"; position:absolute; color:#fff; opacity:.13; right:-18px; bottom:-70px; font-size:250px; }.photo-label { position:relative; padding:14px 18px; border:1px dashed #ffe6db; border-radius:12px; background:#481d3db8; }
+    .portrait-copy { align-self:center; padding:31px; }.portrait-copy h2 { font-size:2.4rem; }.portrait-copy p { margin:15px 0 0; color:#743b54; line-height:1.9; }
+    .letter { max-width:720px; margin:auto; padding:38px clamp(22px,5vw,48px); border-radius:18px; background:linear-gradient(135deg,#fffdf7,#fff1e1); box-shadow:0 13px 30px #6a30441b; transform:rotate(-.4deg); }
+    .letter-top { color:#c14d72; font-size:1.35rem; }.letter p { margin:14px 0 0; color:#68334b; font-size:1.02rem; line-height:2; }.sign { color:#af3c65!important; font-family:"Noto Serif Gujarati",serif; font-size:1.35rem!important; text-align:right; }
+    .reasons { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }.reason { padding:23px 19px; border-radius:16px; background:#fff2f1; border-bottom:3px solid #e693aa; }.reason:nth-child(2) { background:#fff3df; border-color:#deb667; }.reason:nth-child(3) { background:#f2ebfa; border-color:#b38acf; }
+    .icon { display:grid; place-items:center; width:46px; height:46px; border-radius:50%; background:#fff; font-size:1.35rem; box-shadow:0 5px 13px #78384b16; }.reason h3 { margin:14px 0 6px; color:#6b2645; font-size:1.25rem; }.reason p { margin:0; color:#884b60; font-size:.9rem; line-height:1.72; }
+    .vows { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; max-width:760px; margin:auto; }.vow { display:flex; gap:14px; align-items:flex-start; padding:18px; border-radius:15px; background:#fbf0ec; }.vow b { display:grid; flex:none; place-items:center; width:35px; height:35px; border-radius:50%; color:white; background:#b34064; font-family:"Noto Serif Gujarati",serif; }.vow strong { display:block; color:#682742; font-family:"Noto Serif Gujarati",serif; }.vow span { display:block; margin-top:2px; color:#92526a; font-size:.86rem; }
+    .final { margin-top:48px; padding:42px 25px; border-radius:22px; color:#fff7f4; text-align:center; background:linear-gradient(125deg,#4b1d3c,#8f3058 55%,#7a588e); }.final h2 { color:#ffe0a6; }.final p { max-width:610px; margin:15px auto 0; line-height:1.9; }.heart-button { cursor:pointer; margin-top:23px; padding:13px 24px; border:1px solid #ffe0b3; border-radius:999px; color:#fff; background:#ffffff13; font:700 .94rem "Hind Vadodara",sans-serif; }.secret { display:none; max-width:560px; margin:20px auto 0; color:#ffeaf2; line-height:1.9; }.secret.show { display:block; animation:appear .5s ease; } @keyframes appear { from { opacity:0; transform:translateY(9px); } }
+    footer { padding:0 20px 38px; color:#eec7d9; text-align:center; font-size:.85rem; }
+    @media (max-width:680px) { .portrait { grid-template-columns:1fr; }.photo { min-height:270px; }.reasons,.vows { grid-template-columns:1fr; }.book { padding:32px 22px; }.chapter { padding:36px 0; }.hero { min-height:90vh; } }
+    /* Rose pink + royal purple palette */
+    body { background:#29163f; }
+    body::before { background:radial-gradient(circle at 16% 13%,#ff82b259,transparent 28%),radial-gradient(circle at 82% 82%,#a881e85e,transparent 32%),linear-gradient(145deg,#2a1648,#65246e 55%,#b74880); }
+    .stars { opacity:.76; background-image:radial-gradient(circle,#fff1fa 1px,transparent 1.8px),radial-gradient(circle,#f5cbff 1px,transparent 1.8px); }
+    #opening { background:radial-gradient(circle at 50% 42%,#ff86b56b,transparent 35%),linear-gradient(145deg,#2a1648,#69276f 62%,#a23f78); }
+    .open-mark { border-color:#f8c8eb87; color:#ffd1ec; box-shadow:0 0 36px #ef78bd70; }
+    .open-kicker { color:#ffc4e1; }.open-title span { color:#ffb7dd; }
+    .open-button { border-color:#ffdaf1; background:linear-gradient(110deg,#bb397b,#ed78ae 52%,#8d63cb); }
+    .book { background:#fff7fc; box-shadow:0 30px 70px #160a268a; }.book::before { border-color:#e4b3df; }
+    .portrait { border-color:#e5b6e4; background:#fffafd; }.photo { background:linear-gradient(135deg,#633170,#d85791 60%,#b38bdf); }.photo-label { border-color:#ffe1f4; background:#482456bc; }
+    .letter { background:linear-gradient(135deg,#fffdfd,#fff0f8); }.reason { background:#fff0f7; border-bottom-color:#e58ab3; }.reason:nth-child(2) { background:#faefff; border-color:#b987dc; }.reason:nth-child(3) { background:#f8eefd; border-color:#d784c1; }
+    .vow { background:#fff1f8; }.vow b { background:#b34887; }
+    .final { background:linear-gradient(125deg,#602b72,#c24785 55%,#8b69c0); }.final h2 { color:#ffe0f4; }
+    /* Transparent glass love-book finish */
+    .book { color:#fff4fa; border:1px solid #ffe0f080; background:#fff8ff14; box-shadow:0 30px 70px #160a2670; backdrop-filter:blur(18px) saturate(135%); }
+    .book::before { border-color:#ffd6ec73; }.chapter { border-bottom-color:#ffe1f04a; }
+    .book h2 { color:#fff3fb; text-shadow:0 2px 10px #42145045; }.chapter-number { color:#ffc3df; }.heading-copy { color:#f8dce9; }
+    .portrait { border-color:#ffd2eb72; background:#fffaff12; }.portrait-copy { background:#fffaff08; }.portrait-copy p { color:#ffe7f2; }
+    .letter { border:1px solid #ffe2ef72; background:#fffaff18; box-shadow:none; backdrop-filter:blur(12px); }.letter p { color:#fff1f8; }.letter-top,.sign { color:#ffc4df!important; }
+    .reason { border:1px solid #ffd8ea6b; border-bottom-color:#f09bc2; background:#fff8ff19; backdrop-filter:blur(10px); }.reason:nth-child(2) { border-color:#d9b4f3; background:#fbf2ff1b; }.reason:nth-child(3) { border-color:#f3b7df; background:#fff1fa1b; }.reason h3,.vow strong { color:#fff2fa; }.reason p,.vow span { color:#fbe1ee; }.icon { background:#ffffff24; box-shadow:none; }
+    .vow { border:1px solid #ffd8ea63; background:#fff8ff16; backdrop-filter:blur(9px); }.vow b { background:#df6497d9; }
+    .hero-inner { animation:soft-glow 4s ease-in-out infinite; }.hero h1 em { text-shadow:0 0 24px #ffb6df9c; }
+    @keyframes soft-glow { 50% { transform:translateY(-5px); filter:drop-shadow(0 0 18px #ff98c44d); } }
+    .petals { position:fixed; z-index:2; inset:0; pointer-events:none; overflow:hidden; }.petals span { position:absolute; top:-12vh; color:#ffb4d0; font-size:1.2rem; opacity:.55; animation:fall linear infinite; text-shadow:0 0 10px #fff0f7; }.petals span:nth-child(1) { left:8%; animation-duration:13s; animation-delay:-2s; }.petals span:nth-child(2) { left:22%; color:#f3c5ff; animation-duration:17s; animation-delay:-8s; }.petals span:nth-child(3) { left:38%; animation-duration:12s; animation-delay:-4s; }.petals span:nth-child(4) { left:55%; color:#ffd1a6; animation-duration:19s; animation-delay:-12s; }.petals span:nth-child(5) { left:69%; animation-duration:15s; animation-delay:-6s; }.petals span:nth-child(6) { left:85%; color:#e9c4ff; animation-duration:18s; animation-delay:-10s; }
+    @keyframes fall { to { transform:translate(28px,118vh) rotate(280deg); } }
+    .burst-heart { position:fixed; z-index:20; color:#ffb0cf; font-size:1.45rem; pointer-events:none; animation:burst 1.9s ease-out forwards; text-shadow:0 0 11px #fff; }
+    @keyframes burst { to { transform:translate(var(--x),var(--y)) rotate(320deg) scale(.25); opacity:0; } }
+    .forever { position:relative; overflow:hidden; margin:5px 0 0; padding:50px 25px; border:1px solid #ffd7ec85; border-radius:24px; text-align:center; background:linear-gradient(135deg,#7e316d16,#e66d9b1c,#9174c11b); }.forever::before { content:"∞"; position:absolute; left:50%; top:-47px; color:#f5b4da1f; font-family:Georgia,serif; font-size:230px; line-height:1; transform:translateX(-50%); }.forever > * { position:relative; }.forever h2 { color:#fff2fa; }.forever-intro { max-width:620px; margin:13px auto 24px; color:#ffe6f2; line-height:1.9; }
+    .whispers { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; max-width:720px; margin:auto; }.whisper { padding:17px 13px; border:1px solid #ffe3f06b; border-radius:15px; color:#fff3fa; background:#ffffff13; font-family:"Noto Serif Gujarati",serif; font-size:1rem; line-height:1.65; }.whisper span { display:block; margin-bottom:5px; color:#ffc5e0; font-family:"Hind Vadodara",sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.1em; }
+    .media-note { margin:0 auto 20px; max-width:650px; color:#fbe1ee; text-align:center; line-height:1.8; }.media-note code { padding:2px 7px; border-radius:6px; color:#ffe3f2; background:#ffffff1d; font-family:monospace; }
+    .video-slot { overflow:hidden; border:1px solid #ffd8eb79; border-radius:20px; background:#160f26aa; }.video-slot video { display:block; width:100%; max-height:520px; background:#130b1e; }.video-placeholder { display:grid; min-height:280px; place-items:center; padding:28px; color:#ffe9f5; text-align:center; background:linear-gradient(135deg,#56276d,#c34b87,#7355aa); }.video-placeholder div { padding:18px 22px; border:1px dashed #ffe4f3; border-radius:14px; }.video-placeholder strong { display:block; margin-bottom:8px; font-size:1.25rem; }
+    .video-memories { margin-top:8px; }.video-strip { display:flex; gap:15px; overflow-x:auto; padding:8px 4px 18px; scroll-snap-type:x mandatory; scrollbar-color:#f69ac7 #ffffff18; scrollbar-width:thin; }.video-strip::-webkit-scrollbar { height:7px; }.video-strip::-webkit-scrollbar-thumb { border-radius:99px; background:#f69ac7; }.video-card { flex:0 0 min(285px,78vw); overflow:hidden; border:1px solid #ffd8eb8a; border-radius:17px; scroll-snap-align:start; background:#170c268c; box-shadow:0 12px 27px #1407195c; }.video-card video { display:block; width:100%; height:370px; background:#0b0711; object-fit:cover; }.video-card span { display:block; padding:10px 13px; color:#ffe7f2; text-align:center; font:600 .8rem "Hind Vadodara",sans-serif; letter-spacing:.04em; }.video-strip-hint { margin:0; color:#ffd4e7; text-align:center; font-size:.86rem; }
+    .video-movie { width:min(100%,720px); margin:18px auto 0; border-color:#ffe1ef9c; box-shadow:0 18px 38px #1a0b2766,0 0 26px #ed83bc3d; }.video-movie video { width:100%; max-height:min(78vh,880px); background:#12091d; }
+    .memory-grid,.favorite-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }.memory-card,.favorite-card { overflow:hidden; min-height:195px; border:1px dashed #ffd8eb9c; border-radius:16px; background:#ffffff14; }.memory-card img,.favorite-card img { display:block; width:100%; height:170px; object-fit:cover; }.memory-card span,.favorite-card span { display:block; padding:10px 12px; color:#ffe8f4; font-size:.85rem; text-align:center; }.empty-photo { display:grid; height:170px; place-items:center; padding:14px; color:#ffe7f2; text-align:center; background:linear-gradient(135deg,#71346f,#bd5c93); }
+    .poem { max-width:680px; margin:auto; padding:32px; border:1px solid #ffd9eb7d; border-radius:18px; color:#fff0f8; text-align:center; background:#ffffff14; font-family:"Noto Serif Gujarati",serif; font-size:1.15rem; line-height:2; }.poem p { margin:0; }.poem small { display:block; margin-top:13px; color:#ffc9e3; font-family:"Hind Vadodara",sans-serif; font-size:.83rem; }
+    .open-wrap { position:relative; isolation:isolate; }.open-wrap::before { content:""; position:absolute; z-index:-1; left:50%; top:47%; width:min(670px,110vw); aspect-ratio:1; border:1px solid #ffd6ed2e; border-radius:50%; transform:translate(-50%,-50%); box-shadow:0 0 0 38px #ffb3de08,0 0 0 88px #d69dff06,0 0 80px #fb82bd35; animation:orbit-glow 5s ease-in-out infinite; }.open-wrap::after { content:"∞"; position:absolute; z-index:-1; left:50%; top:43%; color:#ffd1e90c; font:260px Georgia,serif; transform:translate(-50%,-50%); }.open-title { text-shadow:0 5px 26px #10051d8a; }.open-text { text-shadow:0 2px 14px #250d349c; }.open-button { position:relative; overflow:hidden; }.open-button::after { content:""; position:absolute; inset:-50% auto -50% -35%; width:28px; transform:rotate(20deg); background:#fff9ff8f; filter:blur(4px); animation:button-shine 3.8s ease-in-out infinite; }
+    @keyframes orbit-glow { 50% { transform:translate(-50%,-50%) scale(1.06); opacity:.65; } } @keyframes button-shine { 55%,100% { left:120%; } }
+    .universe { overflow:hidden; position:relative; padding:clamp(30px,6vw,55px); border:1px solid #ffd7eb74; border-radius:24px; text-align:center; background:radial-gradient(circle at 50% 30%,#f494c823,transparent 34%),#ffffff0d; }.universe::before { content:"✦  ·  ✦  ·  ♥  ·  ✦  ·  ✦"; position:absolute; top:16px; left:0; width:100%; color:#ffc9e650; font-size:.85rem; letter-spacing:.42em; }.universe h2 { font-size:clamp(2rem,5vw,3.2rem); }.universe p { max-width:640px; margin:13px auto 25px; color:#ffe8f4; line-height:1.85; }.love-meter { display:flex; align-items:center; justify-content:center; gap:11px; color:#ffe1f0; font-family:"Noto Serif Gujarati",serif; font-size:1.04rem; }.love-meter .line { width:min(220px,35vw); height:7px; overflow:hidden; border-radius:99px; background:#ffffff22; }.love-meter .line i { display:block; width:100%; height:100%; border-radius:inherit; background:linear-gradient(90deg,#ff9ac8,#fff1ba,#c7a3ff); box-shadow:0 0 15px #ffa0cb; animation:meter 2.7s ease-in-out infinite; }.infinity-note { margin-top:23px!important; color:#ffc5e2!important; font-size:.88rem; letter-spacing:.08em; } @keyframes meter { 50% { transform:scaleX(.82); transform-origin:left; } }
+    .starlight { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-top:29px; }.star-button { cursor:pointer; min-height:94px; border:1px solid #ffe1f070; border-radius:15px; color:#ffe8f6; background:#ffffff0c; font:1.8rem Georgia,serif; transition:transform .25s,background .25s,box-shadow .25s; }.star-button span { display:block; margin-top:7px; font:600 .7rem "Hind Vadodara",sans-serif; letter-spacing:.06em; }.star-button:hover,.star-button.active { transform:translateY(-5px) scale(1.04); color:#fff7c4; background:#ffb6dc2c; box-shadow:0 9px 24px #ed73ba45; }.star-message { min-height:30px; margin:18px 0 0!important; color:#ffd1e7!important; font-family:"Noto Serif Gujarati",serif; font-size:1.05rem; }
+    #birthdaySurprise { position:fixed; z-index:100; inset:0; display:grid; place-items:center; overflow:hidden; padding:22px; color:#fff7fb; text-align:center; background:#05020a; opacity:0; visibility:hidden; transition:opacity .8s ease,visibility .8s ease; }.birthday-show { opacity:1!important; visibility:visible!important; }.surprise-glow { position:absolute; inset:0; background:radial-gradient(circle at 50% 45%,#a932792d,transparent 38%),radial-gradient(circle at 20% 80%,#7457c727,transparent 35%); }.countdown { position:relative; font:clamp(7rem,30vw,15rem) Georgia,serif; color:#ffe1f0; text-shadow:0 0 30px #ff87c9,0 0 80px #a264ff; }.birthday-message { position:relative; z-index:2; display:none; max-width:790px; animation:message-enter 1.15s cubic-bezier(.2,.85,.2,1) both; }.birthday-message.show { display:block; }.birthday-kicker { color:#ffb8dd; font-size:.76rem; font-weight:700; letter-spacing:.21em; }.birthday-message h2 { margin:15px 0 18px; color:#fff7fb; font-size:clamp(2.7rem,9vw,5.6rem); text-shadow:0 0 30px #ff90c8a3; }.birthday-message h2 span { color:#ffc4e3; }.birthday-message p { margin:0 auto; max-width:630px; color:#fbe2f0; font-size:clamp(1rem,2.6vw,1.23rem); line-height:2; }.birthday-message .final-love { margin-top:25px; color:#ffd0e8; font-family:"Noto Serif Gujarati",serif; font-size:1.18rem; }.close-surprise { cursor:pointer; margin-top:27px; padding:11px 19px; border:1px solid #ffd7ec8c; border-radius:99px; color:#ffeaf6; background:#ffffff12; font:600 .9rem "Hind Vadodara",sans-serif; }.balloon { position:absolute; z-index:1; bottom:-170px; width:55px; height:70px; border-radius:50% 50% 45% 45%; background:var(--balloon); box-shadow:inset -10px -10px 18px #00000030,0 0 19px var(--balloon); animation:float-up var(--time) ease-in forwards; }.balloon::before { content:""; position:absolute; left:50%; bottom:-88px; width:1px; height:90px; background:#fff8; }.balloon::after { content:""; position:absolute; left:50%; bottom:-8px; width:10px; height:12px; background:var(--balloon); transform:translateX(-50%) rotate(45deg); }.firework { position:absolute; z-index:1; width:5px; height:5px; border-radius:50%; background:#fff3ad; box-shadow:0 0 9px #fff0ab; animation:spark 1.7s ease-out forwards; } @keyframes float-up { to { transform:translate(var(--drift),-125vh) rotate(35deg); } } @keyframes spark { to { transform:translate(var(--x),var(--y)) scale(.1); opacity:0; } } @keyframes message-enter { from { opacity:0; transform:translateY(25px) scale(.96); } }
+    .yamini-card { position:relative; overflow:hidden; padding:clamp(30px,6vw,55px) 22px; border:1px solid #ffd6ec76; border-radius:24px; text-align:center; background:radial-gradient(circle at 50% 12%,#ea74ae2c,transparent 38%),#fff8ff10; }.yamini-card::before { content:"ચિરાગના દિલથી, યામિની માટે"; display:block; margin-bottom:15px; color:#ffc1df; font-size:.75rem; font-weight:700; letter-spacing:.17em; }.yamini-card h2 { font-size:clamp(2rem,5vw,3.25rem); }.yamini-letters { display:flex; justify-content:center; gap:clamp(7px,2vw,16px); margin:31px auto 20px; }.yamini-letter { cursor:pointer; display:grid; place-items:center; width:clamp(43px,11vw,80px); aspect-ratio:1; border:1px solid #ffe0f08a; border-radius:18px; color:#fff5fb; background:#ffffff13; box-shadow:0 9px 24px #290d3e28; font:clamp(1.8rem,7vw,4rem) "Noto Serif Gujarati",serif; transition:.25s; }.yamini-letter:hover,.yamini-letter.active { transform:translateY(-8px) rotate(-3deg); color:#fff0a8; border-color:#ffe4a4; background:#e967a04c; box-shadow:0 14px 29px #ff78bd52; }.yamini-meaning { min-height:91px; max-width:620px; margin:0 auto; padding:18px; border:1px solid #ffe1ef54; border-radius:14px; color:#ffe9f5; background:#120a1e29; font-family:"Noto Serif Gujarati",serif; font-size:1.08rem; line-height:1.8; }.yamini-meaning strong { color:#ffc4e1; }.yamini-final { margin:24px auto 0; max-width:620px; color:#fff3fa; font-family:"Noto Serif Gujarati",serif; font-size:clamp(1.18rem,3.2vw,1.55rem); line-height:1.8; }.yamini-final em { color:#ffb9dc; font-style:normal; }
+    @media (max-width:680px) { .whispers,.memory-grid,.favorite-grid { grid-template-columns:repeat(2,1fr); }.starlight { grid-template-columns:repeat(5,1fr); gap:7px; }.star-button { min-height:72px; font-size:1.35rem; }.star-button span { font-size:.55rem; }.forever { padding:39px 20px; } }
+    /* The sky keeps the story feeling alive, without taking focus from the words. */
+    .cosmos { position:fixed; inset:0; z-index:-2; overflow:hidden; pointer-events:none; }.cosmos::before,.cosmos::after { content:""; position:absolute; border-radius:50%; filter:blur(1px); }.cosmos::before { width:clamp(250px,38vw,550px); aspect-ratio:1; top:18vh; right:-13vw; opacity:.65; background:radial-gradient(circle at 35% 32%,#fff1f8 0 1%,#e9a4eb 2%,#9a62ca 28%,#4e2a78 55%,transparent 70%); box-shadow:0 0 90px #bd7be75c; animation:planet-drift 17s ease-in-out infinite; }.cosmos::after { width:17rem; height:17rem; bottom:-7rem; left:-4rem; opacity:.42; background:radial-gradient(circle at 33% 30%,#ffe2ac 0 2%,#e986bd 19%,#7647b1 48%,transparent 70%); box-shadow:0 0 70px #ff84be; }.shooting-star { position:fixed; z-index:-1; width:105px; height:1px; opacity:0; transform:rotate(-28deg); background:linear-gradient(90deg,transparent,#fff,transparent); box-shadow:0 0 8px #fff; animation:shoot 8s ease-in infinite; pointer-events:none; }.shooting-star:nth-child(2) { top:23%; right:18%; animation-delay:3.8s; }.shooting-star:nth-child(3) { top:68%; left:12%; animation-delay:6.2s; } @keyframes planet-drift { 50% { transform:translate(-20px,18px) scale(1.05); } } @keyframes shoot { 0%,72% { opacity:0; transform:translate(0,0) rotate(-28deg); } 76% { opacity:1; } 88% { opacity:0; transform:translate(-260px,160px) rotate(-28deg); } 100% { opacity:0; } }
+    .progress-track { position:fixed; z-index:30; top:0; left:0; width:100%; height:3px; background:#ffffff14; }.progress-track i { display:block; width:0; height:100%; background:linear-gradient(90deg,#ff8fbd,#fff0b5,#bf9af3); box-shadow:0 0 14px #ffc4e6; }.story-nav { position:sticky; z-index:8; top:13px; display:flex; align-items:center; justify-content:space-between; width:min(960px,calc(100% - 32px)); margin:0 auto -42px; padding:10px 14px 10px 17px; border:1px solid #ffe0f062; border-radius:999px; color:#ffe8f5; background:#2511358c; backdrop-filter:blur(15px); box-shadow:0 12px 30px #10071845; }.nav-brand { font:600 .78rem "Noto Serif Gujarati",serif; letter-spacing:.06em; }.nav-links { display:flex; gap:3px; }.nav-links a { padding:6px 9px; border-radius:99px; color:#ffe5f2; text-decoration:none; font-size:.72rem; }.nav-links a:hover { color:#fff5bc; background:#ffffff18; }.sound-toggle { cursor:pointer; width:31px; height:31px; border:1px solid #ffe4f071; border-radius:50%; color:#ffe9f5; background:#ffffff12; font-size:.88rem; }
+    .chapter { transition:opacity .7s ease,transform .7s ease; }.js .chapter.reveal-ready { opacity:0; transform:translateY(28px); }.js .chapter.revealed { opacity:1; transform:none; }.memory-card,.favorite-card { transition:transform .3s ease,box-shadow .3s ease; }.memory-card:hover,.favorite-card:hover { transform:translateY(-7px) rotate(-.6deg); box-shadow:0 15px 28px #250d453d; }.photo { isolation:isolate; }.photo::after { content:"♥"; position:absolute; z-index:-1; top:22px; left:24px; color:#fff7; font-size:2.1rem; animation:pulse-heart 2.2s ease-in-out infinite; } @keyframes pulse-heart { 50% { transform:scale(1.35); opacity:.45; } }
+    .wish-orbit { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:17px; max-width:620px; margin:30px auto 0; padding:16px; border:1px solid #ffe0ef55; border-radius:18px; background:#ffffff0b; text-align:left; }.wish-orbit p { margin:0; color:#ffe6f1; font-size:.9rem; line-height:1.7; }.wish-orbit p strong { display:block; color:#ffc5e3; font-size:.74rem; letter-spacing:.12em; }.wish-button { cursor:pointer; display:grid; place-items:center; width:54px; aspect-ratio:1; border:1px solid #ffe1a9a6; border-radius:50%; color:#fff3ba; background:radial-gradient(circle,#f494c663,#6a397e44); font-size:1.4rem; box-shadow:0 0 24px #ef8bcf52; transition:.25s; }.wish-button:hover { transform:rotate(22deg) scale(1.1); }.wish-response { grid-column:1/-1; display:none; padding-top:9px; border-top:1px solid #ffe1ef35; color:#fff0b6!important; font-family:"Noto Serif Gujarati",serif; }.wish-response.show { display:block; animation:appear .45s ease; }
+    .open-mark { animation:heart-beat 1.8s ease-in-out infinite; }.hero h1 em { display:inline-block; animation:word-float 4.4s ease-in-out infinite; }.chapter-heading h2 { position:relative; }.chapter-heading h2::after { content:""; display:block; width:0; height:1px; margin:11px auto 0; background:linear-gradient(90deg,transparent,#ffc1df,#fff0b6,#ffc1df,transparent); transition:width .9s ease .25s; }.chapter.revealed .chapter-heading h2::after { width:min(240px,70%); }.letter { transform:rotate(-.4deg); transition:transform .45s ease,box-shadow .45s ease; }.letter:hover { transform:rotate(.25deg) translateY(-6px); box-shadow:0 20px 44px #4a174845; }.reason { transition:transform .32s ease,filter .32s ease; }.reason:hover { transform:translateY(-8px); filter:brightness(1.12); }.final { overflow:hidden; position:relative; }.final::before { content:"♥  ✦  ♥  ✦  ♥"; position:absolute; top:14px; left:-20%; width:140%; opacity:.23; color:#ffe0ed; font-size:.85rem; letter-spacing:2.3em; white-space:nowrap; animation:love-marquee 11s linear infinite; }.final > * { position:relative; }.love-trail { position:fixed; z-index:50; color:#ffd0e5; pointer-events:none; font-size:14px; text-shadow:0 0 10px #fff; animation:trail-rise .85s ease-out forwards; }.sparkle { position:fixed; z-index:4; color:#fff4bd; pointer-events:none; font-size:.72rem; text-shadow:0 0 12px #ffd6ef; animation:sparkle-rise 3s ease-out forwards; }.photo-label { animation:label-breathe 3.5s ease-in-out infinite; } @keyframes heart-beat { 50% { transform:scale(1.15); color:#fff0b9; box-shadow:0 0 48px #ff78b999; } } @keyframes word-float { 50% { transform:translateY(-5px); } } @keyframes love-marquee { to { transform:translateX(18%); } } @keyframes trail-rise { to { transform:translate(var(--drift),-35px) scale(.35) rotate(25deg); opacity:0; } } @keyframes sparkle-rise { to { transform:translateY(-70px) rotate(100deg) scale(.2); opacity:0; } } @keyframes label-breathe { 50% { box-shadow:0 0 23px #ffd5e869; } }
+    .birthday-hero { display:flex; flex-direction:column; align-items:center; gap:0; width:100%; max-width:1040px; margin:0 auto 48px; color:#fffaf5; font-family:"Playfair Display",serif; font-size:clamp(6.4rem,12.7vw,13.5rem); font-weight:700; line-height:.68; letter-spacing:-.075em; text-shadow:0 0 31px #ffffff59; animation:word-float 4.4s ease-in-out infinite; }.birthday-hero::before { content:"A LITTLE CORNER OF THE INTERNET, MADE ONLY FOR YOU"; display:block; margin:0 0 .48em; color:#e5a4ca; font-family:"Montserrat",sans-serif; font-size:clamp(.7rem,1.12vw,1rem); font-weight:600; letter-spacing:3px; line-height:1.6; text-shadow:none; }.birthday-hero .birthday-word { display:block; }.birthday-hero .birthday-name { display:block; margin:.28em 0 .38em; color:#fca1cd; font-family:"Great Vibes",cursive; font-size:.88em; font-style:normal; font-weight:400; letter-spacing:0; line-height:.48; text-shadow:0 0 29px #fca1cdcc,0 0 52px #fca1cd75; }.birthday-hero > span:last-child { display:none; }.hero h1 { max-width:810px; margin:24px auto 0; font-size:clamp(1.8rem,3.7vw,3.25rem); line-height:1.25; letter-spacing:-.02em; animation:word-float 4.4s ease-in-out infinite; }.hero h1 em { animation:none; }.hero .mini { margin-bottom:8px; font-size:.7rem; } @media (max-width:900px) { .birthday-hero { font-size:clamp(4.7rem,14vw,7.8rem); line-height:.71; }.birthday-hero .birthday-name { margin-top:.32em; } } @media (max-width:680px) { .birthday-hero { max-width:100%; font-size:clamp(3.8rem,20vw,6rem); line-height:.73; }.birthday-hero::before { max-width:300px; margin-bottom:24px; font-size:.68rem; letter-spacing:2px; }.birthday-hero .birthday-name { margin: .36em 0 .48em; font-size:.93em; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; } }
+    @media (max-width:680px) { .story-nav { top:8px; margin-bottom:-32px; }.nav-links a { padding:5px 7px; font-size:.65rem; }.nav-links a:nth-child(2) { display:none; }.nav-brand { font-size:.68rem; }.wish-orbit { grid-template-columns:1fr auto; }.wish-response { grid-column:1/-1; } }
+    /* Final hero-title hierarchy: the birthday wish is the first-screen focus. */
+    .hero .birthday-hero {
+      width:min(100%,1120px);
+      max-width:none;
+      margin:0 auto 52px;
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:clamp(7rem,14.2vw,15rem);
+      font-weight:700;
+      line-height:.65;
+      letter-spacing:-.08em;
+      text-align:center;
+    }
+    .hero .birthday-hero .birthday-word {
+      display:block;
+      color:#fffaf5;
+      text-shadow:0 6px 34px #170718,0 0 40px #ffffff52;
+    }
+    .hero .birthday-hero .birthday-name {
+      display:block;
+      margin:.3em 0 .38em;
+      color:#ff8db9;
+      font-family:"Great Vibes",cursive;
+      font-size:.91em;
+      font-weight:400;
+      line-height:.44;
+      letter-spacing:0;
+      text-shadow:0 0 30px #ff75b8e6,0 0 64px #fca1cd8c,0 8px 24px #260b29;
+    }
+    .hero .birthday-hero::before {
+      margin-bottom:.5em;
+    }
+    .hero h1 {
+      max-width:850px;
+      margin-top:18px;
+      font-size:clamp(1.75rem,3.3vw,3rem);
+    }
+    @media (max-width:900px) {
+      .hero .birthday-hero { font-size:clamp(5rem,15vw,8.5rem); line-height:.68; }
+    }
+    @media (max-width:680px) {
+      .hero .birthday-hero { width:100%; font-size:clamp(3.8rem,20vw,6.6rem); line-height:.7; letter-spacing:-.06em; }
+      .hero .birthday-hero::before { max-width:300px; margin-bottom:24px; font-size:.67rem; letter-spacing:2px; }
+      .hero .birthday-hero .birthday-name { margin:.38em 0 .5em; font-size:.94em; }
+      .hero h1 { font-size:clamp(1.65rem,7vw,2.35rem); }
+    }
+    .hero-music-toggle { position:fixed; z-index:25; right:28px; bottom:28px; display:inline-flex; align-items:center; gap:8px; cursor:pointer; padding:12px 23px; border:1.5px solid #fca1cd99; border-radius:999px; color:#fff; background:#ba558f47; box-shadow:0 6px 20px #00000059,0 0 22px #f26ba833; backdrop-filter:blur(12px); font:600 .92rem "Montserrat",sans-serif; transition:.3s ease; }.hero-music-toggle:hover { transform:translateY(-3px); border-color:#fca1cddd; background:#ba558f78; box-shadow:0 10px 25px #00000061,0 0 28px #f26ba85c; } @media (max-width:680px) { .hero-music-toggle { right:17px; bottom:17px; padding:10px 16px; font-size:.8rem; } }
+    /* Keep the Happy Birthday words close together. */
+    .hero .birthday-hero { font-size:100px !important; line-height:.58; }
+    .hero .birthday-hero .birthday-word + .birthday-word { margin-top:-.85em; }
+    .hero .birthday-hero .birthday-name { margin:.06em 0 .14em !important; }
+    .hero .mini { padding-top:32px; }
+    /* Keep the birthday surprise readable on a single screen. */
+    #birthdaySurprise { overflow-y:auto; padding:28px 22px; }
+    .birthday-message { width:min(100%,880px); }
+    .birthday-message h2 { margin:10px 0 14px; font-size:clamp(2.35rem,5vw,4.4rem); line-height:1.02; white-space:nowrap; }
+    .birthday-message p { max-width:760px; font-size:clamp(.94rem,1.55vw,1.08rem); line-height:1.65; }
+    .birthday-message .final-love { margin-top:16px; font-size:1.02rem; line-height:1.55; }
+    .birthday-message .surprise-note { margin-top:16px; color:#ffd0e8; font-family:"Noto Serif Gujarati",serif; font-size:1rem; line-height:1.55; }
+    .birthday-kicker { font-size:.68rem; letter-spacing:.16em; }
+    .close-surprise { margin-top:18px; }
+    /* Romantic infinity finish for the birthday wish. */
+    #birthdaySurprise {
+      isolation:isolate;
+      background:
+        radial-gradient(circle at 50% 42%,#ed79b34f,transparent 26%),
+        radial-gradient(circle at 12% 88%,#9f79e63d,transparent 31%),
+        radial-gradient(circle at 86% 12%,#ff9acb35,transparent 27%),
+        linear-gradient(135deg,#160a2a,#4d1b59 54%,#9a417d);
+    }
+    #birthdaySurprise::before {
+      content:"∞";
+      position:absolute;
+      z-index:0;
+      top:50%; left:50%;
+      color:#ffd5ed12;
+      font:clamp(20rem,52vw,48rem) Georgia,serif;
+      line-height:1;
+      transform:translate(-50%,-53%);
+      text-shadow:0 0 65px #ff8fcb55;
+    }
+    #birthdaySurprise::after {
+      content:"♥  ✦  ♥  ✦  ♥";
+      position:absolute;
+      z-index:0;
+      top:8%; left:0;
+      width:100%;
+      color:#ffd0e86e;
+      font-size:.85rem;
+      letter-spacing:4.3em;
+      text-align:center;
+    }
+    .surprise-glow {
+      z-index:0;
+      background:radial-gradient(circle at 50% 48%,#fa87bd42,transparent 35%),radial-gradient(circle at 18% 78%,#a781e12d,transparent 34%),radial-gradient(circle at 82% 22%,#ffbcdd29,transparent 29%);
+    }
+    .countdown { z-index:2; }
+    .birthday-message {
+      padding:clamp(20px,4vw,42px);
+      border:1px solid #ffe0f06b;
+      border-radius:28px;
+      background:#2a12354f;
+      box-shadow:0 20px 65px #12071f85,0 0 42px #f890c42e;
+      backdrop-filter:blur(10px);
+    }
+    .birthday-message .final-love,
+    .birthday-message .surprise-note {
+      max-width:720px;
+      font-size:clamp(1.14rem,2vw,1.42rem);
+      font-weight:600;
+      line-height:1.65;
+      text-shadow:0 2px 15px #2b0b29;
+    }
+    .birthday-message .final-love { color:#ffe0f1; }
+    .birthday-message .surprise-note { color:#ffd0e9; }
+    /* A small birthday entrance, timed after the countdown finishes. */
+    .birthday-message.show { animation:birthday-card-in 1.65s cubic-bezier(.16,.82,.26,1) both; }
+    .birthday-message.show .birthday-kicker { animation:birthday-copy-in 1s ease .32s both; }
+    .birthday-message.show h2 { animation:birthday-title-in 1.2s cubic-bezier(.16,.82,.26,1) .55s both; }
+    .birthday-message.show > p:not(.birthday-kicker) { animation:birthday-copy-in 1s ease .92s both; }
+    .birthday-message.show .final-love { animation-delay:1.16s; }
+    .birthday-message.show .surprise-note { animation-delay:1.4s; }
+    .birthday-message.show button { animation:birthday-copy-in .9s ease 1.64s both; }
+    .birthday-message.show h2 span { display:inline-block; animation:birthday-name-glow 2.1s ease-in-out 1.08s infinite; }
+    @keyframes birthday-card-in { from { opacity:0; transform:translateY(-105px) scale(.96); } to { opacity:1; transform:translateY(0) scale(1); } }
+    @keyframes birthday-title-in { from { opacity:0; transform:translateY(-38px) scale(.92); filter:blur(7px); } to { opacity:1; transform:translateY(0) scale(1); filter:blur(0); } }
+    @keyframes birthday-copy-in { from { opacity:0; transform:translateY(-26px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes birthday-name-glow { 50% { color:#fff4fb; transform:scale(1.06); text-shadow:0 0 16px #fff,0 0 34px #ff8dc5; } }
+    .sky-final-button { cursor:pointer; margin-top:20px; padding:11px 20px; border:1px solid #ffe3a879; border-radius:999px; color:#fff3c5; background:#ffffff12; font:600 .9rem "Hind Vadodara",sans-serif; box-shadow:0 0 20px #ff8fc553; }
+    .night-sky-final { position:absolute; z-index:8; inset:0; display:grid; place-items:center; overflow:hidden; padding:24px; color:#fff5fb; text-align:center; background:radial-gradient(circle at 50% 42%,#43286b5e,transparent 29%),linear-gradient(145deg,#02020a,#0d0820 58%,#35123a); opacity:0; visibility:hidden; transition:opacity .8s ease,visibility .8s ease; }
+    .night-sky-final.show { opacity:1; visibility:visible; }.sky-star { position:absolute; width:3px; height:3px; border-radius:50%; background:#fff8dd; box-shadow:0 0 8px #ffcde8,0 0 15px #c4b6ff; opacity:0; animation:sky-star-in 1.2s ease forwards; }.night-sky-final.show .sky-star { animation-name:sky-star-in,sky-twinkle; animation-duration:1.2s,2.2s; animation-delay:var(--delay),calc(var(--delay) + 1.2s); animation-iteration-count:1,infinite; }
+    .sky-final-copy { position:relative; z-index:2; max-width:760px; opacity:0; transform:translateY(18px); transition:opacity .9s ease 2.2s,transform .9s ease 2.2s; }.night-sky-final.show .sky-final-copy { opacity:1; transform:none; }.sky-final-copy h2 { margin:0; color:#fff8fc; font-size:clamp(2.35rem,6vw,4.7rem); text-shadow:0 0 24px #ff80bf,0 0 50px #9e86ee; }.sky-final-copy p { margin:16px auto 0; color:#fbe4f2; font-family:"Noto Serif Gujarati",serif; font-size:clamp(1rem,2.2vw,1.3rem); line-height:1.8; }.sky-final-copy .sky-last-line { margin-top:25px; color:#ffd0e8; font-size:clamp(1.12rem,2.4vw,1.5rem); }.sky-final-copy .sky-last-line strong { color:#fff0b6; }
+    @keyframes sky-star-in { from { opacity:0; transform:scale(.2); } to { opacity:.95; transform:scale(1); } } @keyframes sky-twinkle { 50% { opacity:.25; transform:scale(.45); } }
+    /* One hundred little reasons, wrapped in the same rose-and-purple romance. */
+    .one-person { position:relative; overflow:hidden; padding:clamp(25px,5vw,48px) clamp(16px,4vw,38px); border:1px solid #ffd9ed73; border-radius:26px; text-align:center; background:radial-gradient(circle at 50% 0,#ff8fc738,transparent 39%),linear-gradient(135deg,#61276682,#ba4c8b58,#7259a06b); box-shadow:inset 0 1px #fff5,0 18px 42px #240a3836; }
+    .one-person::before { content:"∞"; position:absolute; z-index:0; top:-82px; left:50%; color:#fff0fa0c; font:260px Georgia,serif; transform:translateX(-50%); }
+    .one-person > * { position:relative; z-index:1; }
+    .one-person h2 { color:#fff0fa; }.one-person-copy { max-width:650px; margin:12px auto 20px; color:#ffe4f1; line-height:1.75; }
+    .heart-status { margin:0 0 15px; color:#ffd0e6; font-size:.82rem; font-weight:700; letter-spacing:.1em; }
+    .heart-cloud { position:relative; min-height:270px; overflow:hidden; border:1px solid #ffe1ef4f; border-radius:20px; background:#15091d27; }
+    .little-heart { position:absolute; width:28px; height:28px; cursor:pointer; border:0; padding:0; color:#ff8fbd; background:transparent; font-size:1.45rem; line-height:1; text-shadow:0 0 12px #ff76b7a8; transition:left 1.25s cubic-bezier(.2,.8,.2,1),top 1.25s cubic-bezier(.2,.8,.2,1),transform .25s,opacity .6s; }
+    .little-heart:hover,.little-heart:focus-visible { color:#fff0b6; outline:none; transform:scale(1.35); }
+    .little-heart.visited { color:#ffd8a6; }
+    .heart-reason { min-height:70px; max-width:720px; margin:18px auto 0; padding:16px 18px; border:1px solid #ffe4ef64; border-radius:15px; color:#fff5fb; background:#ffffff12; font-family:"Noto Serif Gujarati",serif; font-size:clamp(1rem,2.3vw,1.22rem); line-height:1.7; }
+    .heart-reason strong { color:#ffc7e2; }
+    .yamini-formed { position:absolute; z-index:2; inset:0; display:grid; place-items:center; padding:15px; color:#fff6fa; font-family:"Playfair Display",serif; font-size:clamp(2.1rem,8vw,5.6rem); font-weight:700; letter-spacing:.06em; opacity:0; transform:scale(.7); text-shadow:0 0 22px #ff70b3,0 0 50px #c08cff; transition:opacity .8s ease .55s,transform .8s cubic-bezier(.2,.9,.2,1) .55s; pointer-events:none; }
+    .heart-cloud.completed .yamini-formed { opacity:1; transform:scale(1); }
+    .heart-cloud.completed .little-heart { color:#ffb1d2; font-size:1rem; opacity:.9; pointer-events:none; }
+    .one-person { padding:clamp(19px,3.5vw,31px) clamp(16px,4vw,38px); }.one-person .chapter-heading { margin-bottom:8px; }.one-person .chapter-heading h2 { font-size:clamp(1.9rem,4.5vw,3.15rem); }.heart-shayari { max-width:650px; margin:0 auto 8px; color:#ffe6f2; font-family:"Noto Serif Gujarati",serif; font-size:clamp(.98rem,2.1vw,1.13rem); line-height:1.65; }.heart-launch { cursor:pointer; display:grid; place-items:center; gap:5px; width:min(165px,52vw); aspect-ratio:1; margin:7px auto 3px; border:0; color:#fff7fb; background:transparent; font:700 .85rem "Hind Vadodara",sans-serif; transition:transform .3s ease,filter .3s ease; }.heart-launch:hover,.heart-launch:focus-visible { outline:none; transform:scale(1.08); filter:brightness(1.12); }.heart-launch .heart-icon { grid-area:1/1; color:#f36fa5; font:clamp(7.3rem,17vw,9.4rem)/.75 Georgia,serif; text-shadow:0 0 16px #ffb5d5,0 0 38px #d96ab1; }.heart-launch .heart-label { z-index:1; grid-area:1/1; width:68%; padding-top:8px; color:#fff5fa; line-height:1.35; text-shadow:0 2px 7px #501538; }.heart-launch small { display:block; margin-top:3px; color:#ffe7ad; font-size:.68rem; }.heart-game { margin-top:13px; }.heart-game[hidden] { display:none; }.heart-magic-note { margin:0 auto 13px; color:#fff0b9; font-family:"Noto Serif Gujarati",serif; font-size:clamp(1rem,2.3vw,1.2rem); line-height:1.7; }.heart-back { cursor:pointer; margin:18px auto 0; padding:11px 22px; border:1px solid #ffe0aa9c; border-radius:99px; color:#fff4c6; background:#ffffff15; font:700 .9rem "Hind Vadodara",sans-serif; transition:.25s; }.heart-back:hover { transform:translateY(-3px); background:#ffffff26; }
+    .secret-letter-card { max-width:760px; margin:auto; text-align:center; }
+    .secret-letter-card > p { color:#ffe3f0; line-height:1.75; }
+    .envelope-stage { position:relative; width:min(100%,590px); height:330px; margin:26px auto 0; perspective:1100px; }
+    .secret-envelope { position:absolute; inset:35px 0 0; width:100%; height:270px; cursor:pointer; border:0; border-radius:18px; background:linear-gradient(135deg,#a84176,#e477a8 56%,#a679c5); box-shadow:0 20px 36px #1908196e, inset 0 1px #fff5; transition:transform .45s ease; }
+    .secret-envelope:hover { transform:translateY(-5px); }.secret-envelope:focus-visible { outline:2px solid #fff0b5; outline-offset:6px; }
+    .secret-envelope::before,.secret-envelope::after { content:""; position:absolute; width:0; height:0; border-style:solid; }
+    .secret-envelope::before { z-index:3; top:0; left:0; border-width:135px 295px 0; border-color:#c45b8d transparent transparent; transform-origin:top; transition:transform .85s cubic-bezier(.2,.8,.2,1); }
+    .secret-envelope::after { z-index:2; bottom:0; left:0; border-width:0 295px 135px; border-color:transparent transparent #b6497d; }
+    .envelope-side { position:absolute; z-index:2; top:0; width:0; height:0; border-style:solid; }.envelope-side.left { left:0; border-width:135px 0 135px 178px; border-color:transparent transparent transparent #d56599; }.envelope-side.right { right:0; border-width:135px 178px 135px 0; border-color:transparent #ca5790 transparent transparent; }
+    .envelope-seal { position:absolute; z-index:4; top:112px; left:50%; display:grid; place-items:center; width:51px; height:51px; border:2px solid #ffe6a9; border-radius:50%; color:#fff4c5; background:#8b3169; box-shadow:0 0 18px #ffcae489; transform:translateX(-50%); transition:opacity .25s; }
+    .envelope-hint { position:absolute; z-index:5; bottom:18px; left:0; width:100%; color:#fff7fb; font:600 .8rem "Hind Vadodara",sans-serif; letter-spacing:.1em; }
+    .letter-paper { position:absolute; z-index:1; top:58px; left:7%; width:86%; max-height:265px; overflow:auto; padding:24px 26px; border:1px solid #ffe2ed; border-radius:12px; color:#6c2b4c; text-align:left; background:linear-gradient(135deg,#fffdfb,#ffeef6); box-shadow:0 10px 24px #250b2360; opacity:0; transform:translateY(105px) scale(.92); transition:transform .9s cubic-bezier(.2,.9,.2,1) .22s,opacity .45s ease .25s; }
+    .letter-paper p { margin:0 0 13px; font-family:"Noto Serif Gujarati",serif; font-size:1rem; line-height:1.8; }.letter-paper .letter-sign { margin:5px 0 0; color:#b24378; font-size:1.15rem; text-align:right; }
+    .envelope-stage.open .secret-envelope::before { transform:rotateX(180deg); z-index:0; }.envelope-stage.open .envelope-seal,.envelope-stage.open .envelope-hint { opacity:0; }.envelope-stage.open .letter-paper { z-index:5; opacity:1; transform:translateY(-76px) scale(1); }.envelope-stage.open .secret-envelope { cursor:default; }
+    @media (max-width:680px) {
+      .heart-cloud { display:grid; grid-template-columns:repeat(5,minmax(48px,1fr)); grid-auto-rows:52px; gap:10px; min-height:0; padding:12px; overflow:hidden; align-content:start; }
+      .little-heart { position:relative !important; left:auto !important; top:auto !important; width:52px; height:52px; justify-self:center; border:1px solid #ffd8e97d; border-radius:16px; background:#fff5fb17; box-shadow:0 4px 13px #230c2e4a; font-size:1.55rem; }
+      .heart-cloud.completed .little-heart { position:absolute !important; left:var(--heart-left) !important; top:var(--heart-top) !important; width:28px; height:28px; border:0; border-radius:0; background:transparent; box-shadow:none; }
+      .yamini-formed { font-size:clamp(1.8rem,12vw,3.2rem); }
+    }
+    @media (max-width:620px) { .envelope-stage { height:355px; }.secret-envelope::before { border-width:135px 50vw 0; }.secret-envelope::after { border-width:0 50vw 135px; }.envelope-side.left { border-width:135px 0 135px 30vw; }.envelope-side.right { border-width:135px 30vw 135px 0; }.letter-paper { left:5%; width:90%; padding:20px; }.letter-paper p { font-size:.93rem; } }
+    @media (max-width:500px) {
+      .birthday-message h2 { font-size:clamp(2rem,11vw,3rem); white-space:normal; }
+    }
+    /* Keep the opening invitation fully usable on every screen. */
+    #opening { overflow-y:auto; padding:20px; }
+    .open-wrap { width:min(100%,760px); padding:12px 0; }
+    .open-mark { width:58px; height:58px; font-size:1.4rem; }
+    .open-kicker { margin:14px 0 9px; }
+    .open-title { font-size:clamp(2.25rem,5.4vw,4.6rem); line-height:1.14; }
+    .open-text { margin:15px auto 20px; line-height:1.65; }
+    .open-button { position:relative; z-index:2; padding:13px 24px; }
+    @media (max-height:720px) { .open-title { font-size:clamp(2rem,5vw,3.7rem); }.open-mark { width:50px; height:50px; }.open-text { margin:11px auto 15px; } }
+    @media (max-width:500px) { .open-title { font-size:clamp(2rem,10vw,3rem); }.open-kicker { font-size:.67rem; }.open-text { font-size:.93rem; } }
+    .birthday-red-heart { color:#f23867; text-shadow:0 0 12px #ff7da5; }
+    /* Preserve the whole photo while filling its side space with a matching blur. */
+    .photo::before { z-index:0; background:url("photo%201.jpg") center/cover no-repeat; filter:blur(24px) brightness(.72) saturate(130%); opacity:.95; }
+    .photo img { z-index:1; object-fit:contain; object-position:center; background:transparent !important; }
+    /* A little folder of voices, made to be opened with love. */
+    .voice-notes { max-width:780px; margin:auto; text-align:center; }.voice-notes > p { color:#ffe2f0; line-height:1.75; }
+    .voice-folder { position:relative; display:grid; justify-items:center; width:min(100%,500px); margin:24px auto 0; padding:43px 24px 25px; border:1px solid #ffe0ed75; border-radius:18px; color:#fff4fa; background:linear-gradient(135deg,#8c396e94,#d35d9691,#8168ae90); box-shadow:0 17px 35px #16072068, inset 0 1px #fff4; transition:.35s; }
+    .voice-folder::before { content:""; position:absolute; top:-17px; left:31px; width:135px; height:28px; border:1px solid #ffe0ed75; border-bottom:0; border-radius:12px 12px 0 0; background:#b94f87; }.voice-folder.open { transform:translateY(-5px); box-shadow:0 23px 42px #1607207e,0 0 32px #ff8fc85b; }.voice-folder-icon { font-size:3.4rem; filter:drop-shadow(0 4px 9px #4e1647); }.voice-folder h3 { margin:10px 0 4px; font-size:1.45rem; }.voice-folder p { margin:0; color:#ffe2ef; font-size:.92rem; }.voice-open { cursor:pointer; margin-top:18px; padding:12px 21px; border:1px solid #fff0b18c; border-radius:99px; color:#fff4c7; background:#ffffff16; font:700 .9rem "Hind Vadodara",sans-serif; }.voice-player { display:none; width:100%; margin-top:19px; padding-top:17px; border-top:1px solid #ffe4ef58; }.voice-folder.open .voice-player { display:block; }.voice-player audio { width:100%; }.voice-now { margin:9px 0 0!important; color:#fff1b6!important; font-family:"Noto Serif Gujarati",serif; font-size:.92rem!important; }.voice-note-list { max-height:120px; margin-top:12px; overflow:auto; text-align:left; }.voice-note-list button { display:block; width:100%; cursor:pointer; padding:7px 9px; border:0; border-radius:8px; color:#ffe6f2; text-align:left; background:transparent; font:inherit; font-size:.78rem; }.voice-note-list button:hover,.voice-note-list button.active { color:#fff4b9; background:#ffffff18; }
+    /* Fill the portrait sides with a soft blur of the same photo. */
+    .photo::before { content:""; position:absolute; inset:-28px; right:auto; bottom:auto; width:auto; height:auto; color:transparent; background:url("photo%201.jpg") center/cover no-repeat; filter:blur(20px) brightness(.7) saturate(125%); opacity:.86; }
+    .photo img { position:absolute; z-index:1; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 32%; }
+    .photo { padding:0; }
+    .photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; background:transparent; }
+    .photo .photo-label { z-index:1; margin:20px; background:#482456c9; }
+    /* Two photos in the same portrait panel — neither image is cropped. */
+    .photo-pair { position:absolute; z-index:2; inset:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:2px; background:#4f245d; }
+    .photo-frame { position:relative; min-width:0; overflow:hidden; background:#4f245d; }
+    .photo-frame::before { content:""; position:absolute; inset:-18px; background:var(--photo-bg) center/cover no-repeat; filter:blur(18px) brightness(.58) saturate(120%); opacity:.7; }
+    .photo-frame img { position:absolute; z-index:1; inset:0; width:100%; height:100%; object-fit:contain !important; object-position:center; background:transparent !important; }
+    @media (max-width:680px) { .photo-pair { min-height:270px; } }
+    /* Every heart gets its own spacious tap target. */
+    .heart-cloud { display:grid; grid-template-columns:repeat(10,minmax(48px,1fr)); grid-auto-rows:58px; gap:12px; min-height:0; padding:16px; align-content:start; }
+    .little-heart { position:relative !important; left:auto !important; top:auto !important; width:58px; height:58px; justify-self:center; border:1px solid #ffdce983; border-radius:18px; color:#ff9dc7; background:linear-gradient(145deg,#ffffff1c,#ffb9dc14); box-shadow:0 6px 17px #260b3745; font-size:1.65rem; }
+    .little-heart:hover,.little-heart:focus-visible { transform:translateY(-4px) scale(1.07); border-color:#ffe9a9; background:#f77caf49; }
+    .heart-cloud.completed { display:block; min-height:360px; }.heart-cloud.completed .little-heart { position:absolute !important; left:var(--heart-left) !important; top:var(--heart-top) !important; width:28px; height:28px; border:0; border-radius:0; background:transparent; box-shadow:none; }
+    @media (max-width:680px) { .heart-cloud { grid-template-columns:repeat(5,minmax(52px,1fr)); grid-auto-rows:60px; gap:12px; padding:14px 8px; }.little-heart { width:56px; height:56px; font-size:1.6rem; }.heart-cloud.completed { min-height:350px; } }
+    .sky-back-button { cursor:pointer; margin-top:24px; padding:11px 22px; border:1px solid #ffe2aa9a; border-radius:99px; color:#fff3c2; background:#ffffff15; font:700 .92rem "Hind Vadodara",sans-serif; box-shadow:0 0 18px #ff89c14d; }
+    .birthday-back-button { cursor:pointer; margin:15px 0 3px; padding:11px 22px; border:1px solid #ffe2aa9a; border-radius:99px; color:#fff3c2; background:#ffffff15; font:700 .92rem "Hind Vadodara",sans-serif; box-shadow:0 0 18px #ff89c14d; }
+    .birthday-back-button { cursor:pointer; margin:16px 0 0 10px; padding:11px 22px; border:1px solid #ffe2aa9a; border-radius:99px; color:#fff3c2; background:#ffffff15; font:700 .92rem "Hind Vadodara",sans-serif; box-shadow:0 0 18px #ff89c14d; }
+    /* Give Ruhi a royal, queen-like moment beneath the birthday wish. */
+    .hero .birthday-hero .birthday-word + .birthday-word { margin-top:-.35em; }
+    .hero .birthday-hero .birthday-name { position:relative; margin:.12em 0 .22em !important; padding-top:.16em; }
+    .diary-photo-page::before { content:"રૂહી માટે"; }
+    .yamini-crown { position:absolute; left:50%; top:-.15em; color:#ffe89c; font-family:Georgia,serif; font-size:.38em; font-style:normal; line-height:1; text-shadow:0 0 12px #fff0a8,0 0 23px #ffbf52; transform:translateX(-50%); }
+    /* Keep every memory photo whole, with a matching blurred fill behind it. */
+    .memory-card { position:relative; isolation:isolate; background:#4f245d; }
+    .memory-card::before { content:""; position:absolute; z-index:0; inset:-18px; background:var(--memory-bg) center/cover no-repeat; filter:blur(18px) brightness(.72) saturate(125%); }
+    .memory-card img { position:relative; z-index:1; object-fit:contain; background:transparent; }
+    /* Keep every gallery image fully visible at its natural portrait or landscape ratio. */
+    .memory-card img,.favorite-card img { width:100%; height:auto; max-height:420px; object-fit:contain; object-position:center; background:transparent; }
+    .memory-card span { position:relative; z-index:2; background:#4f245c9e; }
+    .memory-card { display:flex; flex-direction:column; min-height:0; }.memory-card img { height:clamp(260px,25vw,360px); max-height:none; object-fit:contain; }.memory-card > :not(img) { position:relative; z-index:2; }.memory-card span { display:grid; flex:1; place-items:center; min-height:88px; padding:12px; line-height:1.55; }
+    /* Favourite photos use the same full-photo, soft-background treatment. */
+    .favorite-card { position:relative; isolation:isolate; display:flex; flex-direction:column; min-height:0; background:#4f245d; }
+    .favorite-card::before { content:""; position:absolute; z-index:0; inset:-18px; background:var(--favorite-bg) center/cover no-repeat; filter:blur(18px) brightness(.72) saturate(125%); }
+    .favorite-card img { position:relative; z-index:1; height:clamp(260px,25vw,360px); max-height:none; object-fit:contain; background:transparent; }
+    .favorite-card > :not(img) { position:relative; z-index:2; display:grid; flex:1; place-items:center; min-height:88px; background:#4f245c9e; line-height:1.55; }
+    /* A longer note can stay gentle and compact until it is opened. */
+    .night-memory-copy,.memory-story-copy { position:relative; z-index:2; padding:20px 18px; color:#fff3f9; text-align:left; background:linear-gradient(145deg,#51245f,#7b3d69); }
+    .night-memory-copy h3,.memory-story-copy h3 { margin:0 0 12px; color:#fff5fb; font:700 1.28rem "Noto Serif Gujarati",serif; }
+    .night-memory-text,.memory-story-text { position:relative; max-height:11.2em; overflow:hidden; font-family:"Noto Serif Gujarati",serif; font-size:.94rem; line-height:1.75; transition:max-height .45s ease; }
+    .night-memory-text::after,.memory-story-text::after { content:""; position:absolute; right:0; bottom:0; left:0; height:3.5em; background:linear-gradient(transparent,#744063); pointer-events:none; }
+    .night-memory-text p,.memory-story-text p { margin:0 0 13px; }.night-memory-text p:last-child,.memory-story-text p:last-child { margin-bottom:0; }
+    .night-memory-copy.expanded .night-memory-text,.memory-story-copy.expanded .memory-story-text { max-height:100em; }.night-memory-copy.expanded .night-memory-text::after,.memory-story-copy.expanded .memory-story-text::after { display:none; }
+    .read-more-button { cursor:pointer; margin-top:15px; padding:9px 14px; border:1px solid #ffe2ef8c; border-radius:999px; color:#fff5c9; background:#ffffff16; font:700 .86rem "Hind Vadodara",sans-serif; transition:transform .2s ease,background .2s ease; }
+    .read-more-button:hover,.read-more-button:focus-visible { transform:translateY(-2px); background:#ffffff29; }
+    /* A personal poem diary: every page is saved in this browser. */
+    .poem-diary { max-width:950px; margin:0 auto; text-align:center; }.diary-cover { position:relative; isolation:isolate; cursor:pointer; display:grid; place-items:center; gap:9px; width:min(310px,82vw); min-height:390px; margin:25px auto; overflow:hidden; border:1px solid #ffe5a9b0; border-radius:16px 29px 29px 16px; color:#fff9f1; background:linear-gradient(#4d18385c,#8b346b59),url("photo%2010.jpg") center/cover; box-shadow:inset 13px 0 #2e15366b,0 20px 37px #21091f80; font:700 1.12rem "Noto Serif Gujarati",serif; transition:transform .35s ease,box-shadow .35s ease; }.diary-cover::before,.diary-cover::after { content:""; position:absolute; z-index:2; top:-12px; width:28px; height:53px; border:5px solid #e9b8c8; border-radius:13px; background:#60304f; box-shadow:inset 0 0 0 2px #ffdced,0 3px 5px #2a0c2a8a; }.diary-cover::before { left:27%; }.diary-cover::after { right:27%; }.diary-cover:hover,.diary-cover:focus-visible { transform:translateY(-7px) rotate(-2deg); box-shadow:inset 13px 0 #2e15366b,0 26px 42px #21091f8e; outline:none; }.diary-cover > span:not(.diary-heart-seal) { position:relative; z-index:2; padding:4px 12px; border-radius:8px; text-shadow:0 2px 7px #340d2c; background:#41132b75; }.diary-icon { font-size:4.6rem; filter:drop-shadow(0 5px 7px #250b2b80); }.diary-heart-seal,.diary-close { display:grid; place-items:center; width:61px; height:55px; color:#fff2be; background:#a22f61; clip-path:path('M30.5 52 C-7 31 4 1 20 5 C27 7 30.5 14 30.5 14 C30.5 14 34 7 41 5 C57 1 68 31 30.5 52Z'); filter:drop-shadow(0 5px 6px #300a2b8c); font:1.45rem Georgia,serif; }.diary-heart-seal { position:relative; z-index:3; margin:8px auto 1px; }.diary-cover small { position:relative; z-index:2; color:#ffe7b1; font:600 .76rem "Hind Vadodara",sans-serif; letter-spacing:.07em; }.poem-diary.open .diary-cover { display:none; }.diary-book { display:grid; grid-template-columns:minmax(0,.93fr) minmax(0,1.07fr); min-height:550px; overflow:hidden; border:1px solid #ffe4ee9b; border-radius:17px; background:#f7e1ea; box-shadow:0 20px 39px #1c092673; text-align:left; transform-origin:left center; animation:diary-open .65s cubic-bezier(.18,.8,.24,1); }.diary-book[hidden] { display:none; }@keyframes diary-open { from { transform:perspective(1000px) rotateY(-17deg) scale(.96); opacity:.2; } }.diary-photo-page { position:relative; display:flex; align-items:flex-end; min-height:100%; padding:31px; color:#fff5f8; background:linear-gradient(0deg,#341128c9,transparent 65%),url("photo%2010.jpg") center/cover; box-shadow:inset -15px 0 21px #38132d48; }.diary-photo-page::before { content:"યામિની માટે"; position:absolute; top:26px; left:0; width:100%; color:#fff3c3; text-align:center; text-shadow:0 2px 8px #310c28; font:1.45rem "Noto Serif Gujarati",serif; }.diary-photo-page p { margin:0; font:1.05rem/1.8 "Noto Serif Gujarati",serif; text-shadow:0 2px 7px #21091f; }.diary-writing-panel { position:relative; display:flex; flex-direction:column; padding:29px; background:linear-gradient(120deg,#fffaf9,#ffeaf3); box-shadow:inset 15px 0 18px #7d45651c; }.diary-close { cursor:pointer; position:absolute; top:16px; right:15px; width:43px; height:39px; padding:0; border:0; font-size:1.1rem; transition:transform .2s ease; }.diary-close:hover { transform:scale(1.12); }.diary-top { display:flex; align-items:center; justify-content:space-between; gap:12px; padding-right:52px; margin-bottom:13px; color:#91456d; }.diary-title { font-family:"Noto Serif Gujarati",serif; font-size:1.25rem; }.diary-page-count { color:#b06b87; font-size:.82rem; }.diary-page { flex:1; width:100%; min-height:330px; padding:24px; border:0; border-radius:8px; outline:0; color:#6d3150; text-align:left; resize:vertical; background:repeating-linear-gradient(to bottom,#fffdfc 0,#fffdfc 33px,#edcddd 34px); box-shadow:0 8px 18px #250b2a25; font:1.05rem/2 "Noto Serif Gujarati",serif; }.diary-page::placeholder { color:#b77a98; opacity:1; }.diary-page.turn { animation:diary-turn .42s ease; }@keyframes diary-turn { 50% { transform:perspective(700px) rotateY(-18deg); opacity:.38; } }.diary-actions { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:17px; }.diary-actions button { cursor:pointer; padding:10px 15px; border:1px solid #d98aaa; border-radius:99px; color:#fff9f4; background:linear-gradient(110deg,#8f3768,#c3578b); font:700 .84rem "Hind Vadodara",sans-serif; }.diary-actions button:hover:not(:disabled) { background:#a74376; transform:translateY(-2px); }.diary-actions button:disabled { cursor:not-allowed; opacity:.42; }.diary-note { margin:14px 0 0; color:#a35b7a; text-align:center; font-size:.78rem; }
+    @media (max-width:680px) { .diary-book { grid-template-columns:1fr; }.diary-photo-page { min-height:285px; }.diary-writing-panel { min-height:470px; padding:22px 16px; }.diary-page { min-height:300px; padding:18px; font-size:.96rem; } }
+    /* Keep the diary cover intimate: Ruhi's photo, and nothing over it. */
+    .diary-cover { background:url("photo%2010.jpg") center/cover; }.diary-cover::before,.diary-cover::after { display:none; }.diary-teaser { max-width:600px; margin:22px auto 0; color:#ffeaf4; font:1.06rem/1.95 "Noto Serif Gujarati",serif; text-align:center; text-shadow:0 2px 10px #290d33a8; }.diary-poem-title { margin:0 0 7px; color:var(--diary-accent,#9c3166); text-align:center; text-shadow:0 2px 10px #efb5ce; font:clamp(2rem,5vw,3.15rem)/1.25 "Noto Serif Gujarati",serif; }.diary-emotion { min-height:1.7em; margin:0 0 11px; color:var(--diary-accent,#ad6084); text-align:center; font:.88rem/1.6 "Noto Serif Gujarati",serif; }.diary-writing-panel { background:linear-gradient(120deg,#fffaf9,var(--diary-wash,#ffeaf3)); }.diary-page { border-top:2px solid var(--diary-accent,#d98aaa); }
+    .diary-photo-page::before { content:"રૂહી માટે"; }
+    /* The opening page is a grand little birthday stage for Ruhi. */
+    #opening { overflow:hidden; background:radial-gradient(circle at 50% 50%,#733c755c,transparent 31%),radial-gradient(circle at 8% 17%,#7c436555,transparent 26%),linear-gradient(125deg,#150919,#32102e 48%,#1a0921); }.open-wrap { position:relative; z-index:2; display:grid; place-items:center; width:min(630px,92vw); min-height:670px; padding:50px 35px; overflow:hidden; border:1px solid #f7d8ed54; border-radius:32px; background:linear-gradient(145deg,#ffffff1e,#f3b9df18); box-shadow:inset 0 0 0 16px #ffffff05,0 28px 70px #0501088c,0 0 45px #d580be37; backdrop-filter:blur(13px); }.open-wrap::before { content:""; position:absolute; inset:15px; border:1px solid #f8dce851; border-radius:25px; pointer-events:none; }.opening-stage-name { position:absolute; z-index:0; left:50%; top:54%; width:150vw; color:#fff6ef; opacity:.18; white-space:nowrap; text-align:center; text-shadow:0 0 27px #ffa3d24d; font:clamp(9rem,23vw,22rem)/.8 "Playfair Display",serif; transform:translate(-50%,-50%) rotate(-7deg); pointer-events:none; }.opening-stage-name::before,.opening-stage-name::after { position:absolute; color:#ff9fca; opacity:.9; font:clamp(2.6rem,6vw,5.3rem) Georgia,serif; }.opening-stage-name::before { content:"♥"; left:7%; top:-.62em; }.opening-stage-name::after { content:"♥"; right:7%; bottom:-.52em; }.opening-content { position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; width:100%; text-align:center; }.opening-avatar { width:142px; aspect-ratio:1; padding:7px; border:7px solid #e996ce; border-radius:50%; object-fit:cover; background:#fff; box-shadow:0 0 0 10px #f1a7d426,0 0 41px #f680c97b; }.opening-kicker { margin:30px 0 8px; color:#ffcee4; font-size:.78rem; font-weight:700; letter-spacing:.2em; }.opening-name { margin:0; color:#fff8ef; text-shadow:0 5px 23px #1e071e9c; font:clamp(4rem,10vw,7rem)/.95 "Great Vibes",cursive; }.opening-subtitle { max-width:395px; margin:26px auto 31px; color:#f9dce9; font:1.06rem/1.8 "Hind Vadodara",sans-serif; }.open-button { min-width:290px; padding:17px 28px; border:1px solid #ffe1f3; border-radius:999px; color:#fff; background:linear-gradient(100deg,#f593bd,#c35ce2); box-shadow:0 12px 25px #a2388c72; font:700 1.05rem "Hind Vadodara",sans-serif; }.open-button:hover { transform:translateY(-4px) scale(1.025); box-shadow:0 17px 31px #a2388c8b; }.opening-spark { position:absolute; color:#ffbadb; font-size:1.65rem; filter:drop-shadow(0 0 8px #ffb0d8); }.opening-spark.one { left:12%; top:18%; }.opening-spark.two { right:12%; top:23%; }.opening-spark.three { right:11%; bottom:12%; }
+    @keyframes birthday-drift { 0%,100% { transform:translate(-50%,-50%) rotate(-7deg) scale(1); } 50% { transform:translate(-50%,-54%) rotate(-5deg) scale(1.04); } } @keyframes infinity-glow { 0%,100% { opacity:.18; transform:translate(-50%,-50%) scale(.92); } 50% { opacity:.45; transform:translate(-50%,-50%) scale(1.08); } } @keyframes floating-love { 0%,100% { transform:translateY(0) rotate(-8deg); opacity:.35; } 50% { transform:translateY(-24px) rotate(8deg); opacity:1; } }
+    @keyframes romantic-background { 0%,100% { transform:scale(1.08) translate3d(-1%,-1%,0); } 50% { transform:scale(1.17) translate3d(1.5%,1%,0); } }
+    #opening { isolation:isolate; background:#230b22; }.open-wrap { z-index:3; }.opening-stage-name,.opening-orbit { z-index:2; }.opening-spark { z-index:4; }#opening::after { content:""; position:absolute; z-index:0; inset:-35px; background:linear-gradient(125deg,#1d092399,#4a163b78 48%,#210a2794),url("photo%201.jpeg") center 38%/cover no-repeat; filter:blur(9px) brightness(.82) saturate(140%); transform:scale(1.08); animation:romantic-background 16s ease-in-out infinite; pointer-events:none; }#opening::before { content:"∞"; position:absolute; z-index:1; left:50%; top:50%; color:#f6a6d63d; font:clamp(20rem,55vw,55rem)/1 Georgia,serif; text-shadow:0 0 55px #fd9edb85; transform:translate(-50%,-50%); animation:infinity-glow 6s ease-in-out infinite; pointer-events:none; }.opening-stage-name { color:#ffddea; opacity:.09; font:clamp(5.5rem,13vw,13rem)/.92 "Playfair Display",serif; letter-spacing:.02em; animation:birthday-drift 12s ease-in-out infinite; }.open-wrap { background:linear-gradient(145deg,#ffffff2a,#5f254d82); }.opening-avatar { background:#fff; }.opening-spark { animation:floating-love 4.5s ease-in-out infinite; }.opening-spark.two { animation-delay:-1.5s; }.opening-spark.three { animation-delay:-3s; }.opening-orbit { position:absolute; width:min(920px,96vw); aspect-ratio:1; border:1px solid #f7a9d633; border-radius:50%; pointer-events:none; animation:infinity-glow 7s ease-in-out infinite reverse; }.opening-orbit::before,.opening-orbit::after { content:""; position:absolute; top:50%; width:48%; height:32%; border:1px solid #f7a9d642; border-radius:50%; transform:translateY(-50%) rotate(-28deg); }.opening-orbit::before { left:4%; }.opening-orbit::after { right:4%; transform:translateY(-50%) rotate(28deg); }
+    @media (max-width:680px) { .open-wrap { min-height:610px; padding:43px 20px; border-radius:25px; }.opening-avatar { width:122px; }.opening-kicker { margin-top:25px; font-size:.66rem; }.opening-subtitle { max-width:315px; margin:22px auto 27px; font-size:.96rem; }.open-button { min-width:245px; padding:15px 22px; }.opening-stage-name { font-size:5.3rem; } }
+    /* Soft moving birthday title behind the opening card. */
+    .opening-stage-name { left:50%; top:52%; width:100%; color:#fff9f1; opacity:.36; white-space:nowrap; font:clamp(4.2rem,10vw,11.5rem)/1 "Playfair Display",serif; letter-spacing:-.045em; text-shadow:0 0 24px rgba(255,232,242,.62),0 0 78px rgba(255,144,190,.38); transform:translate(-50%,-50%); animation:birthday-title-float 8s ease-in-out infinite; }
+    .opening-stage-name::before,.opening-stage-name::after { display:none; }
+    @keyframes birthday-title-float { 0%,100% { transform:translate(-50%,-50%) translate3d(-1.4%,0,0) scale(1); opacity:.31; } 50% { transform:translate(-50%,-50%) translate3d(1.4%,-12px,0) scale(1.035); opacity:.47; } }
+    @media (max-width:680px) { .opening-stage-name { top:50%; font-size:clamp(3.4rem,16vw,6.2rem); white-space:normal; line-height:.95; } }
+    /* The first memory after the surprise is intentionally given centre stage. */
+    .special-memory { position:relative; z-index:2; display:grid; grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr); align-items:center; gap:clamp(25px,5vw,70px); width:min(1120px,calc(100% - 40px)); margin:-34px auto 72px; padding:clamp(16px,2.4vw,28px); border:1px solid rgba(255,224,238,.38); border-radius:28px; color:#fff8f3; background:rgba(46,15,35,.48); box-shadow:0 22px 52px rgba(13,3,11,.46),0 0 42px rgba(244,137,186,.16); backdrop-filter:blur(12px); }
+    .special-memory-photo { position:relative; overflow:hidden; aspect-ratio:940 / 768; border:7px solid rgba(255,238,228,.88); border-radius:19px; background:#181d20; box-shadow:0 14px 29px rgba(0,0,0,.42); transform:rotate(-1.4deg); }
+    .special-memory-photo::before { position:absolute; z-index:0; inset:-24px; background:url("photo%2014.jpeg") center / cover; filter:blur(18px); opacity:.8; content:""; }
+    .special-memory-photo img { position:relative; z-index:1; display:block; width:100%; height:100%; object-fit:contain; object-position:center; transition:transform .7s ease; }
+    .special-memory:hover .special-memory-photo img { transform:scale(1.045); }
+    .special-memory-photo::after { position:absolute; z-index:2; right:17px; bottom:10px; color:#fff8ee; font-size:2rem; text-shadow:0 2px 12px #5a1238; content:"♥"; }
+    .special-memory-copy { padding:12px 16px; text-align:center; }
+    .special-memory-copy small { color:#ffd2e5; font-weight:700; letter-spacing:.18em; }
+    .special-memory-copy h2 { margin:15px 0 12px; color:#fff8ef; font:clamp(2.3rem,5vw,4.6rem)/.98 "Great Vibes",cursive; text-shadow:0 3px 21px rgba(255,130,184,.46); }
+    .special-memory-copy p { margin:0; color:#f9dce7; font:1rem/1.85 "Hind Vadodara",sans-serif; }
+    @media (max-width:720px) { .special-memory { grid-template-columns:1fr; width:min(100% - 28px,560px); margin:-15px auto 48px; }.special-memory-photo { transform:rotate(-.7deg); }.special-memory-copy { padding:6px 10px 12px; } }
+    /* The little AI scanner is a playful, permission-free birthday game. */
+    #beautyScanner { position:fixed; z-index:12; inset:0; display:none; place-items:center; overflow:hidden; padding:24px; color:#fff4fa; text-align:center; isolation:isolate; background:#220a22; }#beautyScanner.show { display:grid; }#beautyScanner::before { content:""; position:absolute; z-index:-2; inset:-30px; background:linear-gradient(125deg,#1d0923a6,#4a163b76 48%,#210a27a0),url("photo%201.jpg") center/cover; filter:blur(9px) saturate(140%); animation:romantic-background 16s ease-in-out infinite; }#beautyScanner::after { content:"∞"; position:absolute; z-index:-1; left:50%; top:50%; color:#f7a7d532; font:clamp(20rem,55vw,55rem)/1 Georgia,serif; text-shadow:0 0 55px #fd9edb85; transform:translate(-50%,-50%); animation:infinity-glow 6s ease-in-out infinite; }.scanner-card { position:relative; width:min(540px,94vw); padding:clamp(26px,5vw,45px); overflow:hidden; border:1px solid #f7d8ed63; border-radius:31px; background:linear-gradient(145deg,#ffffff24,#5f254d8c); box-shadow:inset 0 0 0 13px #ffffff06,0 28px 70px #0501088c,0 0 45px #d580be37; backdrop-filter:blur(13px); }.scanner-card::before { content:""; position:absolute; inset:15px; border:1px solid #f8dce84d; border-radius:23px; pointer-events:none; }.scanner-card > * { position:relative; }.scanner-kicker { margin:0 0 9px; color:#ffcee4; font-size:.72rem; font-weight:700; letter-spacing:.19em; }.scanner-card h2 { color:#fff7fb; font-size:clamp(1.8rem,5vw,2.75rem); }.scanner-copy { max-width:410px; margin:12px auto 22px; color:#f8dce9; line-height:1.75; }.scanner-frame { position:relative; width:min(245px,64vw); aspect-ratio:1; margin:0 auto 21px; overflow:hidden; border:3px solid #f6a8d5; border-radius:27px; background:linear-gradient(#6e2c5d55,#3b153a77),url("photo%2012.jpeg") center/cover; box-shadow:0 0 0 8px #f2a8d325,0 0 34px #f680c97a; }.scanner-frame::before,.scanner-frame::after { content:""; position:absolute; z-index:2; width:39px; height:39px; border-color:#fff0ba; border-style:solid; }.scanner-frame::before { top:11px; left:11px; border-width:3px 0 0 3px; }.scanner-frame::after { right:11px; bottom:11px; border-width:0 3px 3px 0; }.scan-line { position:absolute; z-index:3; left:0; width:100%; height:3px; opacity:0; background:linear-gradient(90deg,transparent,#fff3c1,#ff8fc2,transparent); box-shadow:0 0 17px #fff4b9; }.scanning .scan-line { opacity:1; animation:scan-line 1.25s ease-in-out infinite; }@keyframes scan-line { 0% { top:5%; } 50% { top:94%; } 100% { top:5%; } }.scanner-status { min-height:27px; margin:0 0 13px; color:#ffe9f3; font:600 .95rem "Hind Vadodara",sans-serif; }.scanner-meters { display:none; gap:11px; margin:0 auto 18px; text-align:left; }.scanning .scanner-meters,.scanner-result.show { display:grid; }.scanner-meter { display:grid; grid-template-columns:112px 1fr auto; gap:8px; align-items:center; color:#ffe6f1; font-size:.77rem; }.scanner-meter i { height:8px; overflow:hidden; border-radius:99px; background:#ffffff26; }.scanner-meter i b { display:block; width:0; height:100%; border-radius:inherit; background:linear-gradient(90deg,#ff8db9,#ffcd78); transition:width 1.7s ease; }.scanning .scanner-meter.anger i b { width:99%; }.scanning .scanner-meter.cute i b { width:100%; background:linear-gradient(90deg,#ff9bc7,#fff0a5,#c99aff); }.scanner-result { display:none; margin-top:11px; padding:18px; border:1px solid #ffe7a873; border-radius:16px; color:#fff7e6; background:#ffffff17; font:1.06rem/1.7 "Noto Serif Gujarati",serif; animation:result-pop .55s cubic-bezier(.2,.9,.2,1); }.scanner-result strong { color:#ffe8a4; font-size:1.2em; }@keyframes result-pop { from { transform:scale(.82); opacity:0; } }.scanner-button { cursor:pointer; min-width:240px; padding:14px 24px; border:1px solid #ffe1f3; border-radius:999px; color:#fff; background:linear-gradient(100deg,#f593bd,#c35ce2); box-shadow:0 12px 25px #a2388c72; font:700 1rem "Hind Vadodara",sans-serif; }.scanner-button[hidden] { display:none; }.scanner-button:hover { transform:translateY(-3px); }.scanner-spark { position:absolute; color:#ffbadb; font-size:1.5rem; animation:floating-love 4.5s ease-in-out infinite; }.scanner-spark.one { left:10%; top:18%; }.scanner-spark.two { right:11%; bottom:17%; animation-delay:-2s; }
+    @media (max-width:500px) { .scanner-card { padding:27px 19px; }.scanner-meter { grid-template-columns:94px 1fr auto; font-size:.68rem; }.scanner-frame { width:205px; } }
+    /* Keep photo 1 visibly behind the scanner, softened like a romantic memory. */
+    #beautyScanner { background:#26091c; }.scanner-card { z-index:2; }.scanner-spark { z-index:3; }#beautyScanner::before { z-index:0; background:linear-gradient(125deg,#21091e88,#64213f70 48%,#20091d90),url("photo%201.jpg") center 45%/cover no-repeat; filter:blur(6px) brightness(.78) saturate(135%); transform:scale(1.045); }#beautyScanner::after { z-index:1; }
+    .scanner-photo-background { position:absolute; z-index:0; inset:-14px; background:linear-gradient(90deg,#25091b9c,#60234252 50%,#25091b9c),url("photo%201.jpg") center/cover no-repeat; filter:blur(4px) brightness(.82) saturate(130%); transform:scale(1.03); animation:romantic-background 16s ease-in-out infinite; pointer-events:none; }.scanner-card { z-index:3; }.scanner-spark { z-index:4; }
+    /* Scanner page: photo 1 is the actual full-screen background, not a purple theme. */
+    #beautyScanner { justify-content:flex-start; padding-left:clamp(24px,9vw,170px); background:linear-gradient(90deg,rgba(12,7,5,.58) 0%,rgba(12,7,5,.28) 38%,rgba(12,7,5,.08) 68%,rgba(12,7,5,.18) 100%),url("photo%201.jpeg") center 48%/cover no-repeat; }.scanner-photo-background,#beautyScanner::before,#beautyScanner::after,.scanner-spark { display:none; }.scanner-card { background:rgba(27,17,14,.58); box-shadow:inset 0 0 0 13px rgba(255,255,255,.08),0 28px 70px rgba(0,0,0,.52); backdrop-filter:blur(12px) saturate(115%); }
+    @media (max-width:680px) { #beautyScanner { justify-content:center; padding-left:20px; padding-right:20px; background-position:58% center; }.scanner-card { background:rgba(27,17,14,.67); } }
+    /* Birthday lock: nothing from the surprise can be opened before midnight. */
+    body.gate-locked { overflow:hidden; }
+    #birthdayGate { position:fixed; z-index:1000; inset:0; display:grid; place-items:center; overflow:auto; padding:24px; color:#fff9f4; text-align:center; background:linear-gradient(135deg,rgba(20,5,17,.88),rgba(61,16,43,.71)),url("photo%201.jpeg") center/cover no-repeat; transition:opacity .7s ease,visibility .7s ease; }
+    #birthdayGate::before { content:""; position:absolute; inset:18px; border:1px solid rgba(255,226,239,.35); border-radius:25px; pointer-events:none; }
+    #birthdayGate.is-open { opacity:0; visibility:hidden; pointer-events:none; }
+    .birthday-gate-card { position:relative; width:min(630px,100%); padding:clamp(30px,6vw,58px) clamp(22px,6vw,62px); overflow:hidden; border:1px solid rgba(255,226,239,.55); border-radius:30px; background:rgba(34,9,27,.55); box-shadow:0 24px 70px rgba(0,0,0,.48),inset 0 0 0 12px rgba(255,255,255,.05); backdrop-filter:blur(15px); }
+    .birthday-gate-card::after { content:"✦"; position:absolute; right:8%; top:8%; color:#ffd4a1; font-size:2rem; animation:gate-twinkle 2.2s ease-in-out infinite; }
+    .gate-kicker { margin:0; color:#ffd1e4; font-size:.74rem; font-weight:700; letter-spacing:.2em; }
+    .birthday-gate-card h1 { margin:14px 0 7px; color:#fff9f1; font:clamp(2.7rem,8vw,5.2rem)/1 "Great Vibes",cursive; text-shadow:0 0 25px rgba(255,154,203,.55); }
+    .gate-date { margin:0; color:#ffe3bd; font-size:.98rem; letter-spacing:.06em; }
+    .gate-message { margin:25px auto 19px; color:#f9e0e9; line-height:1.8; }
+    .gate-timer { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:0 auto; }
+    .gate-unit { padding:14px 7px; border:1px solid rgba(255,231,238,.31); border-radius:14px; background:rgba(255,255,255,.09); }
+    .gate-unit b { display:block; color:#fff7ef; font-size:clamp(1.5rem,5vw,2.65rem); line-height:1; font-variant-numeric:tabular-nums; }
+    .gate-unit small { display:block; margin-top:7px; color:#ffd3e4; font-size:.65rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+    .gate-open-button,.gate-preview-button { cursor:pointer; margin-top:28px; padding:15px 27px; border:1px solid #ffe5bd; border-radius:999px; color:#fff; background:linear-gradient(105deg,#df6396,#ba59d2); box-shadow:0 12px 27px rgba(112,27,89,.55); font:700 1rem "Hind Vadodara",sans-serif; }
+    .gate-preview-button { display:block; margin:13px auto 0; border-color:rgba(255,232,190,.48); color:#ffeac8; background:rgba(255,255,255,.1); box-shadow:none; font-size:.78rem; }
+    .gate-open-button:hover,.gate-preview-button:hover { transform:translateY(-3px); }
+    .gate-preview-note { min-height:1.3em; margin:15px 0 0; color:#f8d7e5; font-size:.78rem; }.gate-seconds { cursor:pointer; }.gate-seconds:focus-visible { outline:2px solid #ffe5bd; outline-offset:3px; }.gate-code { max-width:390px; margin:19px auto 0; padding:16px; border:1px solid rgba(255,229,189,.4); border-radius:16px; background:rgba(255,255,255,.08); }.gate-code[hidden] { display:none; }.gate-code label { display:block; margin-bottom:11px; color:#ffe4bd; font-size:.84rem; }.gate-code-row { display:flex; gap:8px; }.gate-code input { min-width:0; flex:1; padding:11px 12px; border:1px solid rgba(255,229,189,.55); border-radius:10px; color:#fff; background:rgba(19,5,17,.38); font:700 1rem "Montserrat",sans-serif; letter-spacing:.18em; text-align:center; }.gate-code button { cursor:pointer; padding:10px 15px; border:1px solid #ffe5bd; border-radius:10px; color:#fff; background:linear-gradient(105deg,#df6396,#ba59d2); font:700 .82rem "Hind Vadodara",sans-serif; }.gate-code-note { min-height:1.3em; margin:10px 0 0; color:#ffd1e4; font-size:.76rem; }
+    @keyframes gate-twinkle { 50% { transform:scale(1.45) rotate(24deg); opacity:.55; } }
+    @media (max-width:440px) { .birthday-gate-card { border-radius:23px; }.gate-timer { gap:6px; }.gate-unit { padding:12px 3px; }.gate-unit small { font-size:.56rem; } }
+  </style>
+
+  <style id="phone-responsive-finish">
+@media (max-width:680px){
+html{-webkit-text-size-adjust:100%}body{min-width:320px}#opening{padding:20px 16px}.open-mark{width:58px;height:58px;font-size:1.4rem}.open-kicker,.mini,.gate-kicker{letter-spacing:.12em}.open-text,.hero p:not(.mini),.heading-copy,.letter p{line-height:1.75}.open-button,.heart-button,.scanner-button,.gate-open-button,.gate-preview-button{min-height:48px;max-width:100%}.hero{min-height:0;padding:42px 18px 40px}.hero p:not(.mini){font-size:1rem}.book{width:calc(100% - 20px);margin-bottom:38px;padding:25px 16px;border-radius:22px}.book::before{inset:8px;border-radius:16px}.chapter{padding:30px 0}.chapter-heading{margin-bottom:22px}.portrait-copy{padding:24px 20px}.portrait-copy h2{font-size:clamp(1.9rem,9vw,2.35rem)}.photo{min-height:230px;padding:16px}.letter{padding:26px 18px;transform:none}.reason,.vow{padding:17px 15px}.final,.forever,.universe{margin-top:30px;padding:30px 16px;border-radius:18px}.whispers,.memory-grid,.favorite-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.whisper{padding:14px 10px;font-size:.92rem}.memory-card,.favorite-card{min-height:0}.memory-card img,.favorite-card img,.empty-photo{height:132px}.memory-card span,.favorite-card span{padding:8px;font-size:.78rem}.video-placeholder{min-height:190px;padding:20px 14px}.poem{padding:24px 16px;font-size:1.02rem;line-height:1.85}.love-meter{gap:8px;font-size:.9rem}.love-meter .line{width:26vw}.starlight{grid-template-columns:repeat(3,1fr);gap:9px;margin-top:22px}.star-button{min-height:76px;font-size:1.45rem}.star-button span{font-size:.63rem}#birthdaySurprise{padding:16px}.birthday-message p{line-height:1.75}#birthdayGate{padding:14px}#birthdayGate::before{inset:9px;border-radius:18px}.birthday-gate-card{padding:27px 16px;border-radius:22px}.gate-message{margin:18px auto 15px;line-height:1.65}.gate-timer{gap:6px}.gate-unit{min-width:0;padding:11px 2px}.gate-unit b{font-size:clamp(1.25rem,8vw,2rem)}.gate-unit small{font-size:.52rem;letter-spacing:.04em}.special-memory{width:calc(100% - 20px);padding:12px;border-radius:20px}.special-memory-photo{border-width:4px}.special-memory-copy h2{font-size:clamp(2.5rem,14vw,3.8rem)}#beautyScanner{padding:14px}.scanner-card{width:100%;padding:25px 15px;border-radius:22px}.scanner-card::before{inset:9px;border-radius:16px}.scanner-button{min-width:0;width:100%}}
+@media (max-width:680px){.video-card{flex-basis:78vw}.video-card video{height:330px}}
+@media (max-width:380px){.whispers,.memory-grid,.favorite-grid{grid-template-columns:1fr}.starlight{grid-template-columns:repeat(2,1fr)}h1{font-size:clamp(2.35rem,13vw,3rem)}.open-title{font-size:clamp(2.2rem,12vw,2.8rem)}}
+@media (max-width:900px), (pointer:coarse){
+  .hero{min-height:0!important;height:auto!important;display:block!important;padding:42px 18px 40px!important}
+}</style>
+  <style>
+    .scanner-frame { background:linear-gradient(#6e2c5d55,#3b153a77),url("photo%2012.jpg") center/cover !important; }
+    #birthdayGate { background:linear-gradient(135deg,rgba(20,5,17,.84),rgba(61,16,43,.66)),url("photo%2013.jpg") center/cover no-repeat; }
+    #beautyScanner { background:linear-gradient(90deg,rgba(12,7,5,.62),rgba(12,7,5,.30) 38%,rgba(12,7,5,.10) 68%,rgba(12,7,5,.22)),url("photo%2013.jpg") center 48%/cover no-repeat; }
+    #opening::after { background:linear-gradient(125deg,#1d092399,#4a163b78 48%,#210a2794),url("photo%2013.jpg") center 38%/cover no-repeat; }
+  </style>
+</head>
+<body class="gate-locked">
+  <section id="birthdayGate" aria-label="Birthday countdown">
+    <div class="birthday-gate-card">
+      <p class="gate-kicker">A LITTLE SURPRISE IS WAITING</p>
+      <h1>Ruhi's Birthday</h1>
+      <p class="gate-date">10 September 2026 · 12:00 AM</p>
+      <p class="gate-message" id="gateMessage">The surprise opens when the birthday begins — or you can enter now. ♥</p>
+      <div class="gate-timer" aria-live="polite">
+        <div class="gate-unit"><b id="gateDays">00</b><small>Days</small></div>
+        <div class="gate-unit"><b id="gateHours">00</b><small>Hours</small></div>
+        <div class="gate-unit"><b id="gateMinutes">00</b><small>Minutes</small></div>
+        <div class="gate-unit gate-seconds" id="gateSecondsTap" role="button" tabindex="0" aria-label="Tap twelve times to reveal the private code"><b id="gateSeconds">00</b><small>Seconds</small></div>
+      </div>
+      <button class="gate-open-button" id="unlockBirthday" type="button">આગળ જાઓ ♥</button>
+      <form class="gate-code" id="gateCode" hidden>
+        <label for="gateCodeInput">એક ખાસ code નાખો ♥</label>
+        <div class="gate-code-row"><input id="gateCodeInput" type="password" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="••••" aria-label="Private access code"><button type="submit">Open</button></div>
+        <p class="gate-code-note" id="gateCodeNote"></p>
+      </form>
+      <p class="gate-preview-note" id="gatePreviewNote"></p>
+    </div>
+  </section>
+  <audio id="openingAudio" preload="auto"><source src="audio%201.mpeg" type="audio/mpeg"></audio>
+  <audio id="scannerAudio" preload="auto"><source src="audio%202.mpeg" type="audio/mpeg"></audio>
+  <audio id="letterVoice" preload="auto"><source src="voice.mpeg" type="audio/mpeg"></audio>
+  <div class="cosmos" aria-hidden="true"></div><i class="shooting-star" aria-hidden="true"></i><i class="shooting-star" aria-hidden="true"></i><i class="shooting-star" aria-hidden="true"></i>
+  <div class="progress-track" aria-hidden="true"><i id="readingProgress"></i></div>
+  <div class="stars"></div>
+  <div class="petals" aria-hidden="true"><span>♥</span><span>✿</span><span>♥</span><span>✦</span><span>♥</span><span>✿</span></div>
+  <section id="opening">
+    <div class="opening-stage-name" aria-hidden="true">Happy Birthday</div><div class="opening-orbit" aria-hidden="true"></div>
+    <div class="open-wrap">
+      <i class="opening-spark one" aria-hidden="true">♥</i><i class="opening-spark two" aria-hidden="true">✦</i><i class="opening-spark three" aria-hidden="true">♥</i>
+      <div class="opening-content">
+        <img class="opening-avatar" src="photo%2012.jpg" alt="રૂહીની સુંદર તસવીર">
+        <p class="opening-kicker">A BIRTHDAY STORY, MADE WITH LOVE</p>
+        <h1 class="opening-name">Ruhi</h1>
+        <p class="opening-subtitle">A little surprise is waiting for the girl who makes every moment beautiful.</p>
+        <button class="open-button" id="openLetter" type="button">Open Your Surprise ♥</button>
+      </div>
+    </div>
+  </section>
+  <section id="beautyScanner" aria-hidden="true">
+    <div class="scanner-photo-background" aria-hidden="true"></div>
+    <i class="scanner-spark one" aria-hidden="true">♥</i><i class="scanner-spark two" aria-hidden="true">✦</i>
+    <div class="scanner-card" id="scannerCard">
+      <p class="scanner-kicker">AI BEAUTY SCANNER • RUHI EDITION</p>
+      <h2>સરપ્રાઈઝ લોક છે! 🔒</h2>
+      <p class="scanner-copy">અનલૉક કરવા માટે ઘરની <strong>‘મહારાણી’</strong>નો ફેસ સ્કેન કરો. 👑</p>
+      <div class="scanner-frame" aria-label="ફન ફેસ સ્કેનર"><i class="scan-line"></i></div>
+      <p class="scanner-status" id="scannerStatus">Scan શરૂ કરવા માટે button દબાવો. ♥</p>
+      <div class="scanner-meters" id="scannerMeters">
+        <div class="scanner-meter anger"><span>Anger Level 😡</span><i><b></b></i><strong>99%</strong></div>
+        <div class="scanner-meter cute"><span>Cuteness 😍</span><i><b></b></i><strong>1000%</strong></div>
+      </div>
+      <div class="scanner-result" id="scannerResult"><strong>Verdict:</strong> દુનિયાની સૌથી ક્યૂટ ગુસ્સાવાળી રાણી!<br><strong>Cutest Angry Queen 👑</strong><br>Access Granted ❤️</div>
+      <button class="scanner-button" id="startScan" type="button">Start Scanning ✦</button>
+      <button class="scanner-button" id="scannerContinue" type="button" hidden>Access Your Surprise ♥</button>
+    </div>
+  </section>
+
+  <main id="story">
+    <section class="special-memory" aria-label="A special memory">
+      <div class="special-memory-photo"><img src="photo%2014.jpeg" alt="A very special memory"></div>
+      <div class="special-memory-copy"><small>A SPECIAL MEMORY</small><h2>One of my favourite memories</h2><p>This beautiful moment deserves its own special place. ♥</p></div>
+    </section>
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="birthday-hero"><span class="birthday-word">Happy</span><span class="birthday-word">Birthday,</span><span class="birthday-name"><i class="yamini-crown" aria-hidden="true">♛</i>Ruhi</span></p>
+        <p class="mini">મારા દિલની સૌથી સુંદર સ્ટોરી</p>
+        <h1>તું આવી ત્યારથી <em>હું અધૂરો નથી રહ્યો.</em></h1>
+        <p>તારી સાથે જીવન જીવવું મારા માટે કોઈ સપનું નથી—એ મારી રોજની સૌથી સુંદર હકીકત છે. તું મારી પ્રેમિકા પણ છે અને મારી જીવનસાથી પણ.</p>
+        <a class="down" href="#કથા" aria-label="આગળ વાંચો">↓</a>
+      </div>
+    </section>
+
+    <article class="book" id="કથા">
+      <section class="chapter">
+        <div class="universe">
+          <p class="chapter-number">OUR LITTLE UNIVERSE</p>
+          <h2>આ દુનિયામાં મારી સૌથી સુંદર જગ્યા — તું.</h2>
+          <p>આ પેજ માત્ર યાદોનો સંગ્રહ નથી; અહીં આપણાં હાસ્ય, નાની નારાજગીઓ, સપનાં અને અનંત પ્રેમ રહે છે.</p>
+          <div class="love-meter"><span>પ્રેમ</span><div class="line"><i></i></div><span>∞</span></div>
+          <p class="infinity-note">કોઈ limit નથી… બસ તું અને હું.</p>
+          <div class="starlight" aria-label="પ્રેમના સરપ્રાઇઝ">
+            <button class="star-button" type="button" data-message="તારી સ્માઇલ મારા દિવસનો સૌથી સુંદર સૂર્યોદય છે.">✦<span>સ્માઇલ</span></button>
+            <button class="star-button" type="button" data-message="તારી સાથેનું સામાન્ય પળ પણ મારા માટે સૌથી ખાસ memory છે.">♥<span>યાદો</span></button>
+            <button class="star-button" type="button" data-message="તારા હાથમાં હાથ હોય, તો દરેક રસ્તો ઘર જેવો લાગે છે.">✦<span>સાથ</span></button>
+            <button class="star-button" type="button" data-message="મારી દરેક આવતીકાલની સૌથી સુંદર કલ્પના તું જ છે.">♥<span>ભવિષ્ય</span></button>
+            <button class="star-button" type="button" data-message="હજાર વાર પસંદગી મળે, તો પણ હું તને જ પસંદ કરું.">∞<span>હંમેશાં</span></button>
+          </div>
+          <p class="star-message" id="starMessage">એક તારો સ્પર્શો… પ્રેમનો નાનો સંદેશ મળશે. ✨</p>
+          <div class="wish-orbit"><p><strong>MAKE A WISH</strong>આપણા માટે મનમાં એક સુંદર ઇચ્છા રાખો.</p><button class="wish-button" id="wishButton" type="button" aria-label="ઇચ્છા મોકલો">✦</button><p class="wish-response" id="wishResponse">ઇચ્છા તારાઓ સુધી પહોંચી ગઈ… અને ત્યાંથી જવાબ આવ્યો: “તમે બંને હંમેશાં સાથે રહો.” ♥</p></div>
+        </div>
+      </section>
+      <section class="chapter">
+        <div class="portrait">
+          <div class="photo"><img src="photo%201.jpg" alt="Our beautiful photo"></div>
+          <div class="portrait-copy"><h2>તું જ મારું સદાય છે.</h2><p>તારી સાથે હોવું એટલે શાંતિ; તારી સ્માઇલ એટલે ખુશી અને તારી બાજુમાં મારું સ્થાન એટલે મારું ઘર.</p></div>
+        </div>
+      </section>
+      <section class="chapter" id="યાદો">
+        <div class="chapter-heading"><p class="chapter-number">OUR MEMORIES</p><h2>આપણી યાદોની તસવીરો</h2></div>
+        <div class="memory-grid">
+          <div class="memory-card" style="--memory-bg:url('photo%2010.jpg')"><img src="photo%2010.jpg" alt="મસ્તીભરી વીડિયો કોલની યાદ"><div class="night-memory-copy" id="nightMemoryCopy"><h3>આપણી એ રાતો… ❤️🌙</h3><div class="night-memory-text" id="nightMemoryText"><p>ક્યારેક આપણે એકબીજાથી દૂર હતા,<br>પણ એ અંતર ક્યારેય આપણને ખરેખર દૂર કરી શક્યું નહોતું…</p><p>તું તારી જગ્યાએ, હું મારી જગ્યાએ,<br>પણ વિડિયો કૉલ ચાલુ રાખીને એકબીજાને જોતા-જોતા સુઈ જવું…<br>એ પણ તો આપણા પ્રેમની એક અલગ જ દુનિયા હતી. ❤️</p><p>ક્યારેક કોઈ વાત નહોતી થતી,<br>ફક્ત કૉલ ચાલુ રહેતો…<br>તું તારી બાજુએ શાંતિથી સૂતી,<br>અને હું મારી બાજુએ તને જોતો-જોતો ઊંઘી જતો…</p><p>એ ક્ષણે અંતર ઘણું હતું,<br>પણ દિલને લાગતું હતું કે<br>તું મારી બાજુમાં જ છે… 🌙❤️</p><p>આજે એ રાતો નથી,<br>એ લાંબા વીડિયો કૉલ નથી,<br>એ રીતે એકબીજાની હાજરી અનુભવવાની પળો નથી…</p><p>પણ એ યાદો આજે પણ દિલમાં એવી જ જીવંત છે.</p><p>કદાચ તું ભૂલી ગઈ હોઈશ,<br>પણ મને આજે પણ યાદ છે—<br>દૂર રહીને પણ તારી સાથે સૂઈ જવાની એ આદત,<br>મારા જીવનની સૌથી સુંદર યાદોમાંની એક છે. ❤️🌙</p><p>કેટલાક સંબંધોમાં અંતર હોય છે…<br>પણ કેટલીક રાતો એવી હોય છે,<br>જ્યાં સ્ક્રીનની બીજી બાજુ રહેલી વ્યક્તિ પણ<br>એકદમ પોતાની બાજુમાં હોય એવું લાગે છે. ❤️</p></div><button class="read-more-button" id="nightMemoryToggle" type="button" aria-expanded="false" aria-controls="nightMemoryText">વધુ વાંચો ↓</button></div></div><div class="memory-card" style="--memory-bg:url('photo%208.jpeg')"><img src="photo%208.jpeg" alt="ડોરેમોન સાથેની ખુશીની યાદ"><div class="memory-story-copy"><h3>૧૩-૦૧-૨૦૨૬… 🪁❤️</h3><div class="memory-story-text" id="uttarayanMemoryText"><p>ઉત્તરાયણના આગલા દિવસે આપણે ઓફિસના ધાબા પર સાથે ગયા હતા.<br>આકાશમાં પતંગો ઉડી રહ્યા હતા અને આપણે પણ એ દિવસને પોતાની રીતે યાદગાર બનાવી રહ્યા હતા. 🪁</p><p>એ દિવસે સાથે પતંગ ચગાવી, ફોટા પડાવ્યા…<br>અને પછી કાજલની જીદના કારણે એ ડોરેમોનનો ફુગ્ગો પણ લાવવો પડ્યો હતો. 😂💙</p><p>એ ડોરેમોન સાથે જ્યારે તારા ફોટા પડાવ્યા,<br>ત્યારે તું અને એ ડોરેમોન ખરેખર એટલા સરખા લાગતા હતા કે એ ક્ષણ આજે પણ યાદ આવે તો હાસ્ય આવી જાય છે. ❤️😂</p><p>પણ એ દિવસમાં માત્ર હાસ્ય જ નહોતું…<br>આપડો એક નાનો ઝઘડો પણ થયો હતો.<br>એ ક્ષણે કદાચ બંનેને ગુસ્સો આવ્યો હશે, મન દુઃખ્યું હશે…<br>પણ આજે પાછળ વળીને જોઉં છું ત્યારે લાગે છે કે એ ઝઘડો પણ આપણી એ યાદનો જ એક ભાગ બની ગયો છે.</p><p>કારણ કે સાચી યાદોમાં માત્ર હસતી ક્ષણો જ નથી હોતી…<br>ક્યારેક નાની નાની નારાજગીઓ પણ હોય છે,<br>પણ એ બધાની વચ્ચે સાથે વિતાવેલો સમય જ સૌથી વધારે કિંમતી હોય છે.</p><p>૧૩-૦૧-૨૦૨૬ —<br>એક ધાબો, બે પતંગ, એક ડોરેમોન,<br>થોડું હાસ્ય, થોડો ઝઘડો…<br>અને આપણી એક એવી યાદ,<br>જે કદાચ સમય સાથે જૂની થશે,<br>પણ મારા દિલમાંથી ક્યારેય નહીં જાય. ❤️🪁</p></div><button class="read-more-button memory-story-toggle" type="button" aria-expanded="false" aria-controls="uttarayanMemoryText">વધુ વાંચો ↓</button></div></div><div class="memory-card" style="--memory-bg:url('photo%209.jpeg')"><img src="photo%209.jpeg" alt="કોફી સાથેની સુંદર યાદ"><div class="memory-story-copy"><h3>૮-૧૨-૨૦૨૫… ❤️</h3><div class="memory-story-text" id="cafeMemoryText"><p>આ દિવસ મારા માટે માત્ર એક તારીખ નથી…<br>આ એ દિવસ છે જ્યારે તું મારી જિંદગીમાં બીજી વાર પાછી આવી હતી.</p><p>અને પછી આપણે સાથે Cafe Coffee Day ગયા હતા… ☕❤️<br>કદાચ એ સમયે આપણને ખબર નહોતી કે આ નાની લાગતી ક્ષણો એક દિવસ કેટલી મોટી યાદ બની જશે.</p><p>આજે પણ જ્યારે આ ફોટો જોઉં છું,<br>ત્યારે એવું લાગે છે કે સમય થોડી ક્ષણો માટે પાછો ફરી ગયો હોય…</p></div><button class="read-more-button memory-story-toggle" type="button" aria-expanded="false" aria-controls="cafeMemoryText">વધુ વાંચો ↓</button></div></div><div class="memory-card" style="--memory-bg:url('photo%204.jpeg')"><img src="photo%204.jpeg" alt="Teddy Day ની પ્રેમાળ યાદ"><div class="memory-story-copy"><h3>૧૦-૦૨-૨૦૨૬… Teddy Day 🧸❤️</h3><div class="memory-story-text" id="teddyMemoryText"><p>આ દિવસે મેં તારા માટે પ્રેમથી એક Teddy લાવ્યો હતો…<br>મારી ઈચ્છા હતી કે એ Teddy તારી પાસે રહે,<br>જ્યારે પણ તું એને જુએ ત્યારે મારી યાદ આવે… ❤️</p><p>પણ એ દિવસે તું એ Teddy લઈ ગઈ નહોતી.<br>એ સમયે કદાચ મન થોડું દુઃખી થયું હતું,<br>પણ મેં એ લાગણીને પણ એક યાદ બનાવીને સાચવી રાખી.</p><p>પછી આવી ૧૭-૦૨-૨૦૨૬ની એ સુંદર ક્ષણ… 🥹❤️</p><p>એ દિવસે જ્યારે તું આખરે એ Teddy લેવા આવી,<br>ત્યારે મેં તને Video Call કર્યો…<br>અને તું Teddy સાથે મને એ રીતે બતાવતી હતી,<br>જાણે એક અઠવાડિયા મોડું થયું હોય છતાં<br>આપણો Teddy Day આખરે સાથે જ ઉજવાઈ ગયો હોય. 🧸❤️</p><p>કદાચ દુનિયા માટે એ માત્ર એક Teddy હતો,<br>પણ મારા માટે એમાં મારી લાગણી હતી…<br>અને તારા હાથમાં એ Teddy જોઈને<br>મને એવું લાગ્યું કે મારી નાની એવી ઈચ્છા આખરે પૂરી થઈ ગઈ.</p><p>૧૦ ફેબ્રુઆરીએ આપેલું એ Teddy,<br>૧૭ ફેબ્રુઆરીએ તારા હાથમાં જોયું…<br>અને એ દિવસે સમજાયું કે<br>ક્યારેક ઉજવણી તારીખે નથી થતી,<br>પણ જે વ્યક્તિ ખાસ હોય એની સાથે થાય ત્યારે<br>દરેક મોડું થયેલું પળ પણ ખાસ બની જાય છે. 🧸❤️🌙</p><p>આપણો Teddy Day કદાચ ૧૦-૦૨ના દિવસે નહોતો ઉજવાયો…<br>પણ ૧૭-૦૨-૨૦૨૬ની એ Video Callમાં<br>એ મારી યાદોમાં હંમેશા માટે જીવતો રહી ગયો. ❤️</p></div><button class="read-more-button memory-story-toggle" type="button" aria-expanded="false" aria-controls="teddyMemoryText">વધુ વાંચો ↓</button></div></div>
+        </div>
+      </section>
+      <section class="chapter">
+        <div class="chapter-heading"><p class="chapter-number">MY FOUR FAVOURITES</p><h2>My Favourite Ruhi Moments</h2></div>
+        <p class="media-note">તમારી ચાર સુંદર યાદો ♥</p>
+        <div class="favorite-grid">
+          <div class="favorite-card"><img src="media/favorites/favorite-01.jpeg" alt="લીલી સાડીમાં સુંદર યાદ"><span>તારા આ લીલા રૂપમાં મને મારું ઘર દેખાય છે—એક એવી જગ્યા, જ્યાં થાકેલું દિલ પણ શાંતિથી તારા નામે ધબકે છે. ♥</span></div><div class="favorite-card"><img src="media/favorites/favorite-02.jpg" alt="ફૂલો સાથેની સુંદર યાદ"><span>ફૂલોની ભીડમાં પણ તું જ સૌથી સુંદર લાગે છે, કારણ કે તારી સ્માઇલમાં મારી દરેક અધૂરી ખુશી પૂર્ણ થઈ જાય છે. ✨</span></div><div class="favorite-card"><img src="media/favorites/favorite-03.jpeg" alt="કાળી સાડીમાં સુંદર યાદ"><span>તું હસે ત્યારે એવું લાગે છે કે મારી બધી પ્રાર્થનાઓને તારો ચહેરો મળી ગયો છે; તારી આ એક સ્માઇલ મારા અંદરના બધા થાક, બધા ડર અને બધી અધૂરી વાતોને શાંતિથી ભીંજવી દે છે. તું ફક્ત મારી જિંદગીનો સુંદર જવાબ નથી—તું એ લાગણી છે, જેને ગુમાવવાનો વિચાર પણ દિલને ચૂપચાપ રડાવી દે છે. ♥</span></div><div class="favorite-card"><img src="media/favorites/favorite-04.jpeg" alt="લાલ સાડીમાં સુંદર યાદ"><span>તારા આ રૂપને જોઈને દિલ એક જ વાત કહે છે—જો પ્રેમને કોઈ ચહેરો મળ્યો હોત, તો એ ચહેરો ફક્ત તારો જ હોત. 🌸</span></div>
+        </div>
+      </section>
+      <section class="chapter video-memories" id="videos">
+        <div class="chapter-heading"><p class="chapter-number">OUR VIDEO MEMORIES</p><h2>આપણી વિડિયો યાદો</h2></div>
+        <p class="video-strip-hint">આપણી બધી પળો, એક સુંદર ફિલ્મમાં ગૂંથાયેલી છે ♥</p>
+        <div class="video-slot video-movie">
+          <video controls playsinline preload="metadata" aria-label="અમારી પ્રેમકહાનીની વિડિયો ફિલ્મ">
+            <source src="video/our-love-story.mp4" type="video/mp4">
+            તમારું browser આ વિડિયો ચલાવી શકતું નથી.
+          </video>
+        </div>
+      </section>
+      <section class="chapter">
+        <div class="chapter-heading"><p class="chapter-number">SECRET LETTER 💌</p><h2>રૂહી માટે મારા દિલની વાત</h2></div>
+        <div class="secret-letter-card">
+          <p>આ envelope પર click કર—અંદર એક વાત છે, જે હું તને દિલથી કહેવા માગું છું.</p>
+          <div class="envelope-stage" id="secretLetterStage">
+            <button class="secret-envelope" id="secretLetterOpen" type="button" aria-expanded="false" aria-controls="secretLetterPaper">
+              <span class="envelope-side left"></span><span class="envelope-side right"></span><span class="envelope-seal">♥</span><span class="envelope-hint">ખોલવા માટે click કરો</span>
+            </button>
+            <article class="letter-paper" id="secretLetterPaper">
+              <p>મારી રૂહી,</p>
+              <p>ક્યારેક રાતે બધું શાંત થઈ જાય ત્યારે મારી સામે એક જ વાત આવે છે—તું. તારી સ્માઇલ, તારી નાની નાની વાતો, તારો ગુસ્સો અને તારી સાથે પસાર થયેલી દરેક ક્ષણ… એ બધું મારા દિલમાં એટલું પોતાનું બની ગયું છે કે તારા વગરનું આવતીકાલ કલ્પવું પણ અધૂરું લાગે છે.</p>
+              <p>મને ખબર છે કે આપણા ઝઘડાઓએ ક્યારેક તને દુઃખ આપ્યું હશે. ક્યારેક મારી વાતો તારા દિલ સુધી પહોંચતા પહેલાં જ તને ચુભી ગઈ હશે, અને ક્યારેક મારા egoએ મને તને સમજાવતાં રોકી દીધો હશે. એ માટે મને સાચે જ દુઃખ છે. કારણ કે રૂહી, તારા આંસુ કરતાં મારી કોઈ વાત મોટી નથી; તારી શાંતિ કરતાં મારો કોઈ અહંકાર મોટો નથી.</p>
+              <p>મારે તારી સાથે કોણ સાચું કે કોણ ખોટું એ સાબિત નથી કરવું. મારે તો દરેક નારાજગી પછી તારી પાસે આવીને એટલું જ કહેવું છે કે, “ચાલ, ફરીથી વાત કરીએ; હું હજી પણ તારો જ છું.” આપણા ઝઘડા કદાચ થોડા સમય માટે આપણને દૂર કરે, પણ મારું દિલ દરેક વખતે ફરી તારી પાસે જ પાછું આવે છે.</p>
+              <p>તું માત્ર મારા જીવનનો એક સુંદર ભાગ નથી, રૂહી—તું એ જગ્યા છે જ્યાં મારું થાકેલું દિલ આરામ અનુભવે છે. તારો હાથ હાથમાં હોય ત્યારે મને લાગે છે કે હું દુનિયાની દરેક મુશ્કેલી સામે ઊભો રહી શકું છું. તારી સાથે હું perfect બનવા નથી માગતો; હું બસ સારો માણસ બનીને તને વધુ પ્રેમ કરવા માગું છું.</p>
+              <p>જો ક્યારેક હું ભૂલી જાઉં, તો મને પ્રેમથી યાદ કરાવજે કે તું અને હું એક જ team છીએ. કારણ કે મારા માટે આપણો પ્રેમ દરેક ઝઘડા, દરેક અહંકાર અને દરેક નારાજગી કરતાં ઘણો મોટો છે. રૂહી, ભલે દુનિયા સામે હું મજબૂત રહું, પણ તું દૂર હોય ત્યારે મારું દિલ અધૂરું લાગે છે. મારી એક જ ઇચ્છા છે—દરેક જન્મમાં, દરેક મુશ્કેલીમાં અને દરેક ખુશીમાં, તારો હાથ મારા હાથમાં રહે… કારણ કે મારું ઘર, મારી શાંતિ અને મારું સૌથી સાચું પ્રેમ—તું જ છે. ♥</p>
+              <p class="letter-sign">હંમેશા તારો જ,<br>ચિરાગ</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="chapter">
+        <div class="chapter-heading"><p class="chapter-number">MY POETRY DIARY</p><h2>મારી કવિતાની ડાયરી</h2><p class="heading-copy">ડાયરી ખોલો, પાનું ફેરવો અને તમારા દિલની કવિતા લખો. ✍️</p></div>
+        <div class="poem-diary" id="poemDiary">
+          <button class="diary-cover" id="diaryOpen" type="button" aria-label="રૂહીની કવિતાની ડાયરી ખોલો" aria-expanded="false" aria-controls="diaryBook"></button>
+          <p class="diary-teaser">આ ડાયરી ખોલતા પહેલાં બસ એટલું યાદ રાખજે, રૂહી—આ પાનાંઓમાં માત્ર શબ્દો નથી; એ બધી લાગણીઓ છે જે હું તારી સામે ઊભો રહું ત્યારે ક્યારેય પૂરી કહી શકતો નથી. જો કોઈ પાને તારી આંખ ભીની થઈ જાય, તો સમજી લેજે કે એ દરેક શબ્દમાં મારું દિલ ધબકે છે… કારણ કે તું મારી એક યાદ નથી, તું મારી આખી દુનિયા છે. ♥</p>
+          <div class="diary-book" id="diaryBook" hidden>
+            <div class="diary-photo-page"><p>તારા નામે લખાયેલા દરેક શબ્દમાં,<br>મારા દિલનો એક નાનો ટુકડો રહે છે. ♥</p></div>
+            <div class="diary-writing-panel"><button class="diary-close" id="diaryClose" type="button" aria-label="ડાયરી બંધ કરો">♥</button><div class="diary-top"><span class="diary-title">મારા શબ્દો ♥</span><span class="diary-page-count" id="diaryPageCount">પાનું ૧</span></div><h3 class="diary-poem-title" id="diaryPoemTitle">મને ગમશે</h3><p class="diary-emotion" id="diaryEmotion"></p><textarea class="diary-page" id="diaryPage" aria-label="અહીં તમારી કવિતા લખો" placeholder="અહીંથી તમારી કવિતા શરૂ કરો…"></textarea><div class="diary-actions"><button id="diaryPrevious" type="button">← પાછલું પાનું</button><button id="diaryNext" type="button">આગળનું પાનું →</button></div><p class="diary-note">લખાણ આપમેળે સાચવાય છે — કોઈ પાનું કાઢવામાં આવશે નહીં. ♥</p></div>
+          </div>
+        </div>
+      </section>
+      <section class="chapter">
+        <div class="chapter-heading"><p class="chapter-number">મારી નજરે તું</p><h2>તું કેમ અનમોલ છે?</h2></div>
+        <div class="reasons">
+          <div class="reason"><div class="icon">😊</div><h3>તારી સ્માઇલ</h3><p>મારા મનમાં સો ચિંતા હોય તોય તારી સ્માઇલ બધું હળવું કરી દે છે.</p></div>
+          <div class="reason"><div class="icon">🫶</div><h3>તારો સાથ</h3><p>તારી બાજુમાં હોઉં ત્યારે દુનિયા સાથે લડવાની હિંમત આવી જાય છે.</p></div>
+          <div class="reason"><div class="icon">✨</div><h3>તું જેવી છે એવી</h3><p>કોઈ બદલાવ નહીં—બસ તું જેવી છે એવી જ મને હંમેશા ગમે છે.</p></div>
+        </div>
+      </section>
+      <section class="chapter">
+        <div class="one-person">
+          <div class="chapter-heading"><p class="chapter-number">100 REASONS — BUT ONE PERSON</p><h2>રૂહી માટે મારા 100 કારણો ♥</h2></div>
+          <p class="heart-shayari">ખોલ્યું મારા જૂના ઘરનું કબાટ<br>જ્યાં તારી યાદો જોઈ રહી હતી મારી વાટ<br>યાદ આવ્યા મને એ દિવસ ને રાત<br>જ્યારે કાગળ પર થતી હતી તારા મારા પ્રેમની વાત</p>
+          <button class="heart-launch" id="heartLaunch" type="button" aria-expanded="false" aria-controls="heartGame"><span class="heart-icon" aria-hidden="true">♥</span><span class="heart-label">100 પ્રેમભર્યા<br>કારણો<small>દિલ ખોલવા માટે click કરો</small></span></button>
+          <div class="heart-game" id="heartGame" hidden>
+            <p class="one-person-copy">દરેક નાનકડા heart પર click કરો. દરેક heartમાં તારા માટે મારા દિલનું એક ખાસ કારણ છુપાયેલું છે.</p>
+            <p class="heart-magic-note">ખાસ <strong>100 નંબરના heart</strong> પર click કરો — તમને જાદુ જોવા મળશે ✨</p>
+            <p class="heart-status" id="heartStatus">એક heart પસંદ કરો ♥</p>
+            <div class="heart-cloud" id="heartCloud" aria-label="રૂહી માટે 100 પ્રેમભર્યા કારણો">
+              <div class="yamini-formed">RUHI ♥</div>
+            </div>
+            <p class="heart-reason" id="heartReason"><strong>એક heart પસંદ કરો:</strong> પછી અહીં તારા માટેનું એક સુંદર કારણ દેખાશે.</p>
+            <button class="heart-back" id="heartBack" type="button">← પાછા જાઓ</button>
+          </div>
+        </div>
+      </section>
+      <section class="chapter">
+        <div class="chapter-heading"><p class="chapter-number">આપણું આવતીકાલ</p><h2><span class="birthday-red-heart">♥</span> જન્મદિવસ મુબારક મારી રૂહી <span class="birthday-red-heart">♥</span></h2></div>
+        <div class="poem"><p><strong>જન્મદિવસ મુબારક, રૂહી… ❤️</strong><br><br>આપણી વચ્ચે ઘણી વાર શબ્દો તૂટી જાય છે,<br>નાની વાતોમાં મોટા ઝઘડા થઈ જાય છે…<br>ક્યારેક તું દૂર થઈ જાય છે,<br>ક્યારેક હું પણ અહંકારમાં ચૂપ થઈ જાઉં છું,<br>પણ સાચું કહું રૂહી…<br>તું દૂર જાય ત્યારે જ સમજાય છે,<br>કે મારા દિલની સૌથી નજીક તો તું જ છે.<br><br>મને ખબર છે,<br>મારી વાતોથી તને ઘણી વાર દુઃખ થયું હશે,<br>મારી ભૂલોથી તારી આંખો ભીની થઈ હશે…<br>કદાચ મેં પ્રેમ કરતાં વધારે<br>મારો ગુસ્સો બતાવ્યો હશે,<br>પણ મારા ગુસ્સાની પાછળ પણ<br>એક ડર છુપાયેલો હતો—<br>તને ગુમાવી દેવાનો ડર.<br><br>આજે તારો જન્મદિવસ છે,<br>એટલે આજે કોઈ ફરિયાદ નથી,<br>કોઈ જૂનો ઝઘડો નથી,<br>કોઈ “કોણ સાચું, કોણ ખોટું” નથી…<br>આજે બસ એટલું જ કહેવું છે—<br><br><strong>રૂહી,</strong><br>જો ફરીથી જન્મ મળે ને,<br>તો ફરીથી તને જ પસંદ કરીશ…<br>ભલે ફરી ઝઘડા થાય,<br>ભલે ફરી આંખોમાં આંસુ આવે,<br>પણ અંતે હાથ તારો જ પકડીશ.<br><br>મને ખબર નથી આવતી કાલે<br>આપણી વચ્ચે શું લખાયેલું છે,<br>પણ આજે મારા દિલની એક જ પ્રાર્થના છે—<br>તારા ચહેરા પર હંમેશાં સ્મિત રહે,<br>તારી આંખોમાં ક્યારેય દુઃખ ન રહે,<br>અને જો મારા કારણે ક્યારેય તારી આંખ ભીની થઈ હોય,<br>તો આજે મારા પ્રેમથી એ આંસુ સુકાઈ જાય.<br><br><strong>જન્મદિવસ મુબારક મારી રૂહી… ❤️</strong><br><br>આપણા ઝઘડા કદાચ ઘણા છે,<br>પણ તારા માટેનો મારો પ્રેમ<br>એ બધાથી ઘણો મોટો છે.<br><br>અને હા…<br>આજે તારી પાસે કંઈ માંગવું નથી,<br>બસ એક નાની આશા છે—<br>ક્યારેક આપણા બધા ઝઘડાઓની પાછળ છુપાયેલો<br>આ પ્રેમ પણ જોઈ લેજે…<br>કારણ કે હું તારી સાથે લડવા નથી માંગતો,<br>હું તો આખી જિંદગી તારી સાથે જીવવા માંગું છું. ❤️</p><small>— ફક્ત તારા માટે</small></div>
+      </section>
+      <section class="chapter">
+        <div class="chapter-heading"><p class="chapter-number">આપણે માટે</p><h2>મારા ચાર વચન</h2></div>
+        <div class="vows">
+          <div class="vow"><b>૧</b><div><strong>હસાવવાનું વચન</strong><span>તારા હોઠ પર સ્માઇલ લાવવાની કોશિશ હંમેશા કરીશ.</span></div></div>
+          <div class="vow"><b>૨</b><div><strong>સાથ આપવાનું વચન</strong><span>સારા કે ખરાબ દરેક સમયે તારો હાથ પકડીશ.</span></div></div>
+          <div class="vow"><b>૩</b><div><strong>સમજવાનું વચન</strong><span>તારી વાત સાંભળવી અને તારી લાગણી સમજવી મારી જવાબદારી છે.</span></div></div>
+          <div class="vow"><b>૪</b><div><strong>પ્રેમ કરવાનું વચન</strong><span>આજ કરતાં પણ વધારે પ્રેમ દરરોજ કરીશ.</span></div></div>
+        </div>
+      </section>
+      <section class="chapter">
+        <div class="forever">
+          <p class="chapter-number">મારી હંમેશાની પસંદગી</p>
+          <h2>તું અને હું — અનંત સુધી.</h2>
+          <p class="forever-intro">પ્રેમ માત્ર મોટી વાતોમાં નથી હોતો. એ તારી ખબર પૂછવામાં, તારી સાથે ચૂપચાપ બેસવામાં અને દરરોજ ફરીથી તને પસંદ કરવામાં હોય છે.</p>
+          <div class="whispers">
+            <div class="whisper"><span>મારા દિલની વાત</span>તારી આંખોમાં હું મારું આખું આવતીકાલ જોઉં છું.</div>
+            <div class="whisper"><span>મારી પસંદગી</span>હજાર વાર પૂછે તો પણ મારી પસંદગી તું જ રહેશે.</div>
+            <div class="whisper"><span>મારું ઘર</span>દુનિયા ગમે ત્યાં હોય, તારી બાજુમાં જ મારું ઘર છે.</div>
+          </div>
+        </div>
+      </section>
+      <section class="final" id="અંત">
+        <p class="chapter-number">એક છેલ્લી વાત</p>
+        <h2>હું તને ખૂબ પ્રેમ કરું છું.</h2>
+        <p>તું મારા દરેક સપનામાં, દરેક પ્રાર્થનામાં અને દરેક ખુશીમાં છે. તું મારી જિંદગીમાં આવી—એ જ મારી સાથે થયેલો સૌથી સુંદર ચમત્કાર છે.</p>
+        <button class="heart-button" id="finalButton" type="button">એક નાનું સરપ્રાઈઝ ♥</button>
+        <div class="secret" id="secret">મારા માટે “હંમેશા” શબ્દનો અર્થ હવે માત્ર એક જ છે—તું અને હું, સાથે. ✨</div>
+      </section>
+    </article>
+    <footer>ઘણા બધા પ્રેમ સાથે, માત્ર તારા માટે ♥</footer>
+  </main>
+  <audio id="backgroundPlaylist" preload="auto"></audio>
+  <button class="hero-music-toggle" id="soundToggle" type="button" aria-label="અમારું ગીત ચાલુ કરો">♪ Play Our Song</button>
+  <div id="birthdaySurprise" aria-hidden="true">
+    <div class="surprise-glow"></div>
+    <div class="countdown" id="countdown">3</div>
+    <div class="birthday-message" id="birthdayMessage">
+      <p class="birthday-kicker">FOR THE GIRL WHO FEELS LIKE HOME</p>
+      <h2>HAPPY BIRTHDAY<br><span>રૂહી</span> ❤️</h2>
+      <p>આ website તારી birthday gift નથી…<br>આ તો મારા દિલનો એક નાનો ભાગ છે, જે મેં ફક્ત તારા માટે સાચવી રાખ્યો હતો.<br><br>તું મારી જિંદગીમાં આવી ત્યારથી, સામાન્ય દિવસોમાં પણ ખાસ બનવાનું કારણ મળી ગયું છે. તારી ખુશી મારા માટે પ્રાર્થના છે, અને તારી સાથેની દરેક ક્ષણ મારી સૌથી કિંમતી યાદ છે.</p>
+      <p class="final-love">હંમેશાં હસતી રહેજે, મારી રૂહી.<br>મારા પ્રેમમાં તારા માટે જગ્યા નહીં—મારું આખું દિલ જ છે. 🎂</p>
+      <p class="surprise-note">મારા માટે “હંમેશા” શબ્દનો અર્થ હવે માત્ર એક જ છે—તું અને હું, સાથે. ✨</p>
+      <button class="sky-final-button" id="showNightSky" type="button">આકાશમાં એક છેલ્લી વાત જુઓ ♥</button>
+      <button class="birthday-back-button" id="closeBirthdaySurprise" type="button">પાછા જાઓ ♥</button>
+    </div>
+    <div class="night-sky-final" id="nightSkyFinal" aria-hidden="true">
+      <div class="sky-final-copy"><h2>Happy Birthday, Ruhi ♥</h2><p>તું મારી જિંદગીના સૌથી સુંદર અધ્યાયોમાંથી એક બની એ માટે આભાર.</p><p>જીવન આપણને જ્યાં પણ લઈ જાય, આપણી સાથે બનાવેલી દરેક યાદ માટે હું હંમેશા આભારી રહીશ.</p><p class="sky-last-line"><strong>આપણા માટે હજી રાહ જોઈ રહેલા દરેક સુંદર અધ્યાય માટે. ♥</strong></p><button class="sky-back-button" id="closeNightSky" type="button">પાછા જાઓ ♥</button></div>
+    </div>
+  </div>
+  <script>
+    document.documentElement.classList.add('js');
+
+    // Ruhi's birthday begins at local midnight on 10 September 2026.
+    const birthdayStartsAt = new Date(2026, 8, 10, 0, 0, 0);
+    const birthdayGate = document.querySelector('#birthdayGate');
+    const openingAudio = document.querySelector('#openingAudio');
+    const scannerAudio = document.querySelector('#scannerAudio');
+    const gateMessage = document.querySelector('#gateMessage');
+    const gateTimer = document.querySelector('.gate-timer');
+    const unlockBirthday = document.querySelector('#unlockBirthday');
+    const gatePreviewNote = document.querySelector('#gatePreviewNote');
+    const gateSecondsTap = document.querySelector('#gateSecondsTap');
+    const gateCode = document.querySelector('#gateCode');
+    const gateCodeInput = document.querySelector('#gateCodeInput');
+    const gateCodeNote = document.querySelector('#gateCodeNote');
+    const gateValues = {
+      days: document.querySelector('#gateDays'),
+      hours: document.querySelector('#gateHours'),
+      minutes: document.querySelector('#gateMinutes'),
+      seconds: document.querySelector('#gateSeconds')
+    };
+    const privateGateCode = '1048';
+    const tapsToRevealCode = 12;
+    let gateTapCount = 0;
+    let birthdayCountdown;
+    let introAudioSequenceActive = false;
+    const playIntroAudio = (audio) => {
+      if (!introAudioSequenceActive || !audio) return;
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+    };
+    const startIntroAudioSequence = () => {
+      if (introAudioSequenceActive) return;
+      introAudioSequenceActive = true;
+      playIntroAudio(openingAudio);
+    };
+    const stopIntroAudioSequence = () => {
+      introAudioSequenceActive = false;
+      [openingAudio, scannerAudio].forEach((audio) => {
+        if (!audio) return;
+        audio.pause();
+        audio.currentTime = 0;
+      });
+    };
+    openingAudio?.addEventListener('ended', () => playIntroAudio(scannerAudio));
+    scannerAudio?.addEventListener('ended', () => playIntroAudio(openingAudio));
+    birthdayGate?.addEventListener('pointerdown', startIntroAudioSequence, { once:true });
+    birthdayGate?.addEventListener('keydown', startIntroAudioSequence, { once:true });
+
+    const openBirthdaySite = () => {
+      clearInterval(birthdayCountdown);
+      birthdayGate?.classList.add('is-open');
+      document.body.classList.remove('gate-locked');
+      window.scrollTo(0, 0);
+      startIntroAudioSequence();
+    };
+    const showGateCode = () => {
+      if (!gateCode) return;
+      gateCode.hidden = false;
+      gatePreviewNote.textContent = 'Private access unlocked. હવે code નાખો ♥';
+      gateCodeInput?.focus();
+    };
+    const revealCodeAfterTap = () => {
+      if (!gateCode?.hidden) return;
+      gateTapCount += 1;
+      const tapsLeft = tapsToRevealCode - gateTapCount;
+      if (tapsLeft > 0) {
+        gatePreviewNote.textContent = `${tapsLeft} વધુ taps પછી એક secret ખુલશે…`;
+      } else {
+        showGateCode();
+      }
+    };
+    const renderBirthdayCountdown = () => {
+      const remaining = Math.max(0, birthdayStartsAt.getTime() - Date.now());
+      const days = Math.floor(remaining / 86400000);
+      const hours = Math.floor((remaining % 86400000) / 3600000);
+      const minutes = Math.floor((remaining % 3600000) / 60000);
+      const seconds = Math.floor((remaining % 60000) / 1000);
+      gateValues.days.textContent = String(days).padStart(2, '0');
+      gateValues.hours.textContent = String(hours).padStart(2, '0');
+      gateValues.minutes.textContent = String(minutes).padStart(2, '0');
+      gateValues.seconds.textContent = String(seconds).padStart(2, '0');
+      if (remaining === 0) clearInterval(birthdayCountdown);
+    };
+    renderBirthdayCountdown();
+    if (Date.now() < birthdayStartsAt.getTime()) birthdayCountdown = setInterval(renderBirthdayCountdown, 1000);
+    unlockBirthday?.addEventListener('click', () => {
+      gatePreviewNote.textContent = 'Seconds પર 12 વાર tap કરો, પછી password નાખો ♥';
+    });
+    gateSecondsTap?.addEventListener('click', revealCodeAfterTap);
+    gateSecondsTap?.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); revealCodeAfterTap(); }
+    });
+    gateCode?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (gateCodeInput?.value === privateGateCode) openBirthdaySite();
+      else {
+        gateCodeNote.textContent = 'Code સાચો નથી. ફરી try કરો ♥';
+        gateCodeInput?.select();
+      }
+    });
+
+    const progress = document.querySelector('#readingProgress');
+    const updateReadingProgress = () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = `${total > 0 ? (window.scrollY / total) * 100 : 0}%`;
+    };
+    window.addEventListener('scroll', updateReadingProgress, { passive: true });
+    updateReadingProgress();
+
+    const chapters = document.querySelectorAll('.chapter');
+    chapters.forEach((chapter) => chapter.classList.add('reveal-ready'));
+    const chapterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          chapterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .12 });
+    chapters.forEach((chapter) => chapterObserver.observe(chapter));
+
+    const wishButton = document.querySelector('#wishButton');
+    const wishResponse = document.querySelector('#wishResponse');
+    wishButton.addEventListener('click', () => {
+      wishResponse.classList.add('show');
+      wishButton.textContent = '♥';
+      for (let i = 0; i < 11; i += 1) {
+        const star = document.createElement('span');
+        star.className = 'burst-heart';
+        star.textContent = i % 2 ? '✦' : '♥';
+        star.style.left = `${45 + Math.random() * 10}%`;
+        star.style.top = `${Math.max(10, wishButton.getBoundingClientRect().top - 20)}px`;
+        star.style.setProperty('--x', `${(Math.random() - .5) * 210}px`);
+        star.style.setProperty('--y', `${-30 - Math.random() * 175}px`);
+        document.body.appendChild(star);
+        setTimeout(() => star.remove(), 1900);
+      }
+    });
+
+    const backgroundPlaylist = document.querySelector('#backgroundPlaylist');
+    const soundToggle = document.querySelector('#soundToggle');
+    const playlistTracks = ['song 1.mpeg'];
+    let currentSong = 0;
+    const updateSongButton = (playing) => {
+      if (!soundToggle) return;
+      soundToggle.textContent = playing ? '♪ Pause Our Song' : '♪ Play Our Song';
+      soundToggle.setAttribute('aria-label', playing ? 'અમારું ગીત બંધ કરો' : 'અમારું ગીત ચાલુ કરો');
+    };
+    const playPlaylist = (songIndex = currentSong) => {
+      if (!backgroundPlaylist) return;
+      currentSong = songIndex;
+      const songPath = encodeURI(playlistTracks[currentSong]);
+      if (!backgroundPlaylist.src.endsWith(songPath)) backgroundPlaylist.src = songPath;
+      backgroundPlaylist.play().then(() => updateSongButton(true)).catch(() => updateSongButton(false));
+    };
+    const stopPlaylist = () => {
+      if (!backgroundPlaylist) return;
+      backgroundPlaylist.pause();
+      updateSongButton(false);
+    };
+    backgroundPlaylist?.addEventListener('ended', () => {
+      // Repeat Song 1 when it ends.
+      playPlaylist((currentSong + 1) % playlistTracks.length);
+    });
+    soundToggle?.addEventListener('click', function () {
+      if (backgroundPlaylist?.paused) playPlaylist(currentSong);
+      else stopPlaylist();
+    });
+    document.querySelectorAll('.video-slot video').forEach((video) => {
+      let resumePlaylistAfterVideo = false;
+      video.addEventListener('play', () => {
+        resumePlaylistAfterVideo = Boolean(backgroundPlaylist && !backgroundPlaylist.paused);
+        if (resumePlaylistAfterVideo) stopPlaylist();
+      });
+      video.addEventListener('pause', () => {
+        if (!resumePlaylistAfterVideo) return;
+        resumePlaylistAfterVideo = false;
+        playPlaylist(currentSong);
+      });
+    });
+
+    // A light touch of romance follows deliberate taps/clicks, not every mouse move.
+    let lastLoveTrail = 0;
+    document.addEventListener('pointermove', (event) => {
+      if (event.pointerType === 'touch' || event.buttons || performance.now() - lastLoveTrail < 155) return;
+      lastLoveTrail = performance.now();
+      const heart = document.createElement('i');
+      heart.className = 'love-trail';
+      heart.textContent = Math.random() > .42 ? '♥' : '✦';
+      heart.style.left = `${event.clientX}px`;
+      heart.style.top = `${event.clientY}px`;
+      heart.style.setProperty('--drift', `${(Math.random() - .5) * 28}px`);
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 850);
+    }, { passive: true });
+
+    document.querySelectorAll('.star-button,.yamini-letter,.reason,.memory-card,.favorite-card').forEach((item) => {
+      item.addEventListener('click', (event) => {
+        const rect = item.getBoundingClientRect();
+        for (let i = 0; i < 6; i += 1) {
+          const sparkle = document.createElement('i');
+          sparkle.className = 'sparkle'; sparkle.textContent = i % 2 ? '✦' : '♥';
+          sparkle.style.left = `${rect.left + Math.random() * rect.width}px`;
+          sparkle.style.top = `${rect.top + Math.random() * rect.height}px`;
+          document.body.appendChild(sparkle);
+          setTimeout(() => sparkle.remove(), 3000);
+        }
+      });
+    });
+
+    const nightMemoryCopy = document.querySelector('#nightMemoryCopy');
+    const nightMemoryToggle = document.querySelector('#nightMemoryToggle');
+    nightMemoryToggle?.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const isExpanded = nightMemoryCopy.classList.toggle('expanded');
+      nightMemoryToggle.setAttribute('aria-expanded', String(isExpanded));
+      nightMemoryToggle.textContent = isExpanded ? 'ટૂંકું વાંચો ↑' : 'વધુ વાંચો ↓';
+    });
+    document.querySelectorAll('.memory-story-toggle').forEach((toggle) => {
+      toggle.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const copy = toggle.closest('.memory-story-copy');
+        const isExpanded = copy.classList.toggle('expanded');
+        toggle.setAttribute('aria-expanded', String(isExpanded));
+        toggle.textContent = isExpanded ? 'ટૂંકું વાંચો ↑' : 'વધુ વાંચો ↓';
+      });
+    });
+    const teddyCard = document.querySelector('.memory-card img[src="photo 4.jpeg"]')?.closest('.memory-card');
+    if (teddyCard) {
+      teddyCard.querySelector('span')?.replaceWith(Object.assign(document.createElement('div'), {
+        className: 'memory-story-copy',
+        innerHTML: `<h3>૧૦-૦૨-૨૦૨૬… Teddy Day 🧸❤️</h3><div class="memory-story-text" id="teddyMemoryText"><p>આ દિવસે મેં તારા માટે પ્રેમથી એક Teddy લાવ્યો હતો…<br>મારી ઈચ્છા હતી કે એ Teddy તારી પાસે રહે,<br>જ્યારે પણ તું એને જુએ ત્યારે મારી યાદ આવે… ❤️</p><p>પણ એ દિવસે તું એ Teddy લઈ ગઈ નહોતી.<br>એ સમયે કદાચ મન થોડું દુઃખી થયું હતું,<br>પણ મેં એ લાગણીને પણ એક યાદ બનાવીને સાચવી રાખી.</p><p>પછી આવી ૧૭-૦૨-૨૦૨૬ની એ સુંદર ક્ષણ… 🥹❤️</p><p>એ દિવસે જ્યારે તું આખરે એ Teddy લેવા આવી,<br>ત્યારે મેં તને Video Call કર્યો…<br>અને તું Teddy સાથે મને એ રીતે બતાવતી હતી,<br>જાણે એક અઠવાડિયા મોડું થયું હોય છતાં<br>આપણો Teddy Day આખરે સાથે જ ઉજવાઈ ગયો હોય. 🧸❤️</p><p>કદાચ દુનિયા માટે એ માત્ર એક Teddy હતો,<br>પણ મારા માટે એમાં મારી લાગણી હતી…<br>અને તારા હાથમાં એ Teddy જોઈને<br>મને એવું લાગ્યું કે મારી નાની એવી ઈચ્છા આખરે પૂરી થઈ ગઈ.</p><p>૧૦ ફેબ્રુઆરીએ આપેલું એ Teddy,<br>૧૭ ફેબ્રુઆરીએ તારા હાથમાં જોયું…<br>અને એ દિવસે સમજાયું કે<br>ક્યારેક ઉજવણી તારીખે નથી થતી,<br>પણ જે વ્યક્તિ ખાસ હોય એની સાથે થાય ત્યારે<br>દરેક મોડું થયેલું પળ પણ ખાસ બની જાય છે. 🧸❤️🌙</p><p>આપણો Teddy Day કદાચ ૧૦-૦૨ના દિવસે નહોતો ઉજવાયો…<br>પણ ૧૭-૦૨-૨૦૨૬ની એ Video Callમાં<br>એ મારી યાદોમાં હંમેશા માટે જીવતો રહી ગયો. ❤️</p></div><button class="read-more-button memory-story-toggle" type="button" aria-expanded="false" aria-controls="teddyMemoryText">વધુ વાંચો ↓</button>`
+      }));
+      teddyCard.querySelector('.memory-story-toggle')?.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const copy = event.currentTarget.closest('.memory-story-copy');
+        const isExpanded = copy.classList.toggle('expanded');
+        event.currentTarget.setAttribute('aria-expanded', String(isExpanded));
+        event.currentTarget.textContent = isExpanded ? 'ટૂંકું વાંચો ↑' : 'વધુ વાંચો ↓';
+      });
+    }
+
+    const extraReasons = [
+      ['💖', 'તારો ગુસ્સો પણ પોતાનો લાગે છે', 'તું ગુસ્સે થાય ત્યારે પણ હું તને ઓછો પ્રેમ નથી કરતો, કારણ કે એ ગુસ્સાની પાછળ પણ મારી માટેની ચિંતા અને અપેક્ષા છુપાયેલી હોય છે.'],
+      ['🌸', 'તારું નરમ દિલ', 'બહારથી તું ભલે મજબૂત દેખાય, પણ તારા દિલમાં કેટલી લાગણી છે એ હું જાણું છું—એ જ વાત મને દરરોજ તારી નજીક ખેંચે છે.'],
+      ['🤍', 'તારી નારાજગીમાં પણ પ્રેમ', 'તું નારાજ થાય ત્યારે મને ખબર પડે છે કે મારી વાત તારા દિલ સુધી પહોંચે છે; એટલે હું દરેક વખત પછી તને વધુ સારી રીતે સમજવા માગું છું.'],
+      ['🌙', 'તારી યાદ', 'દિવસ ગમે તેટલો વ્યસ્ત હોય, રાતે દિલ શાંત થાય ત્યારે સૌથી પહેલાં તારો જ વિચાર આવે છે.'],
+      ['🫶', 'તારો હાથ', 'ઝઘડા પછી પણ તારો હાથ પકડવાની ઇચ્છા ક્યારેય ઓછી થતી નથી, કારણ કે તારી સાથે જ મારું મન ઘર જેવું લાગે છે.'],
+      ['⭐', 'તું મને સારો બનાવે છે', 'તને પ્રેમ કરતાં કરતાં હું મારા ego કરતાં સંબંધને પસંદ કરવાનું શીખી રહ્યો છું—કારણ કે તું મારા માટે ખાસ છે.'],
+      ['♾️', 'હંમેશા તું જ', 'આપણી કથા perfect નથી, પણ મારા દિલની સૌથી સુંદર કથા છે; અને દરેક વળાંક પર મારી પસંદ તું જ રહેશે. ♥']
+    ];
+    const reasons = document.querySelector('.reasons');
+    extraReasons.forEach(([icon, title, text]) => {
+      const card = document.createElement('div');
+      card.className = 'reason';
+      card.innerHTML = `<div class="icon">${icon}</div><h3>${title}</h3><p>${text}</p>`;
+      reasons.appendChild(card);
+    });
+
+    const heartCloud = document.querySelector('#heartCloud');
+    const heartReason = document.querySelector('#heartReason');
+    const heartStatus = document.querySelector('#heartStatus');
+    const heartLaunch = document.querySelector('#heartLaunch');
+    const heartGame = document.querySelector('#heartGame');
+    const heartBack = document.querySelector('#heartBack');
+    const loveReasons = [
+      'કારણ કે તું ગુસ્સે થાય ત્યારે પણ બહુ cute લાગે છે. 😁',
+      'કારણ કે તારી સાથેની ordinary વાત પણ special બની જાય છે.',
+      'કારણ કે તું મારી storyનો સૌથી સુંદર ભાગ છે.',
+      'કારણ કે તારી સ્માઇલ મારું આખું મન હળવું કરી દે છે.',
+      'કારણ કે તારો સાથ હોય ત્યારે બધું શક્ય લાગે છે.',
+      'કારણ કે તારી નાની નાની વાતો પણ મને યાદ રહે છે.',
+      'કારણ કે તું જેવી છે એવી જ મને સૌથી વધારે ગમે છે.',
+      'કારણ કે તારી ખુશી મારી સૌથી સુંદર પ્રાર્થના છે.',
+      'કારણ કે તારી આંખોમાં મને મારું આવતીકાલ દેખાય છે.',
+      'કારણ કે તારી સાથે મૌન પણ બહુ સુંદર લાગે છે.',
+      'કારણ કે તું મારા દિવસનો સૌથી શાંત અને સુંદર ખૂણો છે.',
+      'કારણ કે તું હસે ત્યારે દુનિયા થોડી વધુ સુંદર લાગે છે.',
+      'કારણ કે તું મારી દરેક નાની ખુશીનું કારણ છે.',
+      'કારણ કે મારી પસંદ, મારી પ્રાર્થના અને મારું ઘર—તું જ છે.',
+      'કારણ કે હું દરરોજ ફરીથી તને પસંદ કરું છું. ♥'
+    ];
+    if (heartCloud && heartReason && heartStatus) {
+      for (let index = 1; index <= 100; index += 1) {
+        // Put the special 100th heart near the middle, not at the very end.
+        const heartNumber = index === 51 ? 100 : (index > 51 ? index - 1 : index);
+        const heart = document.createElement('button');
+        heart.type = 'button';
+        heart.className = 'little-heart';
+        heart.textContent = '♥';
+        heart.setAttribute('aria-label', `પ્રેમનું કારણ ${heartNumber}`);
+        heart.style.left = `${4 + (index * 37) % 90}%`;
+        heart.style.top = `${5 + (index * 53) % 82}%`;
+        heart.addEventListener('click', () => {
+          if (heartNumber === 100) {
+            heartCloud.classList.add('completed');
+            heartStatus.textContent = '100મું heart — હવે બધા hearts ભેગાં થઈને તારા નામ માટે ધબકે છે ♥';
+            heartReason.innerHTML = '<strong>RUHI ♥</strong><br>તું એક વ્યક્તિ નથી—તું મારા દિલની આખી દુનિયા છે.';
+            heartCloud.querySelectorAll('.little-heart').forEach((item, itemIndex) => {
+              const angle = (itemIndex / 100) * Math.PI * 2;
+              const x = 16 * Math.sin(angle) ** 3;
+              const y = -(13 * Math.cos(angle) - 5 * Math.cos(2 * angle) - 2 * Math.cos(3 * angle) - Math.cos(4 * angle));
+              item.style.setProperty('--heart-left', `${50 + x * 2.05}%`);
+              item.style.setProperty('--heart-top', `${51 + y * 1.65}%`);
+              item.style.left = `${50 + x * 2.05}%`;
+              item.style.top = `${51 + y * 1.65}%`;
+              item.classList.add('visited');
+            });
+            return;
+          }
+          heart.classList.add('visited');
+          heartStatus.textContent = `પ્રેમનું કારણ ${heartNumber} / 100`;
+          heartReason.innerHTML = `<strong>કારણ ${heartNumber}:</strong> ${loveReasons[(heartNumber - 1) % loveReasons.length]}`;
+        });
+        heartCloud.appendChild(heart);
+      }
+    }
+    heartLaunch?.addEventListener('click', () => {
+      heartGame.hidden = false;
+      heartLaunch.setAttribute('aria-expanded', 'true');
+      heartGame.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    heartBack?.addEventListener('click', () => {
+      heartGame.hidden = true;
+      heartLaunch.setAttribute('aria-expanded', 'false');
+      heartLaunch.focus();
+    });
+
+    document.querySelectorAll('.star-button').forEach((star) => {
+      star.addEventListener('click', function () {
+        document.querySelectorAll('.star-button').forEach((item) => item.classList.remove('active'));
+        this.classList.add('active');
+        document.querySelector('#starMessage').textContent = this.dataset.message;
+      });
+    });
+    const beautyScanner = document.querySelector('#beautyScanner');
+    const scannerCard = document.querySelector('#scannerCard');
+    const startScan = document.querySelector('#startScan');
+    const scannerContinue = document.querySelector('#scannerContinue');
+    const scannerStatus = document.querySelector('#scannerStatus');
+    const scannerResult = document.querySelector('#scannerResult');
+    document.querySelector('#openLetter').addEventListener('click', function () {
+      document.querySelector('#opening').classList.add('hide');
+      beautyScanner?.classList.add('show');
+      beautyScanner?.setAttribute('aria-hidden', 'false');
+    });
+    startScan?.addEventListener('click', function () {
+      if (scannerCard?.classList.contains('scanning')) return;
+      scannerCard?.classList.add('scanning');
+      this.hidden = true;
+      scannerStatus.textContent = 'Scanning Face... 0%';
+      const scanSteps = [18, 43, 72, 100];
+      scanSteps.forEach((percent, index) => {
+        setTimeout(() => { if (scannerStatus) scannerStatus.textContent = `Scanning Face... ${percent}%`; }, (index + 1) * 520);
+      });
+      setTimeout(() => {
+        scannerCard?.classList.remove('scanning');
+        scannerResult?.classList.add('show');
+        if (scannerStatus) scannerStatus.textContent = 'Scan complete — royal beauty detected! ✨';
+        if (scannerContinue) scannerContinue.hidden = false;
+      }, 2700);
+    });
+    scannerContinue?.addEventListener('click', () => {
+      stopIntroAudioSequence();
+      beautyScanner?.classList.remove('show');
+      beautyScanner?.setAttribute('aria-hidden', 'true');
+      document.querySelector('#story').classList.add('show');
+      if (backgroundPlaylist?.paused) playPlaylist(currentSong);
+    });
+    const secretLetterOpen = document.querySelector('#secretLetterOpen');
+    const secretLetterStage = document.querySelector('#secretLetterStage');
+    const secretLetterPaper = document.querySelector('#secretLetterPaper');
+    const letterVoice = document.querySelector('#letterVoice');
+    let resumePlaylistAfterLetterVoice = false;
+    let letterAutoScrollFrame = 0;
+    let letterAutoScrollDelay = 0;
+    const stopLetterAutoScroll = () => {
+      window.cancelAnimationFrame(letterAutoScrollFrame);
+      window.clearTimeout(letterAutoScrollDelay);
+      letterAutoScrollFrame = 0;
+      letterAutoScrollDelay = 0;
+    };
+    const startLetterAutoScroll = () => {
+      if (!secretLetterPaper || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      stopLetterAutoScroll();
+      secretLetterPaper.scrollTop = 0;
+      letterAutoScrollDelay = window.setTimeout(() => {
+        let previousTime = performance.now();
+        const scrollLetter = (time) => {
+          const maxScroll = secretLetterPaper.scrollHeight - secretLetterPaper.clientHeight;
+          if (!secretLetterStage?.classList.contains('open') || secretLetterPaper.scrollTop >= maxScroll) return;
+          const elapsed = time - previousTime;
+          previousTime = time;
+          secretLetterPaper.scrollTop = Math.min(maxScroll, secretLetterPaper.scrollTop + elapsed * .016);
+          letterAutoScrollFrame = window.requestAnimationFrame(scrollLetter);
+        };
+        letterAutoScrollFrame = window.requestAnimationFrame(scrollLetter);
+      }, 1150);
+    };
+    ['wheel', 'touchstart', 'pointerdown', 'keydown'].forEach((eventName) => {
+      secretLetterPaper?.addEventListener(eventName, stopLetterAutoScroll, { passive: true });
+    });
+    letterVoice?.addEventListener('ended', () => {
+      if (!resumePlaylistAfterLetterVoice) return;
+      resumePlaylistAfterLetterVoice = false;
+      playPlaylist(currentSong);
+    });
+    secretLetterOpen?.addEventListener('click', function () {
+      const isOpen = secretLetterStage.classList.toggle('open');
+      this.setAttribute('aria-expanded', String(isOpen));
+      if (isOpen) {
+        startLetterAutoScroll();
+        // The click is a user gesture, so the browser permits this voice note to play.
+        resumePlaylistAfterLetterVoice = Boolean(backgroundPlaylist && !backgroundPlaylist.paused);
+        if (resumePlaylistAfterLetterVoice) stopPlaylist();
+        if (letterVoice) {
+          letterVoice.currentTime = 0;
+          letterVoice.play().catch(() => {
+            if (resumePlaylistAfterLetterVoice) playPlaylist(currentSong);
+            resumePlaylistAfterLetterVoice = false;
+          });
+        }
+      } else {
+        stopLetterAutoScroll();
+        if (letterVoice) letterVoice.pause();
+        if (resumePlaylistAfterLetterVoice) {
+          resumePlaylistAfterLetterVoice = false;
+          playPlaylist(currentSong);
+        }
+      }
+    });
+    const poemDiary = document.querySelector('#poemDiary');
+    const diaryOpen = document.querySelector('#diaryOpen');
+    const diaryBook = document.querySelector('#diaryBook');
+    const diaryClose = document.querySelector('#diaryClose');
+    const diaryPage = document.querySelector('#diaryPage');
+    const diaryPrevious = document.querySelector('#diaryPrevious');
+    const diaryNext = document.querySelector('#diaryNext');
+    const diaryPageCount = document.querySelector('#diaryPageCount');
+    const diaryPoemTitle = document.querySelector('#diaryPoemTitle');
+    const diaryStorageKey = 'ruhi-poetry-diary-v1';
+    const firstDiaryPoem = `ઉતાવળો તો બહુ છું,
+પણ તારી રાહ જોવી મને ગમશે ...!!
+
+જિદ્દી તોહ બહુ જ છું,
+પણ તારી વાત માનવી મને ગમશે...!!
+
+બેદરકાર તોહ બહુ છું,
+પણ તારી સંભાળ રાખવાનું મને ગમશે...!!
+
+ટેવાયેલો છું..એકાંત માં રહેવા માટે,
+પણ તારો સાથ હંમેશા મને ગમશે...!!
+
+બહુ દૂર છુ હું મારા સપનાઓ થી,
+પણ તારા સપનાઓ પૂરા કરવા મને ગમશે...!!
+
+મારા ખુદના અસ્તિત્વ ને ભૂલીને,
+તારા માં સમાઈ જવાનું મને ગમશે...!!`;
+    const secondDiaryPoem = `તારા પ્રેમ માટે નમવું પડે તો નમી જઈશ...!!!
+
+તને મેળવવા માટે જગત સામે લડવું પડે તો લડી જઈશ...!!!
+
+આ દુનિયા ગમે તેટલા રસ્તામાં કાંટા પાથરે તો પણ, તારા હાથમાં હાથ નાખીને દરેક મુશ્કેલી હસીને સહી જઈશ...!!!
+
+બસ તારો સાથ જીવનભર મળવો જોઈએ, બાકી આ દુનિયાની દરકાર કરવાનું ક્યાર નું મૂકી દીધું છે, તારી ખુશી માટે આખી દુનિયા સામે ઝૂકી જઈશ...!!!
+
+જીવનના રસ્તા પર ભલે ગમે તેટલા કાંટા કેમ ન આવે, તારા હાથમાં હાથ નાખીને દરેક મુશ્કેલી હસીને પાર કરી જઈશ...!!!
+
+બસ, તું એકવાર વ્હાલથી મારી આંખોમાં જોઈને સ્મિત કરજે, હું તો મારા શ્વાસ પણ તારા નામે ખુશીથી લખાવી દઈશ ! સંબંધોને સાચવવા માટે ઝૂકવું પડે તો ઝૂકી જઈશ...!!!
+
+દુનિયા ભલે મને અભિમાની કે જીદ્દી સમજે, પણ તારી એક ખુશી ખાતર આ દુનિયા સામે હારી જઈશ...!!!
+
+તારા વિનાની જિંદગી કલ્પના બહાર છે, એટલે આ જીવ તારા પ્રેમમાં સદા સમર્પિત થઈને જીવી જઈશ...!!!
+
+હું ફરી એ જ પ્રેમ, વાતો, ફરિયાદો, ગુસ્સો અને કેર કરવી, જો તું ફરી આવતી હોય તો તારા પ્રેમ માટે નમવું પડે તો હું નમી જઈશ...!!!`;
+    const thirdDiaryPoem = `હું ચાહું છું તને કારણ કે, મને તારી દરેક વાતો મને ગમે છે..!!
+
+વાત-વાતમાં ગુસ્સે થવાની તારી આદત મને ગમે છે..!!
+
+બોલે ત્યારે તને સાંભળવી મને ગમે છે..!!
+
+અને મૌન હોય ત્યારે તારા મુખના હાવભાવ જોવા મને ગમે છે..!!
+
+આંખોનું અમૃત અને અધરોની મીઠાસ મને ગમે છે..!!
+
+હૃદયના રણઝણતા ધબકારમાં પ્રેમની ભાષા મને ગમે છે..!!
+
+મને ખબર છે નથી પામી શકવાની તને તેમ છતા તું મને ગમે છે..!!
+
+ન મળી શકે આ જન્મે તો આવતા જન્મે તું મળીશ એ આશ મને ગમે છે..!!`;
+    const fourthDiaryPoem = `તું બવ પસંદ છો મને પણ, તને ચાહવાનો
+મને હક નથી ...!!
+
+તારો સાથ જોઈએ છે મને પણ, તારી સંગાથે ચાલવાનો
+મને હક નથી...!!
+
+તારી કાળજી રાખવી ગમે છે મને પણ, તારી અપેક્ષા પર
+મને હક નથી...!!
+
+તને ખોવાનો ડર છે મને પણ, તારો હાથ પકડવાનો
+મને કોઈ હક નથી...!!
+
+તને મન ભરીને પ્રેમ કરવો ગમે છે પણ, તને લાગણી બતાવવાનો
+મને હક નથી...!!
+
+તને મન મૂકી ને વાત કરવી છે મને પણ, એ વાત કહેવાનો
+મને હક નથી...!!`;
+    const fifthDiaryPoem = `તું મને હંમેશા પૂછ્યા કરે છે ને તારે શું જોઈએ છે..!! તો સાંભળ,
+
+આ હદય ને જ્યારે સુકુન જોઈએ ત્યારે તું જોઈએ છે..!!
+
+આંખો દિવસ થાકી ને જ્યારે આંખને ઠંડક જોઈએ ત્યારે સામે તું જોઈએ છે...!!
+
+સાંજે જ્યારે એકલો બેઠો હોઈએ અને ત્યારે પાસે તું જોઈએ છે..!!
+
+જ્યારે ક્યારેક મન ભરીને રડવાનું મન થાય ને ત્યારે મારું માથું ને તારો ખભો જોઈએ છે...!!
+
+“મારા જીવન ની દરેક સફર મા મને હમસફર તું જોઈએ છે..!!”`;
+    const sixthDiaryPoem = `બની શકે તો મને માફ કરી દેજે તારા જીવનમાં આવવા માટે
+તને હદથી વધુ ચાહવા માટે
+મને માફ કરી દેજે...!!
+
+તારા પર જાત કરતા પણ વધુ વિશ્વાસ કરવા માટે
+મને માફ કરી દેજે...!!
+
+તારી દરેક નાની વાતને મારું આખું જગત માનવા માટે
+મને માફ કરી દેજે...!!
+
+તારા મૌનને સમજવાની કોશિશમાં મારી જાતને ખોવા માટે
+મને માફ કરી દેજે...!!!
+
+તારી ખુશીઓમાં મારી ખુશીઓ શોધવાની ભૂલ કરવા માટે
+મને માફ કરી દેજે...!!
+
+કદાચ હું એ ભૂલી ગયો હતો કે લાગણીઓ જ્યારે એકતરફી બને ત્યારે ભાર બની જાય છે, અને એ ભાર તારા પર નાખવા બદલ
+મને માફ કરી દેજે...!!
+
+હવે વચન આપું છું કે મારી યાદો પણ તને ક્યારેય પરેશાન નહીં કરે, મારી આ હદ બહારની મહોબ્બતને હવે તારાથી દૂર લઈ જવા માટે
+મને માફ કરી દેજે...!!`;
+    const seventhDiaryPoem = `આદત લગાવીને તમારી
+મારાથી ક્યારેય દૂર ના જતાં...!!!
+
+તમારા જ ભરોસે વિતી રહી છે,
+જિંદગી મને ક્યારેય ભૂલી ના જતાં...!!!
+
+ગુસ્સો, નારાજગી બધું એની જગ્યાએ છે,
+મારી વાતોને ક્યારેય દિલ પર ના લગાવી ના જતાં...!!!
+
+ખુદથી પણ વધારે પ્રેમ કરું છું,
+તમને મને ભૂલથી પણ ક્યારેય છોડીને ના જતાં...!!!`;
+    const eighthDiaryPoem = `તું સાચવીને રાખી લે ને મને,
+હું ક્યાં તેને પાછો મળવાનો છું..!!
+
+તું કદર કરી લે ને મારો,
+જતો રહીશ તો ક્યા પાછો વળવાનો છું..!!
+
+એક તારા ઉપર નજર થંભી ગઈ મારી,
+નહીં તો એમ હું ક્યા કોઈ ને પણ નિહાળવાનો છું..!!
+
+કે તું સાચવીને રાખી લે ને મને,
+હું ક્યા તને પાછો મળવાનો છું...!!`;
+    const tenthDiaryPoem = `તારી સાથે રહેતા રહેતા,
+તારી ચાહત થઈ ગઈ છે...!!
+
+તારી સાથે વાત કરતા કરતા,
+તારી આદત થઈ ગઈ છે...!!
+
+એક પળ તું ન મળે તો દિલ બેચેન થઈ જાય છે,
+તારી સાથે મહોબ્બત થઈ ગઈ છે...!!`;
+    const eleventhDiaryPoem = `રૂહી…
+
+આ 5 મહિના અને 3 દિવસ મારી જિંદગીના માત્ર દિવસો નહોતા…
+એ મારી જિંદગીના એવા દિવસો હતા, જ્યાં જીવવા કરતાં પણ તારી સાથે જીવવાનું મને વધારે ગમતું હતું.
+
+કદાચ તને ક્યારેય ખબર નહીં પડે કે તું મારા માટે ખરેખર શું હતી…
+કારણ કે જે સ્થાન મેં તને મારી જિંદગીમાં આપ્યું હતું,
+એ સ્થાન શબ્દોમાં સમજાવી શકાય એવું નથી.
+
+પણ અફસોસ એટલો જ રહેશે કે
+તારી જિંદગીમાં મારી કિંમત ક્યારેય એટલી દેખાઈ નહીં, જેટલી મારી જિંદગીમાં તારી હતી.
+
+તારા માટે તારો પરિવાર, તારો સમાજ અને લોકો મહત્વના છે…
+અને મારા માટે એ બધાથી ઉપર તું હતી.
+આપણા બંનેના વિચારો વચ્ચે કદાચ આ જ સૌથી મોટો ફરક હતો.
+
+હું તને કોઈની સાથે વહેંચી શક્યો નહીં…
+કારણ કે તું મારા માટે માત્ર પ્રેમ નહોતી,
+તું મારી દુનિયા હતી.
+
+અને કદાચ હું તારી દુનિયામાં એટલો મહત્વનો ક્યારેય હતો જ નહીં.
+
+મને સૌથી વધારે ડર એ વાતનો છે કે
+આજે જે દુઃખ થઈ રહ્યું છે,
+એ તો થોડા સમયનું છે…
+પણ જે દિવસે તું કોઈ ત્રીજા માણસની બનીને મારી સામે અજાણી બનીને ઊભી રહીશ,
+એ દિવસે કદાચ આ દિલ પાસે તૂટવા માટે પણ કંઈ બાકી નહીં રહે.
+
+અને કદાચ એ જ થશે…
+કારણ કે એ વાત તારા જ શબ્દોમાં મેં સાંભળી છે.
+
+આજે તું મને સમય આપી શકતી નથી,
+મારી સાથે વાત કરવી નથી,
+અને દૂર જવાનો નિર્ણય તારા વર્તનમાં પહેલેથી જ દેખાઈ રહ્યો છે.
+
+એટલે હવે હું તારા નિર્ણય સામે ઊભો રહીને
+મારા પ્રેમની ભીખ નહીં માંગુ.
+
+કારણ કે પ્રેમ જો સમજાવવો પડે,
+તો કદાચ એ પ્રેમ રહ્યો જ નથી.
+
+ભવિષ્ય કોઈના હાથમાં નથી હોતું રૂહી…
+ક્યારેક જેને આપણે અશક્ય માનીએ છીએ,
+એ જ કિસ્મતનું સૌથી સુંદર પાનું બની જાય છે.
+
+પણ જો તે પાનું તું મારી સાથે લખવા માંગતી જ નથી,
+તો હું તારા હાથમાંથી કલમ છીનવી પણ નહીં શકું.
+
+તું તારી જિંદગી મારી વગર જીવવાનું નક્કી કરી લીધું છે…
+તો Best of Luck તારી નવી જિંદગી માટે.
+
+આજ પછી તકલીફ આવશે તો તારો પરિવાર હશે,
+તારો સમાજ હશે,
+તારા પોતાના લોકો હશે…
+
+પણ હું નહીં હોઉં.
+
+હા… હું સ્વાર્થી હતો.
+પણ મારા સ્વાર્થમાં પણ તું જ હતી.
+તારા પ્રેમ માટે, તારા માટે,
+હું જેટલો લડ્યો છું,
+એ કદાચ તું ક્યારેય મારા માટે ન લડી શકે.
+
+પણ હવે હું તારા પર કોઈ દબાણ નહીં કરું.
+કારણ કે જો તારી મરજી વિરુદ્ધ તને મારી સાથે રાખું,
+તો પછી તારા અને મારા વચ્ચેનો ફરક જ શું રહેશે?
+
+એટલે આજે પહેલીવાર
+મારા દિલને તારી સામે નહીં,
+તારી ખુશી સામે નમાવી રહ્યો છું.
+
+આપણી પાસે હજુ કેટલીય યાદો ભેગી કરવાની હતી…
+કેટલાય રસ્તા સાથે ચાલવાના હતા…
+કેટલાય ફોટા લેવા હતા…
+કેટલીક સાંજોને યાદગાર બનાવવાની હતી…
+
+પણ કદાચ નસીબને કંઈક બીજું જ મંજૂર હતું.
+
+આપણે પ્રેમ કરતાં વધારે લડ્યા…
+તારો ego પણ ઓછો નહોતો,
+મારો પણ નહોતો…
+
+અને અંતે જીત કોઈની થઈ નહીં…
+હાર આપણા સંબંધની થઈ.
+
+આજે મારી દુનિયા અહીં પૂરી થાય છે.
+
+પણ તું ખુશ રહે…
+તારું સારું થાય…
+તને જીવનમાં એ બધું મળે જેની તું હકદાર છે.
+
+કારણ કે હું તને ગુમાવીને પણ
+તારા માટે ખરાબ ક્યારેય નહીં ઈચ્છી શકું.
+
+આ મારી તારી માટેની છેલ્લી Birthday Wish છે…
+
+Happy Birthday 🎂🎈
+Happy Birthday Yamudi…
+Happy Birthday મારા જિવ… ❤️
+
+અને હા…
+
+હવે કોઈ ફરિયાદ નહીં.
+કોઈ પ્રશ્ન નહીં.
+કોઈ વિનંતી નહીં.
+કોઈ પાછા આવવાની આશા પણ નહીં.
+
+માત્ર એક છેલ્લી વાત…
+
+જો હવે મારા વગર જીવવામાં તને કોઈ દબાણ ન હોય,
+તો ક્યારેક મારા સપનામાં મળવા આવી જજે…
+
+અને જો મારા સપનામાં આવવું પણ તને દબાણ લાગે,
+તો એ પણ તારી મરજી…
+
+હું હવે તારી જિંદગીમાંથી હંમેશા માટે દૂર જઈ રહ્યો છું.
+
+હવે હું તારી સાથે નહીં,
+તારી યાદો સાથે જીવીશ.
+
+મારા માટે તું મારી પત્ની હતી…
+છે…
+અને કદાચ મારી જિંદગીના અંતિમ શ્વાસ સુધી રહેશે.
+
+પણ હવે આ વાતનો તારા પર કોઈ હક નથી.
+
+તારો રસ્તો અલગ…
+મારો રસ્તો અલગ…
+
+પણ મારી દરેક પ્રાર્થનાના અંતે
+એક નામ કદાચ હંમેશા રહેશે…
+
+“રૂહી…”
+
+---
+
+🥀 છેલ્લી શાયરી
+
+તને મેળવવાની જીદ હતી,
+એટલે તારી સામે દુનિયા સામે લડ્યો હતો…
+હવે તને ગુમાવવાની સજા છે,
+એટલે તારી જ ખુશી માટે તારી પાસેથી દૂર થયો છું.
+
+તું કોઈ બીજાની બની જઈશ,
+એ દિવસ કદાચ હું જીવી તો જઈશ…
+પણ એ દિવસે સમજાઈ જશે,
+કે માણસ શ્વાસ લઈને પણ
+કેટલો મરી શકે છે.
+
+અલવિદા રૂહી…
+આ જન્મમાં તું મારી ન થઈ શકી,
+પણ મારી યાદોમાંથી તને કાઢી નાખે
+એટલી તાકાત આ દિલમાં ક્યારેય નહીં આવે.
+
+Happy Birthday, મારું અધૂરું પ્રેમ… ❤️
+અલવિદા… Forever.`;
+    const newEleventhDiaryPoem = `હું તારા પગમાં માથું રાખીને પણ મનાવી લઈશ તને,
+બસ ખાલી શરત એટલી કે મારા નમવા પર તને ઘમંડ નહીં,
+પ્રેમ નો અનુભવ થાય..!!`;
+    const twelfthDiaryPoem = `મારા હોવાનો અહેસાસ નહીં થાય તો,
+મને ગુમાવાનો અફસોસ ચોક્કસ થશે..!!
+
+રૂહી,
+મારી લાગણી તારા માટે માત્ર થોડા સુંદર શબ્દો નથી—
+એ મારા દિલની એવી સચ્ચાઈ છે,
+જે દરેક ખુશીમાં તને યાદ કરે છે
+અને દરેક દુઃખમાં પણ તારા માટે પ્રાર્થના કરે છે.
+
+હું નિભાવવાવાળો છું,
+છોડવાવાળો નહીં.
+મારે સંબંધને જીતવું નથી,
+મારે તારી સાથે એને પ્રેમથી જીવવું છે.
+
+બસ મારી બનીને આવજે…
+મારા હાથમાં તારો હાથ મૂકી દેજે,
+પછી જીવનની દરેક મુશ્કેલીને
+આપણે સાથે મળીને પ્રેમથી પાર કરી લઈશું. ♥
+
+The End`;
+    const diaryPoemTitles = ['મને ગમશે', 'તારા પ્રેમ માટે નમી જઈશ', 'મને ગમે છે...!!!', 'હક નથી મારો...!!!', 'તું જોઈએ છે...!!!', 'મને માફ કરી દેજે...!!!', 'ના જતાં...!!!', 'તું સાચવીને રાખી લે ને મને', 'શું તને ખબર છે...!', '🥀 છેલ્લી વાત… પછી ક્યારેય નહીં', 'પ્રેમ નો અનુભવ થાય..!!', 'મારી લાગણી, રૂહી માટે ♥'];
+    const diaryFeelings = [
+      ['શરૂઆતની કોમળ ઈચ્છા — તારી રાહ પણ હવે પ્રેમ લાગે છે. ♥', '#b33d75', '#ffe8f2'],
+      ['સંકલ્પ — તારા માટે દરેક મુશ્કેલી સામે ઊભા રહેવાનો. ✨', '#9f436c', '#f7e6ff'],
+      ['કબૂલાત — તારી નાની નાની આદતોમાં મારું દિલ વસે છે. 🌸', '#b64573', '#fff0e5'],
+      ['અનકહ્યો હક — પ્રેમ છે, પણ શબ્દો પાસે હક નથી. 🥀', '#7e587a', '#f0e8fb'],
+      ['સાથની તરસ — દરેક સફરમાં બસ તું હમસફર જોઈએ. 🌙', '#806098', '#e9efff'],
+      ['માફીની ભીનાશ — દિલ હળવું કરવા માટેની એક શાંત વિનંતી. 🤍', '#a27771', '#fff0e9'],
+      ['વિનંતી — આદત બનીને હવે દૂર ન જતી. 🫶', '#a14567', '#ffe8f0'],
+      ['આશ — જે દિલ તને મળ્યું છે, એને સાચવી લેજે. ♥', '#a85b7a', '#fff1df'],
+      ['મહોબ્બત — ચાહત ધીમે ધીમે જીવનની આદત બની ગઈ. ✨', '#9d3d73', '#fce6f3'],
+      ['અલવિદાની પ્રાર્થના — દૂર રહીને પણ તારા માટે શુભકામના. 🥀', '#754966', '#eee8f5'],
+      ['નમ્ર પ્રેમ — જ્યાં નમવામાં પણ ઘમંડ નહીં, ફક્ત પ્રેમ અનુભવાય. ♥', '#a04470', '#ffedf4'],
+      ['અંતિમ અહેસાસ — શબ્દો પૂરા થાય, પણ તારા માટેની લાગણી નહીં. ∞', '#7d315f', '#f8e5ef']
+    ];
+    const loveIfNotPoem = `પ્રેમ જો થયો ન હોત...
+
+પ્રેમ જો થયો ન હોત,
+તો તારી એક ઝલક માટે દિલ આટલું બેચેન ન થયું હોત...!!
+
+પ્રેમ જો થયો ન હોત,
+તો તારી એક વાત આખો દિવસ યાદ ન રહી હોત...!!
+
+પ્રેમ જો થયો ન હોત,
+તો અજાણ્યા રસ્તાઓ પણ તારા સરનામા સુધી લઈ જતા ન હોત...!!
+
+પ્રેમ જો થયો ન હોત,
+તો ભીડમાં પણ આંખો માત્ર તને જ શોધતી ન હોત...!!
+
+પ્રેમ જો થયો ન હોત,
+તો તારી ખુશી માટે પોતાની ખુશી ભૂલી ન ગયા હોત...!!
+
+પ્રેમ જો થયો ન હોત,
+તો તારા વિના જીવવું આટલું મુશ્કેલ ન લાગ્યું હોત...!!
+
+પ્રેમ જો થયો ન હોત,
+તો કદાચ દિલ આટલું તૂટ્યું ન હોત,
+પણ આટલું સુંદર રીતે કોઈને ચાહવાનું નસીબ પણ ન મળ્યું હોત...!!`;
+    const diaryFinalPoem = `રૂહી… ❤️
+
+કદાચ આ ડાયરીના પાનાં અહીં પૂરાં થાય છે,
+પણ તારી સાથે જોડાયેલી મારી યાદો ક્યારેય પૂરી નહીં થાય…
+
+આ પાનાંઓમાં મેં માત્ર તારીખો નથી લખી,
+મેં મારી જિંદગીની એ પળો સાચવી છે
+જેમાં ક્યાંક તું હતી, ક્યાંક હું હતો,
+અને વચ્ચે આપણું એક નાનકડું વિશ્વ હતું… ❤️
+
+સમય આપણને ક્યાં લઈ જશે એ મને ખબર નથી,
+આપણે ફરી ક્યારેક મળીશું કે નહીં એ પણ ખબર નથી…
+પણ એક વાત હંમેશા સાચી રહેશે—
+
+તું મારી જિંદગીમાં આવી હતી,
+એટલા માટે મારી જિંદગીની ઘણી સામાન્ય પળો પણ
+ખાસ બની ગઈ હતી.
+
+જો ક્યારેક આ ડાયરી ફરીથી ખોલે ને,
+તો મારા શબ્દોમાં ભૂલો શોધતી નહીં…
+ફક્ત એટલું યાદ રાખજે કે
+આ બધું લખનાર માણસે તને ક્યારેય સામાન્ય માની જ નહોતી. ❤️
+
+અને જો ક્યારેય મારી યાદ આવે,
+તો આંખોમાં આંસુ લાવતી નહીં…
+હળવું સ્મિત કરી બસ એટલું કહેજે—
+
+“હા… કોઈ હતો,
+જેને મારી સાથે વિતાવેલી નાની નાની પળો પણ
+આખી જિંદગી જેટલી કિંમતી લાગતી હતી…” ❤️
+
+આ ડાયરીનું છેલ્લું પાનું છે,
+પણ મારી યાદોમાં તારી કહાનીનું કોઈ છેલ્લું પાનું નથી…
+
+રૂહી, તું જ્યાં પણ રહેજે… ખુશ રહેજે.
+કારણ કે તારી ખુશી માટે કરેલી મારી પ્રાર્થનાઓને
+કોઈ અંત નથી. ❤️
+
+The End…
+પણ યાદોની કહાની ક્યારેય The End નથી થતી. ❤️`;
+    diaryPoemTitles[9] = 'પ્રેમ જો થયો ન હોત...';
+    diaryFeelings[9] = ['એક એવી લાગણી, જે દુઃખમાં પણ પ્રેમની સુંદરતા સમજાવે છે. ♥', '#7d315f', '#f8e5ef'];
+    diaryPoemTitles[10] = 'રૂહી… ❤️';
+    diaryFeelings[10] = ['છેલ્લા પાનાં પર પણ, તારા માટેની પ્રાર્થના ક્યારેય પૂરી થતી નથી. ♥', '#7d315f', '#f8e5ef'];
+    let diaryPages = [firstDiaryPoem, secondDiaryPoem, thirdDiaryPoem, fourthDiaryPoem, fifthDiaryPoem, sixthDiaryPoem, seventhDiaryPoem, eighthDiaryPoem, tenthDiaryPoem, loveIfNotPoem, diaryFinalPoem];
+    let diaryIndex = 0;
+    try {
+      const savedDiary = JSON.parse(localStorage.getItem(diaryStorageKey));
+      if (Array.isArray(savedDiary) && savedDiary.length) diaryPages = savedDiary.map((page) => String(page));
+    } catch (_) { /* The diary still works if storage is unavailable. */ }
+    // Keep the diary to its first eleven pages, including for visitors with an older saved copy.
+    diaryPages = diaryPages.slice(0, 11);
+    // Remove the former ninth page once for diaries saved before this update.
+    if (diaryPages.length >= 11 && diaryPages[8] === tenthDiaryPoem && diaryPages[9] === tenthDiaryPoem) diaryPages.splice(8, 1);
+    if (diaryPages[0] !== firstDiaryPoem) diaryPages.unshift(firstDiaryPoem);
+    if (diaryPages[1] !== secondDiaryPoem) diaryPages.splice(1, 0, secondDiaryPoem);
+    if (diaryPages[2] !== thirdDiaryPoem) diaryPages.splice(2, 0, thirdDiaryPoem);
+    if (diaryPages[3] !== fourthDiaryPoem) diaryPages.splice(3, 0, fourthDiaryPoem);
+    if (diaryPages[4] !== fifthDiaryPoem) diaryPages.splice(4, 0, fifthDiaryPoem);
+    if (diaryPages[5] !== sixthDiaryPoem) diaryPages.splice(5, 0, sixthDiaryPoem);
+    if (diaryPages[6] !== seventhDiaryPoem) diaryPages.splice(6, 0, seventhDiaryPoem);
+    if (diaryPages[7] !== eighthDiaryPoem) diaryPages.splice(7, 0, eighthDiaryPoem);
+    if (diaryPages[8] !== tenthDiaryPoem) diaryPages.splice(8, 0, tenthDiaryPoem);
+    diaryPages[9] = loveIfNotPoem;
+    diaryPages[10] = diaryFinalPoem;
+    diaryPages = diaryPages.slice(0, 11);
+    const saveDiary = () => {
+      try { localStorage.setItem(diaryStorageKey, JSON.stringify(diaryPages)); } catch (_) {}
+    };
+    saveDiary();
+    const renderDiaryPage = () => {
+      if (!diaryPage || !diaryPageCount || !diaryPrevious || !diaryNext) return;
+      diaryPage.value = diaryPages[diaryIndex] || '';
+      if (diaryPoemTitle) {
+        diaryPoemTitle.hidden = !diaryPoemTitles[diaryIndex];
+        diaryPoemTitle.textContent = diaryPoemTitles[diaryIndex] || '';
+      }
+      const feeling = diaryFeelings[diaryIndex];
+      const diaryEmotion = document.querySelector('#diaryEmotion');
+      if (diaryEmotion) diaryEmotion.textContent = feeling?.[0] || 'મારા દિલના શબ્દો — ફક્ત તારા માટે. ♥';
+      diaryBook?.style.setProperty('--diary-accent', feeling?.[1] || '#9c3166');
+      diaryBook?.style.setProperty('--diary-wash', feeling?.[2] || '#ffeaf3');
+      diaryPageCount.textContent = `પાનું ${diaryIndex + 1}`;
+      diaryPrevious.disabled = diaryIndex === 0;
+      diaryNext.disabled = diaryIndex === diaryPages.length - 1;
+      diaryNext.textContent = diaryIndex === diaryPages.length - 1 ? 'નવું પાનું →' : 'આગળનું પાનું →';
+      diaryPage.classList.remove('turn');
+      requestAnimationFrame(() => diaryPage.classList.add('turn'));
+    };
+    diaryOpen?.addEventListener('click', () => {
+      const opening = diaryBook.hidden;
+      diaryBook.hidden = !opening;
+      poemDiary?.classList.toggle('open', opening);
+      diaryOpen.setAttribute('aria-expanded', String(opening));
+      if (opening) { renderDiaryPage(); diaryPage?.focus(); }
+    });
+    diaryClose?.addEventListener('click', () => {
+      diaryBook.hidden = true;
+      poemDiary?.classList.remove('open');
+      diaryOpen?.setAttribute('aria-expanded', 'false');
+      diaryOpen?.focus();
+    });
+    diaryPage?.addEventListener('input', () => {
+      diaryPages[diaryIndex] = diaryPage.value;
+      saveDiary();
+    });
+    diaryPrevious?.addEventListener('click', () => {
+      if (diaryIndex > 0) { diaryIndex -= 1; renderDiaryPage(); }
+    });
+    diaryNext?.addEventListener('click', () => {
+      if (diaryIndex < diaryPages.length - 1) {
+        diaryIndex += 1;
+        renderDiaryPage();
+      }
+    });
+    document.querySelector('#finalButton').addEventListener('click', function () {
+      document.querySelector('#secret').classList.add('show');
+      this.textContent = 'હંમેશા તારો જ ♥';
+      for (let i = 0; i < 22; i += 1) {
+        const heart = document.createElement('span');
+        heart.className = 'burst-heart';
+        heart.textContent = i % 3 === 0 ? '✦' : '♥';
+        heart.style.left = `${45 + Math.random() * 10}%`;
+        heart.style.top = `${76 + Math.random() * 8}%`;
+        heart.style.setProperty('--x', `${(Math.random() - .5) * 280}px`);
+        heart.style.setProperty('--y', `${-80 - Math.random() * 260}px`);
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 1900);
+      }
+    });
+    const surprise = document.querySelector('#birthdaySurprise');
+    const countdown = document.querySelector('#countdown');
+    const birthdayMessage = document.querySelector('#birthdayMessage');
+    const nightSkyFinal = document.querySelector('#nightSkyFinal');
+    let birthdayAudio;
+
+    document.querySelector('#showNightSky')?.addEventListener('click', () => {
+      if (!nightSkyFinal || nightSkyFinal.classList.contains('show')) return;
+      for (let index = 0; index < 220; index += 1) {
+        const star = document.createElement('i');
+        const angle = (index / 220) * Math.PI * 2;
+        const x = 16 * Math.sin(angle) ** 3;
+        const y = -(13 * Math.cos(angle) - 5 * Math.cos(2 * angle) - 2 * Math.cos(3 * angle) - Math.cos(4 * angle));
+        star.className = 'sky-star';
+        star.style.left = `${50 + x * 2.1}%`;
+        star.style.top = `${46 + y * 1.8}%`;
+        star.style.setProperty('--delay', `${Math.random() * .85}s`);
+        nightSkyFinal.appendChild(star);
+      }
+      nightSkyFinal.classList.add('show');
+      nightSkyFinal.setAttribute('aria-hidden', 'false');
+    });
+    document.querySelector('#closeNightSky')?.addEventListener('click', () => {
+      nightSkyFinal?.classList.remove('show');
+      nightSkyFinal?.setAttribute('aria-hidden', 'true');
+    });
+    document.querySelector('#closeBirthdaySurprise')?.addEventListener('click', () => {
+      nightSkyFinal?.classList.remove('show');
+      nightSkyFinal?.setAttribute('aria-hidden', 'true');
+      surprise.classList.remove('birthday-show');
+      surprise.setAttribute('aria-hidden', 'true');
+      if (birthdayAudio) { birthdayAudio.close(); birthdayAudio = null; }
+    });
+
+    function makeBalloons() {
+      const colours = ['#f369a1', '#b98dff', '#ffbd6b', '#ff718b', '#75d7e7'];
+      for (let i = 0; i < 19; i += 1) {
+        const balloon = document.createElement('i');
+        balloon.className = 'balloon';
+        balloon.style.left = `${Math.random() * 100}%`;
+        balloon.style.setProperty('--balloon', colours[i % colours.length]);
+        balloon.style.setProperty('--drift', `${(Math.random() - .5) * 180}px`);
+        balloon.style.setProperty('--time', `${6 + Math.random() * 4}s`);
+        surprise.appendChild(balloon);
+        setTimeout(() => balloon.remove(), 11000);
+      }
+    }
+
+    function makeFireworks() {
+      for (let i = 0; i < 72; i += 1) {
+        const spark = document.createElement('i');
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 45 + Math.random() * 165;
+        spark.className = 'firework';
+        spark.style.left = `${18 + Math.random() * 64}%`;
+        spark.style.top = `${12 + Math.random() * 54}%`;
+        spark.style.background = ['#fff1a8', '#ff91c7', '#bca4ff', '#a3e8ff'][i % 4];
+        spark.style.setProperty('--x', `${Math.cos(angle) * distance}px`);
+        spark.style.setProperty('--y', `${Math.sin(angle) * distance}px`);
+        surprise.appendChild(spark);
+        setTimeout(() => spark.remove(), 1800);
+      }
+    }
+
+    function playBirthdayMelody() {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+      birthdayAudio = new AudioContext();
+      birthdayAudio.resume();
+      const notes = [261.63, 261.63, 293.66, 261.63, 349.23, 329.63, 261.63, 261.63, 293.66, 261.63, 392, 349.23];
+      const start = birthdayAudio.currentTime + 3.2;
+      notes.forEach((frequency, index) => {
+        const oscillator = birthdayAudio.createOscillator();
+        const gain = birthdayAudio.createGain();
+        const at = start + index * .34;
+        oscillator.type = 'sine'; oscillator.frequency.value = frequency;
+        gain.gain.setValueAtTime(.0001, at);
+        gain.gain.exponentialRampToValueAtTime(.12, at + .03);
+        gain.gain.exponentialRampToValueAtTime(.0001, at + .3);
+        oscillator.connect(gain).connect(birthdayAudio.destination);
+        oscillator.start(at); oscillator.stop(at + .32);
+      });
+    }
+
+    document.querySelector('#finalButton').addEventListener('click', function () {
+      surprise.classList.add('birthday-show');
+      surprise.setAttribute('aria-hidden', 'false');
+      birthdayMessage.classList.remove('show');
+      countdown.style.display = 'block';
+      let number = 3;
+      countdown.textContent = number;
+      playBirthdayMelody();
+      const timer = setInterval(() => {
+        number -= 1;
+        if (number > 0) { countdown.textContent = number; return; }
+        clearInterval(timer);
+        countdown.style.display = 'none';
+        birthdayMessage.classList.add('show');
+        makeBalloons(); makeFireworks();
+        setTimeout(makeFireworks, 1100);
+      }, 1000);
+    });
+    document.querySelector('#closeSurprise')?.addEventListener('click', function () {
+      surprise.classList.remove('birthday-show');
+      surprise.setAttribute('aria-hidden', 'true');
+      if (birthdayAudio) birthdayAudio.close();
+    });
+    // Use the four supplied photos for the four "Our Memories" cards.
+    document.querySelectorAll('.memory-grid .memory-card').forEach((card, index) => {
+      const photoNumber = index + 2;
+      const photoPath = `photo%20${photoNumber}.jpg`;
+      const image = card.querySelector('img');
+      if (!image) return;
+      image.src = photoPath;
+      card.style.setProperty('--memory-bg', `url("${photoPath}")`);
+    });
+    const firstMemoryCard = document.querySelector('.memory-grid .memory-card');
+    const firstMemoryTitle = firstMemoryCard?.querySelector('h3');
+    const firstMemoryText = document.querySelector('#nightMemoryText');
+    if (firstMemoryTitle) firstMemoryTitle.textContent = 'પહેલી મુલાકાત… ❤️';
+    if (firstMemoryText) firstMemoryText.innerHTML = `
+      <p>આ એ દિવસ હતો…<br>જ્યારે હું તને પહેલી વાર જોવા આવ્યો હતો. ❤️</p>
+      <p>એ દિવસે તારી એ most famous ફોટો પડાવવાની style પહેલી જ નજરમાં મારા દિલમાં એવી ઉતરી ગઈ કે આજે પણ એ યાદ આવે એટલે ચહેરા પર સ્મિત આવી જાય છે. ✨</p>
+      <p>એ સમયે તું કેટલી શાંત હતી…<br>બિલકુલ નહોતી બોલતી, જાણે શબ્દો સાથે તારી કોઈ ઓળખાણ જ નહોતી. 😄<br>અને આજે પરિસ્થિતિ એવી છે કે તને ચૂપ કરાવવી એ મારા માટે સૌથી અઘરું કામ બની ગયું છે! 😂❤️</p>
+      <p>સમયે ખરેખર કેટલો મોટો ફરક કરી નાખ્યો…<br>એ દિવસની એ શાંત છોકરી આજે મારી યાદો, મારી વાતો અને મારી આખી દુનિયાનો સૌથી સુંદર ભાગ બની ગઈ છે.</p>
+      <p>પણ સાચું કહું તો,<br>મારી જિંદગીની સૌથી સુંદર શરૂઆત એ જ દિવસે થઈ હતી…<br>જે દિવસે મેં પહેલી વાર તને જોઈ હતી. ❤️</p>
+      <p>એ દિવસ કદાચ તારા માટે એક સામાન્ય દિવસ હશે,<br>પણ મારા માટે…<br>એ મારી અને તારી કહાનીનું પહેલું પાનું હતું. ❤️✨</p>`;
+    const udaipurCard = document.querySelectorAll('.memory-grid .memory-card')[1];
+    const udaipurTitle = udaipurCard?.querySelector('h3');
+    const udaipurText = document.querySelector('#uttarayanMemoryText');
+    if (udaipurTitle) udaipurTitle.textContent = 'તા. 27-08-2018… ❤️';
+    if (udaipurText) udaipurText.innerHTML = `
+      <p>ઉદયપુરની એ સફર આજે પણ મારી યાદોમાં એટલી જ તાજી છે, જાણે ગઈકાલની જ વાત હોય…<br>એ પ્રવાસની ઘણી બધી યાદો હશે, પણ મારી નજર તો આજે પણ એક જ તસવીર પર અટકી જાય છે… તારી એ રાજસ્થાની કપડાંમાં પડાવેલી સુંદર તસવીર અને ચહેરા પરની એ નિર્દોષ સ્મિત. ❤️</p>
+      <p>એ દિવસે ઉદયપુરની સુંદરતા તો પોતાની જગ્યાએ હતી,<br>પણ સાચું કહું તો… એ આખી સફરમાં સૌથી સુંદર દૃશ્ય તું જ હતી. ✨</p>
+      <p>તારા એ રાજસ્થાની પહેરવેશમાં તું કંઈક અલગ જ લાગતી હતી…<br>અને જ્યારે તું હસતી હતી ને, ત્યારે એવું લાગતું હતું કે ઉદયપુરના મહેલો અને સરોવરોની સુંદરતા પણ તારી એ એક સ્માઈલ સામે થોડી ફિક્કી પડી જાય. ❤️</p>
+      <p>આજે વર્ષો વીતી ગયા છે,<br>ઘણી વસ્તુઓ બદલાઈ ગઈ છે,<br>ઘણી યાદો ધૂંધળી થઈ ગઈ છે…<br>પણ 27-08-2018ની એ સફર અને તારા ચહેરા પરની એ સ્માઈલ આજે પણ મારા દિલમાં એવી જ જીવંત છે.</p>
+      <p>કદાચ તને એ ફોટો માત્ર એક ફોટો લાગતો હશે,<br>પણ મારા માટે એ ફોટો એ સમયનો એક એવો ટુકડો છે, જેને હું આજે પણ દિલથી સાચવીને બેઠો છું. ❤️</p>
+      <p>ઉદયપુરની એ સફર પૂરી થઈ ગઈ હતી…<br>પણ તારી એ સ્માઈલની સફર આજે પણ મારા દિલમાં ચાલુ છે. ❤️✨</p>`;
+    const karjanCard = document.querySelectorAll('.memory-grid .memory-card')[2];
+    const karjanTitle = karjanCard?.querySelector('h3');
+    const karjanText = document.querySelector('#cafeMemoryText');
+    if (karjanTitle) karjanTitle.textContent = 'તા. 02-07-2019… ❤️';
+    if (karjanText) karjanText.innerHTML = `
+      <p>આ દિવસની યાદ આજે પણ મારા દિલમાં એવી જ તાજી છે…<br>આપણે કરજણ જતા હતા અને આખી રાતના ઉજાગરા પછી સવાર પડતાં તું ઊઠી હતી. આખી રાતની થાકેલી આંખો હોવા છતાં તારા ચહેરા પર કંઈક અલગ જ નિર્દોષપણું હતું. ❤️</p>
+      <p>સવારે પોર પહોંચતા દર્શન હોટેલે ચા પીવા માટે ગાડી ઊભી રાખી હતી, અને એ સમયે પડાવેલી તારી આ તસવીર…<br>સાચું કહું તો, એ ફોટામાં તું કંઈ ખાસ કરવા બેઠી નહોતી, છતાં તારી એ સાદગી જ મને આજે પણ સૌથી વધારે સુંદર લાગે છે. ✨</p>
+      <p>અને પછી આવી એ નાનકડી પણ ખાસ યાદ…<br>પહેલા તેં વેફર, ક્રીમ અને ઓનિયન માંગી હતી… 😄<br>અને પછી જ્યારે એ વેફર તને આપ્યા, ત્યારે તારી જે રીતે વેફર ખાવાની પોતાની જ એક અલગ સ્ટાઇલ હતી ને…<br>એ દૃશ્ય પણ આજે સુધી મારી યાદોમાં એટલું જ જીવંત છે. ❤️</p>
+      <p>કેટલીક યાદો મોટી ઘટનાઓથી નથી બનતી…<br>એ તો આવી જ નાની-નાની પળોથી બને છે,<br>જે સમયે સામાન્ય લાગે છે, પણ વર્ષો પછી સમજાય છે કે<br>આ જ તો આપણા જીવનની સૌથી કિંમતી યાદો હતી.</p>
+      <p>02-07-2019ની એ સવાર,<br>દર્શન હોટેલની એ ચા,<br>તારી એ તસવીર,<br>એ વેફર… અને તારી એ નિર્દોષ સ્માઈલ…</p>
+      <p>આ બધું આજે પણ મારી યાદોના સૌથી સુંદર ખૂણામાં સાચવાયેલું છે. ❤️</p>
+      <p>કદાચ તને આ બધી વાતો નાની લાગશે,<br>પણ મારા માટે તો…<br>તારી સાથે વિતાવેલી દરેક નાની પળ પણ આખી જિંદગી જેટલી મોટી છે. ❤️✨</p>`;
+    const atalpadiCard = document.querySelectorAll('.memory-grid .memory-card')[3];
+    const atalpadiTitle = atalpadiCard?.querySelector('h3');
+    const atalpadiText = document.querySelector('#teddyMemoryText');
+    if (atalpadiTitle) atalpadiTitle.textContent = 'તા. 09-03-2020… ❤️';
+    if (atalpadiText) atalpadiText.innerHTML = `
+      <p>આ દિવસ પણ મારી યાદોમાં એકદમ અલગ જ સ્થાન ધરાવે છે…</p>
+      <p>આપણે આખું ફેમિલી વેકેશન કરવા કલોલથી આવ્યા હતા. ફરવા નીકળ્યા હતા અને ત્યાં અટલ પેડી ફરવા ગયા હતા. એ દિવસની મજા, મસ્તી અને તમારી સાથે વિતાવેલી દરેક નાની પળ આજે પણ આંખો સામે આવી જાય છે. ❤️</p>
+      <p>અને હા… મારી મજાક કરવાનો મોકો તો તમે બંને ક્યાં છોડવાના હતા! 😄<br>મારું વજન થોડું વધારે હોવાથી મને રોપ-વેમાં બેસવા જ નહોતો દીધો… 😂</p>
+      <p>પછી તું અને અશફાક મામા બંને મળીને મારી જે મજા લીધી હતી ને, એ આજે પણ યાદ આવે તો હસવું આવી જાય છે.<br>એ સમયે કદાચ મને ગુસ્સો આવ્યો હશે, પણ આજે વિચારું છું તો લાગે છે કે એ જ તો આપણા સંબંધની સૌથી મસ્ત યાદોમાંની એક હતી. ❤️</p>
+      <p>અને પછી આવ્યો એ ફુગ્ગા (બોલ)માં ધક્કા-મુક્કી વાળો ગેમ…<br>એ રમતમાં રમતાં રમતાં તારો શ્વાસ રૂંધાઈ ગયો હતો. 😟<br>તને હોસ્પિટલ લઈ જવાની પરિસ્થિતિ આવી ગઈ અને એ સમયે મારા મનમાં પણ ઘણી ચિંતા થઈ ગઈ હતી.</p>
+      <p>પણ હોસ્પિટલ લઈ જતી વખતે તારો એ most famous dialogue — “તમને મારી કોઈ પડેલી નથી!” 😤😂<br>આજે પણ મારા કાનમાં ગુંજે છે.</p>
+      <p>અને પછી તો એ જ ડાયલોગ પરથી આપણો એવો જોરદાર ઝઘડો થયો હતો કે…<br>એ દિવસની મજા, તારી ચિંતા, તારો ગુસ્સો અને તારા એ શબ્દો — બધું આજે પણ મારી યાદોમાં જીવંત છે. ❤️</p>
+      <p>કેટલીક યાદો એવી હોય છે જેમાં હાસ્ય પણ હોય, ચિંતા પણ હોય, ઝઘડો પણ હોય અને પ્રેમ પણ…<br>09-03-2020નો દિવસ મારા માટે એવી જ એક સંપૂર્ણ યાદ છે — જ્યાં તું હતી, હું હતો અને આપણી સાથે જોડાયેલી એક આખી કહાની હતી. ❤️</p>
+      <p>આજે વર્ષો પછી પણ જ્યારે એ દિવસ યાદ આવે છે, ત્યારે એક જ વાત સમજાય છે…</p>
+      <p>જીવનની સૌથી સુંદર યાદો એ જ હોય છે, જેમાં આપણે કોઈ ખાસ ક્ષણ બનાવવાનો પ્રયત્ન નથી કરતા…<br>પણ સાથે મળીને જીવેલી સામાન્ય પળો જ પછી આખી જિંદગી માટે ખાસ બની જાય છે. ❤️✨</p>`;
+    const favouritePhotos = ['photo%206.jpg', 'photo%207.jpg', 'photo%208.JPG', 'photo%209.JPG'];
+    const favouriteCaptions = [
+      'તારી આ સ્માઇલમાં મને માત્ર સુંદરતા નથી દેખાતી, મને મારું આખું ઘર દેખાય છે. દુનિયા ભલે ગમે તેટલી થકાવી દે, પણ તારા ચહેરા પરની આ એક હળવી ખુશી મને ફરીથી જીવવાનું કારણ આપી દે છે. તું મારી જિંદગીમાં આવી, એ મારા નસીબનો સૌથી સુંદર જવાબ છે. ♥',
+      'આ રૂપને જોઉં છું ત્યારે દિલ શાંતિથી એક જ વાત કહે છે—પ્રેમ જો ક્યારેય કોઈ ચહેરો પસંદ કરતો હોત, તો એ ફક્ત તારો જ હોત. તારી આંખોમાં એવી નરમાઈ છે કે મારી બધી ચિંતાઓ તારી પાસે આવીને ચૂપ થઈ જાય છે. ✨',
+      'તું હસે છે ત્યારે સમય થોડી ક્ષણો માટે અટકી જાય છે. તારા આ ચહેરામાં મારી દરેક પ્રાર્થનાનો જવાબ છે; અને તારી બાજુમાં હોવું એટલે મને મારી જાતથી પણ વધુ સુંદર એક દુનિયા મળી જવી. હું હંમેશાં તને આ જ રીતે ખુશ જોતા રહેવા માંગું છું. ♥',
+      'તારું આ રૂપ જોઈને મને સમજાય છે કે સુંદરતા માત્ર દેખાવમાં નથી હોતી—સુંદરતા એ શાંતિ છે જે તું મારી અંદર મૂકી જાય છે. તું સાથે હોય ત્યારે સામાન્ય દિવસ પણ યાદગાર બની જાય છે; અને તું દૂર હોય ત્યારે પણ મારું દિલ તને જ ઘર માને છે. 🌸'
+    ];
+    document.querySelectorAll('.favorite-grid .favorite-card').forEach((card, index) => {
+      const photoPath = favouritePhotos[index];
+      const image = card.querySelector('img');
+      if (!image || !photoPath) return;
+      image.src = photoPath;
+      card.style.setProperty('--favorite-bg', `url("${photoPath}")`);
+      const caption = card.querySelector('span');
+      if (caption) caption.textContent = favouriteCaptions[index];
+    });
+  </script>
+</body>
+</html>

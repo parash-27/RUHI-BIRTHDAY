@@ -1,0 +1,24 @@
+.photo-space {
+  position: relative;
+  isolation: isolate;
+  background: #4c1535;
+}
+
+/* Photo 1 stays fully visible, with a soft version of itself filling the frame. */
+.polaroid:first-child .photo-space::before {
+  position: absolute;
+  z-index: 0;
+  inset: -18px;
+  content: '';
+  background: url('/assets/photos/photo-1.jpg') center / cover no-repeat;
+  filter: blur(16px) saturate(1.2);
+  opacity: .72;
+}
+
+.photo-space img,
+.modal-photo img {
+  position: relative;
+  z-index: 1;
+  object-fit: contain;
+  background: transparent;
+}
