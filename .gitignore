@@ -18,4 +18,5 @@ desktop.ini
 
 # Large tools and raw video files
 .tools/
-video/
+video/*
+!video/our-love-story.mp4
